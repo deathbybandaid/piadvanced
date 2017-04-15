@@ -1,5 +1,5 @@
 { if (whiptail --title "Deathbybandaid" --yesno "Are you running as root?" 8 78) then
-echo ""
+echo "GooMbye"
 else
 exit
 fi }
