@@ -25,4 +25,8 @@ after it reboots, login as your new user.
 
 ### Step two, my main script here
 
-sudo wget
+sudo wget https://raw.githubusercontent.com/deathbybandaid/DeathbybandaidPihole/master/maininstall.sh -P /home/
+
+sudo chmod +x maininstall.sh
+
+sudo bash maininstall.sh
