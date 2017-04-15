@@ -11,3 +11,8 @@ sudo passwd root
 
 ##### make it something secure,, use a password generator if needbe.
 
+wget https://raw.githubusercontent.com/deathbybandaid/DeathbybandaidPihole/master/removedefaultpiuser.sh -P /home/
+
+chmod +x removedefaultpiuser.sh
+
+bash removedefaultpiuser.sh
