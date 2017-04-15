@@ -1,3 +1,8 @@
+{ if (whiptail --title "Deathbybandaid" --yesno "Are you running as root?" 8 78) then
+echo ""
+else
+exit
+fi }
 { whiptail --msgbox "
 Let's rename the user pi.
 This will make the pi a great deal more secure.
