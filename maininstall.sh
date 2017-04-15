@@ -27,22 +27,22 @@ CURRENTWLAN_GATEWAY=`ip route show 0.0.0.0/0 dev wlan0 | cut -d\  -f3`
 NEWWLAN_IP=$(whiptail --inputbox "Please enter desired IP for wlan0" 20 60 "$CURRENTWLAN_IP" 3>&1 1>&2 2>&3)
 if [ $? -eq 0 ]; then 
 echo $NEW_HOSTNAME > /etc/hostname
-sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
-echo #eth0 | sudo tee --append /etc/dhcpcd.conf
-echo interface eth0 | sudo tee --append /etc/dhcpcd.conf
-echo static ip_address=$NEWETH_IP | sudo tee --append /etc/dhcpcd.conf
-echo static routers=$CURRENTETH_GATEWAY | sudo tee --append /etc/dhcpcd.conf
-echo static domain_name_servers=$CURRENTETH_GATEWAY | sudo tee --append /etc/dhcpcd.conf
-echo ## Wifi | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-echo network={ | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-echo ssid="$NEW_SSID" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-echo psk=$NEW_PSK | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-echo } | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-echo #wlan0 | sudo tee --append /etc/dhcpcd.conf
-echo interface wlan0 | sudo tee --append /etc/dhcpcd.conf
-echo static ip_address=$NEWWLAN_IP | sudo tee --append /etc/dhcpcd.conf
-echo static routers=$CURRENTWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
-echo static domain_name_servers=$CURRENTWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
+sudo sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
+sudo echo #eth0 | sudo tee --append /etc/dhcpcd.conf
+sudo echo interface eth0 | sudo tee --append /etc/dhcpcd.conf
+sudo echo static ip_address=$NEWETH_IP | sudo tee --append /etc/dhcpcd.conf
+sudo echo static routers=$CURRENTETH_GATEWAY | sudo tee --append /etc/dhcpcd.conf
+sudo echo static domain_name_servers=$CURRENTETH_GATEWAY | sudo tee --append /etc/dhcpcd.conf
+sudo echo ## Wifi | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo network={ | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo ssid="$NEW_SSID" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo psk=$NEW_PSK | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo } | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo #wlan0 | sudo tee --append /etc/dhcpcd.conf
+sudo echo interface wlan0 | sudo tee --append /etc/dhcpcd.conf
+sudo echo static ip_address=$NEWWLAN_IP | sudo tee --append /etc/dhcpcd.conf
+sudo echo static routers=$CURRENTWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
+sudo echo static domain_name_servers=$CURRENTWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
 fi }
 {
   dpkg-reconfigure tzdata
@@ -65,6 +65,21 @@ sudo sed -i "s/\($gpu_mem *= *\).*/\1$116/"  /boot/config.txt
 else
 echo ""
 fi }
+{ whiptail --msgbox "I'm going to add sources" 20 70 1 
+sudo mv /etc/apt/sources.list /home/backups/sources.list.default
+sudo echo 'deb http://repozytorium.mati75.eu/raspbian jessie-backports main contrib non-free' | sudo tee --append /etc/apt/sources.list
+sudo echo 'deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi' | sudo tee --append /etc/apt/sources.list.d/stretch.list
+sudo echo 'APT::Default-Release \"jessie\";' | sudo tee --append /etc/apt/apt.conf.d/99-default-release
+sudo gpg --keyserver pgpkeys.mit.edu --recv-key CCD91D6111A06851
+sudo gpg --armor --export CCD91D6111A06851 | apt-key add -
+sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
+ }
+sudo apt-get install -y pv
+
+
+
+
+
 ## POSSIBLE INSTALL OF DNSCRYPT
 #{ if (whiptail --yesno "Do you plan on using dnscrypt?" 8 78) then
 #echo "Stay tuned"
