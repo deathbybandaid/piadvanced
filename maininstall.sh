@@ -4,11 +4,13 @@
 ################################################################
 ##    This Must be run as root, or it fails is some places    ##
 ################################################################
-{ if (whiptail --yesno "Are you running as root?" 8 78) then
-echo ""
-else
-exit
-fi }
+#{ if (whiptail --yesno "Are you running as root?" 8 78) then
+#echo ""
+#else
+#exit
+#fi }
+mkdir /home/installs
+mkdir /home/backups
 ## Here's our basic Settings
 { whiptail --msgbox "This is The Deathbybandaid Pihole Install" 20 70 1
 whiptail --msgbox "Let's get some network questions first" 20 70 1
@@ -74,15 +76,107 @@ sudo gpg --keyserver pgpkeys.mit.edu --recv-key CCD91D6111A06851
 sudo gpg --armor --export CCD91D6111A06851 | apt-key add -
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
  }
-sudo apt-get install -y pv
-
-
-
-
-
+{ whiptail --msgbox "I'm going to run updates." 20 70 1 
+sudo apt-get install -y
+sudo apt-get update --fix-missing
+sudo apt-get dist-upgrade -y
+sudo apt-get autoremove -y
+sudo apt-get clean
+ }
+{ whiptail --msgbox "I'm going to install some stuff." 20 70 1
+sudo apt-get install raspi-config -y
+sudo apt-get install -t stretch -y nginx-full
+sudo apt-get install -t stretch -y php7.0
+sudo apt-get install -t stretch -y php7.0-curl
+sudo apt-get install -t stretch -y php7.0-gd
+sudo apt-get install -t stretch -y php7.0-fpm
+sudo apt-get install -t stretch -y php7.0-opcache
+sudo apt-get install -t stretch -y php7.0-opcache
+sudo apt-get install -t stretch -y php7.0-mbstring
+sudo apt-get install -t stretch -y php7.0-xml 
+sudo apt-get install -t stretch -y php7.0-zip
+sudo apt-get install -y zip
+sudo apt-get install -y unzip
+sudo apt-get install -y build-essential
+sudo apt-get install -y wget
+sudo apt-get install -y checkinstall
+sudo apt-get install -y fail2ban
+sudo apt-get install -y git
+sudo apt-get install -y install perl
+sudo apt-get install -y libnet-ssleay-perl
+sudo apt-get install -y openssl
+sudo apt-get install -y libauthen-pam-perl
+sudo apt-get install -y libpam-runtime
+sudo apt-get install -y libio-p
+sudo apt-get install -y ty-perl
+sudo apt-get install -y apt-show-versions
+sudo apt-get install -y python
+sudo apt-get install -y dnsutils
+sudo apt-get install -y rng-tools
+sudo echo 'HRNGDEVICE=/dev/urandom' | sudo tee --append /etc/default/rng-tools
+sudo apt-get install -y xrdp
+sudo apt-get install -y python-pip
+sudo apt-get install -y apt-utils
+sudo apt-get install -y debconf
+sudo apt-get install -y dhcpcd5
+sudo apt-get install -y iproute
+sudo apt-get install -y whiptail
+sudo apt-get install -y bc
+sudo apt-get install -y cron
+sudo apt-get install -y curl
+sudo apt-get install -y dnsmasq
+sudo apt-get install -y iputils-ping
+sudo apt-get install -y lsof
+sudo apt-get install -y netcat
+sudo apt-get install -y sudo
+sudo apt-get install -y lighttpd
+ }
+{ whiptail --msgbox "During the install, Apache2 was installed, to make sure that it doesn't interfere with port 80 for pihole, I am changing the ports now" 20 70 1
+sudo sed -i 's/80/85/' /etc/apache2/ports.conf
+sudo sed -i 's/80/85/' /etc/apache2/sites-enabled/000-default.conf
+sudo sed -i 's/443/445/' /etc/apache2/ports.conf
+sudo sed -i 's/443/445/' /etc/apache2/sites-enabled/000-default.conf
+ }
 ## POSSIBLE INSTALL OF DNSCRYPT
 #{ if (whiptail --yesno "Do you plan on using dnscrypt?" 8 78) then
 #echo "Stay tuned"
 #else
 #echo ""
 #fi }
+{ if (whiptail --yesno "Do you plan on using the No-IP dynamic Update Client?" 8 78) then
+sudo mkdir /home/installs/noip
+sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz -P /home/installs/noip/
+cd /home/installs/noip/
+sudo tar vzxf noip-duc-linux.tar.gz
+cd /home/installs/noip/noip-2.1.9-1/
+sudo make
+sudo make install
+sudo /usr/local/bin/noip2
+sudo noip2 ­-S
+else
+echo ""
+fi }
+{ if (whiptail --yesno "Do you plan on using the OpenVPN Server?" 8 78) then
+sudo wget https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh -P /home/installs/
+sudo chmod +x /home/installs/openvpn-install.sh
+sudo bash /home/installs/openvpn-install.sh
+else
+echo ""
+fi }
+{ if (whiptail --yesno "Do you plan on using the Pihole Software?" 8 78) then
+cd /home/pi/installs
+sudo git clone --depth 1 https://github.com/pi-hole/pi-hole.git Pi-hole
+cd Pi-hole/automated\ install/
+bash basic-install.sh
+else
+echo ""
+fi }
+{ whiptail --msgbox " This is to change pihole password" 20 70 1
+  NEW_PASS=$(whiptail --inputbox "Please enter a password" 20 60 "" 3>&1 1>&2 2>&3)
+  if [ $? -eq 0 ]; then pihole -a -p $NEW_PASS
+fi }
+{ whiptail --msgbox "Installing some dnsmasq tweaks. See Readme" 20 70 1
+sudo wget https://raw.githubusercontent.com/deathbybandaid/pihole-bypass/master/04-bypass.conf -P /etc/dnsmasq.d/
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeinterfaces/master/05-addint.conf -P /etc/dnsmasq.d/
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeAD/master/06-activedirectory.conf -P /etc/dnsmasq.d/
+ }
