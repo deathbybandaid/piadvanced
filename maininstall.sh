@@ -4,7 +4,7 @@
 ################################################################
 ##    This Must be run as root, or it fails is some places    ##
 ################################################################
-{ if (whiptail --title "Deathbybandaid" --yesno "Are you running as root?" 8 78) then
+{ if (whiptail --yesno "Are you running as root?" 8 78) then
 echo ""
 else
 exit
@@ -60,8 +60,14 @@ whiptail --msgbox "SSH server disabled" 20 60 1
 else
 return $RET
 fi }
-{ if (whiptail --title "Deathbybandaid" --yesno "Do you plan on running headless?" 8 78) then
+{ if (whiptail --yesno "Do you plan on running headless?" 8 78) then
 sudo sed -i "s/\($gpu_mem *= *\).*/\1$116/"  /boot/config.txt
 else
 echo ""
 fi }
+## POSSIBLE INSTALL OF DNSCRYPT
+#{ if (whiptail --yesno "Do you plan on using dnscrypt?" 8 78) then
+#echo "Stay tuned"
+#else
+#echo ""
+#fi }
