@@ -44,3 +44,24 @@ echo static ip_address=$NEWWLAN_IP | sudo tee --append /etc/dhcpcd.conf
 echo static routers=$CURRENTWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
 echo static domain_name_servers=$CURRENTWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
 fi }
+{
+  dpkg-reconfigure tzdata
+}
+{ whiptail --yesno "Would you like the SSH server enabled or disabled?" 20 60 2 \
+--yes-button Enable --no-button Disable
+RET=$?
+if [ $RET -eq 0 ]; then
+update-rc.d ssh enable &&
+invoke-rc.d ssh start &&
+whiptail --msgbox "SSH server enabled" 20 60 1
+elif [ $RET -eq 1 ]; then
+update-rc.d ssh disable &&
+whiptail --msgbox "SSH server disabled" 20 60 1
+else
+return $RET
+fi }
+{ if (whiptail --title "Deathbybandaid" --yesno "Do you plan on running headless?" 8 78) then
+sudo sed -i "s/\($gpu_mem *= *\).*/\1$116/"  /boot/config.txt
+else
+echo ""
+fi }
