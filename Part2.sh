@@ -25,23 +25,26 @@ sudo echo "OLDWLAN_IP=$OLDWLAN_IP" | sudo tee --append /home/dbbvariables
 sudo echo "NEWWLAN_IP=$NEWWLAN_IP" | sudo tee --append /home/dbbvariables
 sudo echo "NEW_SSID=$NEW_SSID" | sudo tee --append /home/dbbvariables
 sudo echo "NEW_PSK=$NEW_PSK" | sudo tee --append /home/dbbvariables
-sudo echo $NEW_HOSTNAME > /etc/hostname
+sudo echo "$NEW_HOSTNAME" > /etc/hostname
 sudo sed -i "s/127.0.1.1.*$OLD_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
+sudo echo "" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "#eth0" | sudo tee --append /etc/dhcpcd.conf
-sudo echo interface eth0 | sudo tee --append /etc/dhcpcd.conf
-sudo echo static ip_address=$NEWETH_IP | sudo tee --append /etc/dhcpcd.conf
-sudo echo static routers=$OLDETH_GATEWAY | sudo tee --append /etc/dhcpcd.conf
-sudo echo static domain_name_servers=$OLDETH_GATEWAY | sudo tee --append /etc/dhcpcd.conf
-sudo echo ## Wifi | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-sudo echo network={ | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-sudo echo ssid="$NEW_SSID" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-sudo echo psk=$NEW_PSK | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-sudo echo } | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-sudo echo #wlan0 | sudo tee --append /etc/dhcpcd.conf
-sudo echo interface wlan0 | sudo tee --append /etc/dhcpcd.conf
-sudo echo static ip_address=$NEWWLAN_IP | sudo tee --append /etc/dhcpcd.conf
-sudo echo static routers=$OLDWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
-sudo echo static domain_name_servers=$OLDWLAN_GATEWAY | sudo tee --append /etc/dhcpcd.conf
+sudo echo "interface eth0" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "static ip_address=$NEWETH_IP" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "static routers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "static domain_name_servers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo "## Wifi" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo "network={"| sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo "ssid="$NEW_SSID"" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo "psk=$NEW_PSK" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo "}" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
+sudo echo "" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "#wlan0" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "interface wlan0" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "static ip_address=$NEWWLAN_IP" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "static routers=$OLDWLAN_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
+sudo echo "static domain_name_servers=$OLDWLAN_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 fi }
 {
   dpkg-reconfigure tzdata
