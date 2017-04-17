@@ -1,3 +1,4 @@
+## Hostname
 { whiptail --msgbox "Let's get some basic network questions first" 20 70 1
 OLD_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
 NEW_HOSTNAME=$(whiptail --inputbox "Please enter a hostname" 20 60 "$OLD_HOSTNAME" 3>&1 1>&2 2>&3)
@@ -7,6 +8,7 @@ sudo echo "$NEW_HOSTNAME" > /etc/hostname
 sudo sed -i "s/127.0.1.1.*$OLD_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
 fi }
 
+## Static IP for eth0
 { whiptail --msgbox "Let's Set a static ip for eth0" 20 70 1
 OLDETH_IP=`ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 OLDETH_GATEWAY=`ip route show 0.0.0.0/0 dev eth0 | cut -d\  -f3`
@@ -21,6 +23,7 @@ sudo echo "static routers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static domain_name_servers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 fi }
 
+## Wifi Credentials and Staic IP for wlan0
 { whiptail --msgbox "Let's connect to wifi using wlan0" 20 70 1
 OLDWLAN_IP=`ip addr show wlan0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 NEW_SSID=$(whiptail --inputbox "Please enter SSID" 20 60 "" 3>&1 1>&2 2>&3)
