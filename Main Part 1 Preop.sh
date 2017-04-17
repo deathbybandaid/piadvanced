@@ -14,3 +14,4 @@ sudo mkdir /home/installs
 sudo mkdir /home/backups
 sudo echo "## Variables for Install" | sudo tee --append /home/dbbvariables
 sudo echo "## $timestamp" | sudo tee --append /home/dbbvariables
+whiptail --msgbox "This is The Deathbybandaid Pihole Install" 20 70 1
