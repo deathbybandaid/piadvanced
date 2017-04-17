@@ -9,6 +9,8 @@
 #else
 #exit
 #fi }
+timestamp=`date --rfc-3339=seconds`
 sudo mkdir /home/installs
 sudo mkdir /home/backups
 sudo echo "## Variables for Install" | sudo tee --append /home/dbbvariables
+sudo echo "## $timestamp" | sudo tee --append /home/dbbvariables
