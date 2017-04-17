@@ -10,12 +10,13 @@
 #exit
 #fi }
 ## This is where we will download installations.
-sudo mkdir /home/installs
+sudo mkdir /etc/piadvanced/installscripts
 ## This is where we will put backups of important files. I maywrite a reversion script later.
-sudo mkdir /home/backups
+sudo mkdir /etc/piadvanced/backups
 ## This document will contain all of our setup variables. Date/Time Stamped.
+mkdir /etc/piadvanced/install
 timestamp=`date --rfc-3339=seconds`
-sudo echo "## Variables for Install" | sudo tee --append /home/dbbvariables
-sudo echo "## $timestamp" | sudo tee --append /home/dbbvariables
+sudo echo "## Variables for Install" | sudo tee --append /etc/piadvanced/install/variables.conf
+sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf
 ## Here we Go!!
 whiptail --msgbox "This is The Deathbybandaid Pihole Install" 20 70 1
