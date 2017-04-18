@@ -1,3 +1,4 @@
+#!/bin/sh
 ## Lighttpd
 { if (whiptail --yesno "Do you plan on running Lighttpd" 8 78) then
 {
