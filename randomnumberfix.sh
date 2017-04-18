@@ -1,3 +1,4 @@
+#!/bin/sh
 ## Random Number fix
 { if (whiptail --yesno "Do you wnat to install the random number fix?" 8 78) then
 sudo apt-get install -y rng-tools
