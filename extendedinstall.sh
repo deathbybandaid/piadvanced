@@ -101,4 +101,4 @@ sudo bash /etc/piadvanced/rpimonitor.sh
 sudo bash /etc/piadvanced/firewall2.sh
 
 ## All Done
-whiptail --msgbox "This concludes the script. Consult the readme for additional configuration." 20 70 1
+whiptail --msgbox "This concludes the script. Reboot to complete. Consult the readme for additional configuration." 20 70 1
