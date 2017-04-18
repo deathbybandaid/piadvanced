@@ -1,3 +1,4 @@
+#!/bin/sh
 ## Apache
 { if (whiptail --yesno "Do you plan on running Apache" 8 78) then
 {
