@@ -1,4 +1,5 @@
 ## Apache
+{ if (whiptail --yesno "Do you plan on running Apache" 8 78) then
 {
 source /home/dbbvariables
 whiptail --msgbox "What ports do you want Apache to use?" 20 70 1
@@ -14,3 +15,6 @@ sudo sed -i "s/80/$NEW_APACHE80/" /etc/apache2/sites-enabled/000-default.conf
 sudo sed -i "s/443/$NEW_APACHE443/" /etc/apache2/ports.conf
 sudo sed -i "s/443/$NEW_APACHE443/" /etc/apache2/sites-enabled/000-default.conf
 fi  }
+else
+echo ""
+fi }
