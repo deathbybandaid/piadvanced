@@ -1,6 +1,11 @@
 #!/bin/sh
 { whiptail --msgbox "I'm going to install some stuff." 20 70 1
-sudo apt-get install raspi-config -y
+sudo apt-get install -y raspi-config -y
+sudo apt-get install -y tcpdump
+sudo apt-get install -y libsodium-dev
+sudo apt-get install -y locate 
+sudo apt-get install -y bash-completion
+sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y zip
 sudo apt-get install -y unzip
 sudo apt-get install -y build-essential
