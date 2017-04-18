@@ -1,20 +1,4 @@
 #!/bin/sh
-{ whiptail --msgbox "I'm going to add sources ." 20 70 1 
-sudo cp /etc/apt/sources.list /home/backups/sources.list.default
-sudo echo 'deb http://repozytorium.mati75.eu/raspbian jessie-backports main contrib non-free' | sudo tee --append /etc/apt/sources.list
-sudo echo 'deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi' | sudo tee --append /etc/apt/sources.list.d/stretch.list
-sudo echo 'APT::Default-Release "jessie";' | sudo tee --append /etc/apt/apt.conf.d/99-default-release
-sudo gpg --keyserver pgpkeys.mit.edu --recv-key CCD91D6111A06851
-sudo gpg --armor --export CCD91D6111A06851 | apt-key add -
-sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
- }
-{ whiptail --msgbox "I'm going to run updates." 20 70 1 
-sudo apt-get install -y
-sudo apt-get update --fix-missing
-sudo apt-get dist-upgrade -y
-sudo apt-get autoremove -y
-sudo apt-get clean
- }
 { whiptail --msgbox "I'm going to install some stuff." 20 70 1
 sudo apt-get install raspi-config -y
 sudo apt-get install -y zip
