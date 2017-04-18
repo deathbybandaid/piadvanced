@@ -14,3 +14,5 @@
 # sudo cp /etc/network/if-pre-up.d/firewall /etc/piadvanced/installscripts/firewall.sh
 # 
 # (crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall.sh") | crontab -
+
+#sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
