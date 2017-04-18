@@ -114,3 +114,30 @@ else
 echo ""
 fi }
 
+## Adguard
+{ if (whiptail --yesno "Do you want to use a script to add adguard blocking?" 8 78) then
+sudo wget https://raw.githubusercontent.com/deathbybandaid/pihole-adguard/master/adguard.sh -P /etc/piadvanced/installscripts/
+(crontab -l ; echo "0 3 * * * sudo bash /etc/piadvanced/installscripts/adguard.sh") | crontab -
+sudo echo "http://localhost/admin/adguard.txt" | sudo tee --append /etc/pihole/adlists.list
+else
+echo ""
+fi }
+
+## PHP list parser
+{ if (whiptail --yesno "Do you want to use a script to add additional adblocking?" 8 78) then
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholephpadblocking/master/parser.php -P /var/www/html/admin/
+sudo echo "http://localhost/admin/parser.php?list=antipopads" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adware_filters" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=easyprivacy_easylist" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_dns" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=fanboy_ultimate" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=blockzilla" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=openpish" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=malwareurls" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_mobile" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=easylist_de2" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_en" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
+else
+echo ""
+fi }
