@@ -1,6 +1,14 @@
-## 
-{ if (whiptail --yesno "Do you want to set ntp servers?" 8 78) then
-echo "Stay tuned"
+## NTP
+{ if (whiptail --yesno "Do you want to set ntp servers? serverlist is available at http://support.ntp.org/bin/view/Servers/NTPPoolServers" 8 78) then
+NEW_NTP=$(whiptail --inputbox "Set server here" 20 60 "debian.pool.ntp.org" 3>&1 1>&2 2>&3)
+sudo sed -i "s/pool 0.debian.pool.ntp.org iburst/pool 0.$NEW_NTP iburst/" /etc/ntp.conf
+sudo sed -i "s/pool 1.debian.pool.ntp.org iburst/pool 1.$NEW_NTP iburst/" /etc/ntp.conf
+sudo sed -i "s/pool 2.debian.pool.ntp.org iburst/pool 2.$NEW_NTP iburst/" /etc/ntp.conf
+sudo sed -i "s/pool 3.debian.pool.ntp.org iburst/pool 3.$NEW_NTP iburst/" /etc/ntp.conf
+sudo /etc/init.d/ntp restart
+sudo service ntpd stop
+sudo ntpd -gq
+sudo service ntpd start
 else
 echo ""
 fi }
