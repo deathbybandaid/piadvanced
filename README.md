@@ -58,6 +58,7 @@ These will allow you to set the pi to email you when it needs updates, or has su
 #### Webmin
 #### Usermin
 #### xRDP
+#### Rpi Monitor
 
 ### DNS Server Stuff
 #### DNSMasq
@@ -93,7 +94,6 @@ With the webservers, you can set the ip address and ports to listen on.
 
 ### Things I want to add:
 * HTPC softwares, just the monitoring apps like plexpy, ombi, plexboard.
-* Rpi Monitor
 * Samba share
 * A script that makes regular backups to a directory with date/time stamps. maybe weekly.
 * If OpenVPN uses an IP of 10.8.0.1, can a webserver be run on that ip address?
