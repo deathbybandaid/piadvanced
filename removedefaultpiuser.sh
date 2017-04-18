@@ -1,3 +1,4 @@
+#!/bin/sh
 { if (whiptail --title "Deathbybandaid" --yesno "Are you running as root?" 8 78) then
 echo "GooMbye"
 else
