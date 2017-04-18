@@ -17,8 +17,13 @@ fi }
 { if (whiptail --yesno "Do you want to install the Wally3k adlists.list?" 8 78) then
 sudo wget https://raw.githubusercontent.com/deathbybandaid/wally3k-adlists.list/master/adlists.list -P /etc/pihole/
 else
+{ if (whiptail --yesno "Would you like to copy adlists.default to adlists.list instead?" 8 78) then
+sudo cp /etc/pihole/adlists.default /etc/pihole/adlists.list
+else
 echo ""
 fi }
+fi }
+
 
 ## Dark Theme
 { if (whiptail --yesno "Do you want to install Dark webui theme?" 8 78) then
@@ -70,7 +75,7 @@ fi }
 ## pihole -up 30 minutes
 { if (whiptail --yesno "Do youw want to run pihole -up every 30 minutes?" 8 78) then
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeautoupdate/master/piholeautoupdate.sh -P /etc/piadvanced/installscripts/
-# 0,30 * * * * bash /etc/piadvanced/installscripts/piholeautoupdate.sh
+(crontab -l ; echo "0,30 * * * * bash /etc/piadvanced/installscripts/piholeautoupdate.sh") | crontab -
 else
 echo ""
 fi }
@@ -78,7 +83,7 @@ fi }
 ## Weekly old list removal
 { if (whiptail --yesno "Do you want a script to keep cached lists from becoming stale?" 8 78) then
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholefreshlists/master/piholefreshlists.sh -P /etc/piadvanced/installscripts/
-# 0 5 * * 1 /etc/piholescripts/piholefreshlists.sh
+(crontab -l ; echo "0 5 * * 1 /etc/piholescripts/piholefreshlists.sh") | crontab -
 else
 echo ""
 fi }
@@ -86,16 +91,16 @@ fi }
 ## Gravity 6 hours
 { if (whiptail --yesno "Do you want a script to update gravity every 6 hours?" 8 78) then
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholegravity/master/piholegravity.sh -P /etc/piadvanced/installscripts/
-# 0 */6 * * * sudo bash /etc/piholescripts/piholegravity.sh
+(crontab -l ; echo "0 */6 * * * sudo bash /etc/piholescripts/piholegravity.sh") | crontab -
 else
 echo ""
 fi }
 
-## 
+## Parser
 { if (whiptail --yesno "Do you want a program to parse additional lists? By default this uses lists used by ublock. To change the lists, edit lists.lst in /etc/piadvanced/installscripts/ublockpihole/" 8 78) then
 git clone https://github.com/deathbybandaid/ublockpihole.git /etc/piadvanced/installscripts/ublockpihole/
-# 0 1 * * * /etc/piholescripts/ublockpihole/ublockpihole.sh
-# append adlists.list
+(crontab -l ; echo "0 1 * * * /etc/piholescripts/ublockpihole/ublockpihole.sh") | crontab -
+sudo echo "http://localhost/admin/ublock.txt" | sudo tee --append /etc/pihole/adlists.list
 else
 echo ""
 fi }
