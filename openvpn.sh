@@ -6,11 +6,3 @@ sudo bash /home/installs/openvpn-install.sh
 else
 echo ""
 fi }
-{ if (whiptail --yesno "Do you plan on using the Pihole Software?" 8 78) then
-cd /home/pi/installs
-sudo git clone --depth 1 https://github.com/pi-hole/pi-hole.git Pi-hole
-cd Pi-hole/automated\ install/
-bash basic-install.sh
-else
-echo ""
-fi }
