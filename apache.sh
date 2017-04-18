@@ -9,8 +9,8 @@ NEW_APACHE443=$(whiptail --inputbox "Change the default port 443 for Apache" 20 
 if [ $? -eq 0 ]; then
 sudo apt-get install -y apache2
 sudo cp -r /etc/apache2/ /etc/piadvanced/backups/apache2/
-sudo echo "NEW_APACHE80=$NEW_APACHE80" | sudo tee --append /home/dbbvariables
-sudo echo "NEW_APACHE443=$NEW_APACHE443" | sudo tee --append /home/dbbvariables
+sudo echo "NEW_APACHE80=$NEW_APACHE80" | sudo tee --append /etc/piadvanced/install/variables.conf
+sudo echo "NEW_APACHE443=$NEW_APACHE443" | sudo tee --append /etc/piadvanced/install/variables.conf
 sudo sed -i "s/80/$NEW_APACHE80/" /etc/apache2/ports.conf
 sudo sed -i "s/80/$NEW_APACHE80/" /etc/apache2/sites-enabled/000-default.conf
 sudo sed -i "s/443/$NEW_APACHE443/" /etc/apache2/ports.conf
