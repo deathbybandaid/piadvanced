@@ -1,3 +1,4 @@
+#!/bin/sh
 ## NTP
 { if (whiptail --yesno "Do you want to set ntp servers? serverlist is available at http://support.ntp.org/bin/view/Servers/NTPPoolServers" 8 78) then
 NEW_NTP=$(whiptail --inputbox "Set server here" 20 60 "debian.pool.ntp.org" 3>&1 1>&2 2>&3)
