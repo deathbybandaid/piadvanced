@@ -29,8 +29,8 @@ sudo bash /etc/piadvanced/network.sh
 ## Memory Split
 sudo bash /etc/piadvanced/memorysplit.sh
 
-## Some other basic settings
-sudo bash /etc/piadvanced/otherbasics.sh
+## SSH
+sudo bash /etc/piadvanced/ssh.sh
 
 ## Time
 sudo bash /etc/piadvanced/ntp.sh
