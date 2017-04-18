@@ -14,10 +14,13 @@ else
 echo ""
 fi }
 
-#{ if (whiptail --yesno "Do you want to set a script to refresh time?" 8 78) then
-
-#cronjob sudo service ntp stop && sudo ntpd -gq && sudo service ntp start
-
-#else
-#echo ""
-#fi }
+## NTP Script
+{ if (whiptail --yesno "Do you want to set a script to refresh time?" 8 78) then
+sudo echo "sudo service ntp stop" | sudo tee --append /etc/piadvanced/installscripts/ntpupdate.sh
+sudo echo "sudo ntpd -gq
+sudo service n" | sudo tee --append /etc/piadvanced/installscripts/ntpupdate.sh
+sudo echo "sudo service ntp start" | sudo tee --append /etc/piadvanced/installscripts/ntpupdate.sh
+(crontab -l ; echo "0,30 * * * * sudo bash /etc/piadvanced/installscripts/ntpupdate.sh") | crontab -
+else
+echo ""
+fi }
