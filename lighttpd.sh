@@ -1,7 +1,7 @@
 ## Lighttpd
 { if (whiptail --yesno "Do you plan on running Lighttpd" 8 78) then
 {
-source /home/dbbvariables
+source /etc/piadvanced/install/variables.conf
 LIGHT_BIND=`sed -n '/server.port                 = 80/=' /etc/lighttpd/lighttpd.conf`
 whiptail --msgbox "What ports do you want Lighttpd to use?" 20 70 1
 whiptail --msgbox "I suggest setting port 80 to the static ip of wlan0" 20 70 1
