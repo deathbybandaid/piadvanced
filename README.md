@@ -12,11 +12,7 @@ git clone https://github.com/deathbybandaid/piadvanced.git /etc/piadvanced/
 
 sudo passwd root
 
-wget https://raw.githubusercontent.com/deathbybandaid/DeathbybandaidPihole/master/removedefaultpiuser.sh -P /home/
-
-chmod +x removedefaultpiuser.sh
-
-bash removedefaultpiuser.sh
+sudo bash /etc/piadvanced/removedefaultpiuser.sh
 
 ###### This will remove the root password we added earlier and lock the account.
 passwd -dl root
@@ -27,8 +23,4 @@ after it reboots, login as your new user.
 
 ### Step two, my main script here
 
-sudo wget https://raw.githubusercontent.com/deathbybandaid/DeathbybandaidPihole/master/maininstall.sh -P /home/
-
-sudo chmod +x maininstall.sh
-
-sudo bash maininstall.sh
+sudo bash /etc/piadvanced/whaterveridecideon.sh
