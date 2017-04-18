@@ -1,3 +1,4 @@
+#!/bin/sh
 ##Webmin
 { if (whiptail --yesno "Do you want to install Webmin?" 8 78) then
 sudo apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
