@@ -1,3 +1,4 @@
+#!/bin/sh
 ## No-IP
 { if (whiptail --yesno "Do you plan on using the No-IP dynamic Update Client?" 8 78) then
 sudo mkdir /home/installs/noip
