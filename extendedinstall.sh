@@ -11,6 +11,9 @@ sudo mkdir /etc/piadvanced/installscripts
 ## This is where we will put backups of important files. I maywrite a reversion script later.
 sudo mkdir /etc/piadvanced/backups
 
+## iptools firewall,, configure as install, then install a cron
+sudo bash /etc/piadvanced/firewall.sh
+
 ## This document will contain all of our setup variables. Date/Time Stamped.
 mkdir /etc/piadvanced/install
 timestamp=`date --rfc-3339=seconds`
@@ -86,6 +89,3 @@ sudo bash /etc/piadvanced/webmin.sh
 
 ## xRDP
 sudo bash /etc/piadvanced/xrdp.sh
-
-## iptools firewall,, configure as install
-# then install a cron
