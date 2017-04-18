@@ -114,11 +114,3 @@ else
 echo ""
 fi }
 
-## Experimental youtube ad blocking
-{ if (whiptail --yesno "Do you want to use an script to add additional adblocking with adguard?" 8 78) then
-sudo wget https://raw.githubusercontent.com/deathbybandaid/pihole-adguard/master/adguard.sh -P /etc/piadvanced/installscripts/
-(crontab -l ; echo "0 2 * * * /etc/piadvanced/installscripts/adguard.sh") | crontab -
-sudo echo "http://localhost/admin/adguard.txt" | sudo tee --append /etc/pihole/adlists.list
-else
-echo ""
-fi }
