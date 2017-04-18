@@ -11,3 +11,11 @@ sudo service ntp start
 else
 echo ""
 fi }
+
+{ if (whiptail --yesno "Do you want to set a script to refresh time?" 8 78) then
+
+#cronjob sudo service ntp stop && sudo ntpd -gq && sudo service ntp start
+
+else
+echo ""
+fi }
