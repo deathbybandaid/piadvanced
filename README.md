@@ -5,6 +5,8 @@ Feel free to fork this and make it your own!
 
 ## Instructions
 
+git clone https://github.com/deathbybandaid/piadvanced.git /etc/piadvanced/
+
 ### Step one, we are going to change the root password.
 ##### If you are paranoid,,, make it something secure, use a password generator if needbe. Or simply don't be connected to a network for this step.
 
