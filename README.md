@@ -2,6 +2,7 @@
 * This is a custom install for my pi! I am a tinkerer, and when I tinker, I tend to break things!!!
 * I started this as a much simpler script to help assist me in getting things back up and running as fast as possible.
 * A few of these things are easily done with raspi-config,, but this streamlines the process.
+* I am not a programmer, but I know enough to get into trouble.
 
 ## Here is what this bad boy does:
 
