@@ -92,5 +92,7 @@ sudo bash /etc/piadvanced/xrdp.sh
 
 ## Add privoxy and/or squid
 
+## rpimonitor
+
 ## iptools firewall (Part 2),, configure as install, then install a cron
 sudo bash /etc/piadvanced/firewall2.sh
