@@ -10,5 +10,6 @@ sudo echo 'deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib
 sudo echo 'APT::Default-Release "jessie";' | sudo tee --append /etc/apt/apt.conf.d/99-default-release
 sudo gpg --keyserver pgpkeys.mit.edu --recv-key CCD91D6111A06851
 sudo gpg --armor --export CCD91D6111A06851 | apt-key add -
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
  }
