@@ -1,3 +1,4 @@
+#!/bin/sh
 ## Timezone
 {
   dpkg-reconfigure tzdata
