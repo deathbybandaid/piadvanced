@@ -1,3 +1,4 @@
+#!/bin/sh
 ## Hostname
 { whiptail --msgbox "Let's get some basic network questions first" 20 70 1
 OLD_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
