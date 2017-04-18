@@ -90,6 +90,9 @@ sudo bash /etc/piadvanced/webmin.sh
 ## xRDP
 sudo bash /etc/piadvanced/xrdp.sh
 
+## rpimonitor
+sudo bash /etc/piadvanced/rpimonitor.sh
+
 ## Add privoxy and/or squid
 
 ## rpimonitor
