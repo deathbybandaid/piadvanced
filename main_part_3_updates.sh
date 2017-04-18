@@ -51,7 +51,6 @@ sudo apt-get install -y whiptail
 sudo apt-get install -y bc
 sudo apt-get install -y cron
 sudo apt-get install -y curl
-sudo apt-get install -y dnsmasq
 sudo apt-get install -y iputils-ping
 sudo apt-get install -y lsof
 sudo apt-get install -y netcat
