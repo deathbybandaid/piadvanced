@@ -21,7 +21,7 @@ sudo echo "## Variables for Install" | sudo tee --append /etc/piadvanced/install
 sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Here we Go!!
-whiptail --msgbox "This is The Deathbybandaid Pihole Install" 20 70 1
+whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
 
 ## Static Ip's and wifi connection.
 sudo bash /etc/piadvanced/network.sh
