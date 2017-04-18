@@ -1,4 +1,5 @@
 ## Lighttpd
+{ if (whiptail --yesno "Do you plan on running Lighttpd" 8 78) then
 {
 source /home/dbbvariables
 LIGHT_BIND=`sed -n '/server.port                 = 80/=' /etc/lighttpd/lighttpd.conf`
@@ -13,3 +14,6 @@ sudo cp -r /etc/lighttpd/ /etc/piadvanced/backups/lighttpd/
 sudo sed -i "$LIGHT_BIND a\server.bind                 = "$NEW_LIGHTTPDBIND"" /etc/lighttpd/lighttpd.conf
 sudo sed -i "s/80/$NEW_LIGHTTPD80/" /etc/lighttpd/lighttpd.conf
 fi  }
+else
+echo ""
+fi }
