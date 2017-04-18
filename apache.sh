@@ -1,7 +1,7 @@
 ## Apache
 { if (whiptail --yesno "Do you plan on running Apache" 8 78) then
 {
-source /home/dbbvariables
+source /etc/piadvanced/install/variables.conf
 whiptail --msgbox "What ports do you want Apache to use?" 20 70 1
 whiptail --msgbox "I suggest changing Apache Ports to something like 85 and 445" 20 70 1
 NEW_APACHE80=$(whiptail --inputbox "Change the default port 80 for Apache" 20 60 "85" 3>&1 1>&2 2>&3)
