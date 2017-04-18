@@ -23,4 +23,4 @@ after it reboots, login as your new user.
 
 ### Step two, my main script here
 
-sudo bash /etc/piadvanced/whaterveridecideon.sh
+sudo bash /etc/piadvanced/extendedinstall.sh
