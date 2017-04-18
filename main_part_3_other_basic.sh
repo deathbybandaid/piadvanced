@@ -17,9 +17,3 @@ whiptail --msgbox "SSH server disabled" 20 60 1
 else
 return $RET
 fi }
-## This sets the memory split down to 16
-{ if (whiptail --yesno "Do you plan on running headless? This will set the memory split to 16." 8 78) then
-sudo sed -i "s/\($gpu_mem *= *\).*/\1$116/"  /boot/config.txt
-else
-echo ""
-fi }
