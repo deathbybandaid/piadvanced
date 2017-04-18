@@ -1,8 +1,4 @@
 #!/bin/sh
-## Timezone
-{
-  dpkg-reconfigure tzdata
-}
 ## SSH
 ## I might add the option to use a key versus password for login.
 { whiptail --yesno "Would you like the SSH server enabled or disabled?" 20 60 2 \
