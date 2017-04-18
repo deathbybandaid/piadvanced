@@ -2,7 +2,8 @@
 { if (whiptail --yesno "Let's set the memory split." 8 78) then
 { NEWMEM_SPLIT=$(whiptail --inputbox "Do you plan on running headless? If so, set the memory split to 16." 20 60 "16" 3>&1 1>&2 2>&3)
 if [ $? -eq 0 ]; then
-sudo sed -i "s/\($gpu_mem *= *\).*/\1$116/"  /boot/config.txt
+sudo sed -i '/gpu_mem/ d' /boot/config.txt
+sudo echo "gpu_mem=$NEWMEM_SPLIT" | sudo tee --append /boot/config.txt
 fi }
 else
 echo ""
