@@ -87,4 +87,5 @@ sudo bash /etc/piadvanced/webmin.sh
 ## xRDP
 sudo bash /etc/piadvanced/xrdp.sh
 
-## iptools firewall
+## iptools firewall,, configure as install
+# then install a cron
