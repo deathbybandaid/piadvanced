@@ -98,7 +98,7 @@ fi }
 
 ## Parser
 { if (whiptail --yesno "Do you want a program to parse additional lists? By default this uses lists used by ublock. To change the lists, edit lists.lst in /etc/piadvanced/installscripts/ublockpihole/" 8 78) then
-git clone https://github.com/deathbybandaid/ublockpihole.git /etc/piadvanced/installscripts/ublockpihole/
+sudo git clone https://github.com/deathbybandaid/ublockpihole.git /etc/piadvanced/installscripts/ublockpihole/
 (crontab -l ; echo "0 1 * * * /etc/piholescripts/ublockpihole/ublockpihole.sh") | crontab -
 sudo echo "http://localhost/admin/ublock.txt" | sudo tee --append /etc/pihole/adlists.list
 else
