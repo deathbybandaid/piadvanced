@@ -1,3 +1,4 @@
+#!/bin/sh
 ## This sets the memory split.
 { if (whiptail --yesno "Let's set the memory split." 8 78) then
 { NEWMEM_SPLIT=$(whiptail --inputbox "Do you plan on running headless? If so, set the memory split to 16." 20 60 "16" 3>&1 1>&2 2>&3)
