@@ -5,10 +5,8 @@ sudo sed -i "s/pool 0.debian.pool.ntp.org iburst/pool 0.$NEW_NTP iburst/" /etc/n
 sudo sed -i "s/pool 1.debian.pool.ntp.org iburst/pool 1.$NEW_NTP iburst/" /etc/ntp.conf
 sudo sed -i "s/pool 2.debian.pool.ntp.org iburst/pool 2.$NEW_NTP iburst/" /etc/ntp.conf
 sudo sed -i "s/pool 3.debian.pool.ntp.org iburst/pool 3.$NEW_NTP iburst/" /etc/ntp.conf
-sudo /etc/init.d/ntp restart
-sudo service ntpd stop
 sudo ntpd -gq
-sudo service ntpd start
+sudo /etc/init.d/ntp restart
 else
 echo ""
 fi }
