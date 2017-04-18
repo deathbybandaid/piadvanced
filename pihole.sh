@@ -75,7 +75,7 @@ fi }
 ## pihole -up 30 minutes
 { if (whiptail --yesno "Do youw want to run pihole -up every 30 minutes?" 8 78) then
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeautoupdate/master/piholeautoupdate.sh -P /etc/piadvanced/installscripts/
-(crontab -l ; echo "0,30 * * * * bash /etc/piadvanced/installscripts/piholeautoupdate.sh") | crontab -
+(crontab -l ; echo "0,30 * * * * sudo bash /etc/piadvanced/installscripts/piholeautoupdate.sh") | crontab -
 else
 echo ""
 fi }
@@ -99,19 +99,46 @@ fi }
 ## Parser
 { if (whiptail --yesno "Do you want a program to parse additional lists? By default this uses lists used by ublock. To change the lists, edit lists.lst in /etc/piadvanced/installscripts/ublockpihole/" 8 78) then
 sudo git clone https://github.com/deathbybandaid/ublockpihole.git /etc/piadvanced/installscripts/ublockpihole/
-(crontab -l ; echo "0 1 * * * /etc/piholescripts/ublockpihole/ublockpihole.sh") | crontab -
+(crontab -l ; echo "0 1 * * * sudo bash /etc/piholescripts/ublockpihole/ublockpihole.sh") | crontab -
 sudo echo "http://localhost/admin/ublock.txt" | sudo tee --append /etc/pihole/adlists.list
 else
 echo ""
 fi }
 
 ## Experimental youtube ad blocking
-{ if (whiptail --yesno "Do you want to use an script to add additional adblocking?" 8 78) then
+{ if (whiptail --yesno "Do you want to use a script to add additional adblocking?" 8 78) then
 cd /etc/piadvanced/installscripts/
 sudo wget https://raw.githubusercontent.com/deathbybandaid/youtubeadblock/master/youtubeadblock.sh
-(crontab -l ; echo "0 2 * * * /etc/piadvanced/installscripts/youtubeadblock/youtube-ads.sh") | crontab -
+(crontab -l ; echo "0 2 * * * sudo bash /etc/piadvanced/installscripts/youtubeadblock/youtube-ads.sh") | crontab -
 sudo echo "http://localhost/admin/youtube.txt" | sudo tee --append /etc/pihole/adlists.list
 else
 echo ""
 fi }
 
+## Adguard
+{ if (whiptail --yesno "Do you want to use a script to add adguard blocking?" 8 78) then
+sudo wget https://raw.githubusercontent.com/deathbybandaid/pihole-adguard/master/adguard.sh -P /etc/piadvanced/installscripts/
+(crontab -l ; echo "0 3 * * * sudo bash /etc/piadvanced/installscripts/adguard.sh") | crontab -
+sudo echo "http://localhost/admin/adguard.txt" | sudo tee --append /etc/pihole/adlists.list
+else
+echo ""
+fi }
+
+## PHP list parser
+{ if (whiptail --yesno "Do you want to use a script to add additional adblocking?" 8 78) then
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholephpadblocking/master/parser.php -P /var/www/html/admin/
+sudo echo "http://localhost/admin/parser.php?list=antipopads" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adware_filters" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=easyprivacy_easylist" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_dns" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=fanboy_ultimate" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=blockzilla" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=openpish" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=malwareurls" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_mobile" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=easylist_de2" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_en" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://localhost/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
+else
+echo ""
+fi }
