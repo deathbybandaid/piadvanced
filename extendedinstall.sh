@@ -1,6 +1,6 @@
 #!/bin/sh
 ################################################################
-##          This is The Deathbybandaid Pihole Install         ##
+##          This is The Deathbybandaid Pi Install         ##
 ################################################################
 ##    This Must be run as root, or it fails is some places    ##
 ################################################################
@@ -96,3 +96,6 @@ sudo bash /etc/piadvanced/xrdp.sh
 
 ## iptools firewall (Part 2),, configure as install, then install a cron
 sudo bash /etc/piadvanced/firewall2.sh
+
+## All Done
+whiptail --msgbox "This concludes the script. Consult the readme for additional configuration." 20 70 1
