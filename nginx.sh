@@ -1,3 +1,4 @@
+#!/bin/sh
 ## NGINX
 { if (whiptail --yesno "Do you plan on running Nginx" 8 78) then
 {
