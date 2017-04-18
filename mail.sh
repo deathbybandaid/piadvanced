@@ -18,6 +18,7 @@ sudo echo "AuthPass=$MAIL_AUTHPASS" | sudo tee --append /etc/ssmtp/ssmtp.conf
 sudo echo "useSTARTTLS=$MAIL_STARTTLS" | sudo tee --append /etc/ssmtp/ssmtp.conf
 sudo echo "root:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
 sudo echo "pi:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
+sudo echo "$MAIL_MAILHUB" | sudo tee --append /root/.forward
 else
 echo ""
 fi }
