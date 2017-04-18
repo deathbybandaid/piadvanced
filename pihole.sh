@@ -124,7 +124,7 @@ echo ""
 fi }
 
 ## PHP list parser
-{ if (whiptail --yesno "Do you want to use a script to add additional adblocking?" 8 78) then
+{ if (whiptail --yesno "Do you want to use a PHP Parser?" 8 78) then
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholephpadblocking/master/parser.php -P /var/www/html/admin/
 sudo echo "http://localhost/admin/parser.php?list=antipopads" | sudo tee --append /etc/pihole/adlists.list
 sudo echo "http://localhost/admin/parser.php?list=adware_filters" | sudo tee --append /etc/pihole/adlists.list
