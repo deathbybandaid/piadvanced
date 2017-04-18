@@ -1,4 +1,4 @@
-## POSSIBLE INSTALL OF DNSCRYPT
+## 
 { if (whiptail --yesno "asdfgasdfgasdf?" 8 78) then
 echo "Stay tuned"
 else
