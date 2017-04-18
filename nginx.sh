@@ -1,4 +1,5 @@
 ## NGINX
+{ if (whiptail --yesno "Do you plan on running Nginx" 8 78) then
 {
 source /home/dbbvariables
 whiptail --msgbox "What ports do you want NGINX to use?" 20 70 1
@@ -9,3 +10,6 @@ sudo cp -r /etc/nginx/ /etc/piadvanced/backups/nginx/
 sudo echo "NEW_NGINX80=$NEW_NGINX80" | sudo tee --append /etc/piadvanced/install/variables.conf
 sudo sed -i "s/listen 80 default_server/listen $NEW_NGINX80 default_server/" /etc/nginx/sites-available/default
 fi  }
+else
+echo ""
+fi }
