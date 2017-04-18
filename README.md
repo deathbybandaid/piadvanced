@@ -1,11 +1,7 @@
 # piadvanced
 * This is a custom install for my pi! I am a tinkerer, and when I tinker, I tend to break things!!!
-
 * I started this as a much simpler script to help assist me in getting things back up and running as fast as possible.
-
 * A few of these things are easily done with raspi-config,, but this streamlines the process.
-
-* This script makes a backup copy of a lot of the default configurations.
 
 ## Here is what this bad boy does:
 
@@ -15,6 +11,8 @@
 #### This is set up like "modules" I plan on adding more pi projects to it later. If it can be automated, it should go here. Message me if you have any reccomendations to add.
 
 ### I suggest that you use the removedefaultpiuser script below.
+
+### Makes backups of many of the default configuration files.
 
 ### Configures a strong firewall using iptables.
 This is based on what you choose to install. All traffic to the pi is blocked unless there is a rule that allows the traffic.
@@ -95,12 +93,18 @@ With the webservers, you can set the ip address and ports to listen on.
 ### Things I want to add:
 * HTPC softwares, just the monitoring apps like plexpy, ombi, plexboard.
 * Rpi Monitor
+* Samba share
+* A script that makes regular backups to a directory with date/time stamps. maybe weekly.
+* If OpenVPN uses an IP of 10.8.0.1, can a webserver be run on that ip address?
+* Running two instances of OpenVPN, and create a site-to-site connection.
+* Make a script to revert changes.
 * I want to try and automate the setup of the webservers
 * Cerbot Let's Encrypt
 * Privoxy
 * Squid / Squidguard
 * Setting up / mounting a usb device for permanent storage.
 * Email server
+* A way to load in a pihole teleport.
 * Since the install uses multiple variables, it may be possible to make a secondary script for an ultra-fast re-install (using the same variable) on the same device with the same device.
 
 
