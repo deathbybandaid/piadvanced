@@ -72,6 +72,14 @@ else
 echo ""
 fi }
 
+## Custom Redirects
+{ if (whiptail --yesno "Do you want to install a dnsmasq tweak to allow custom redirects?" 8 78) then
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholecustomredirect/master/07-customredirect.conf -P /etc/dnsmasq.d/
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholecustomredirect/master/customRedirect.list -P /etc/piadvanced/installscripts/
+else
+echo ""
+fi }
+
 ## pihole -up 30 minutes
 { if (whiptail --yesno "Do youw want to run pihole -up every 30 minutes?" 8 78) then
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeautoupdate/master/piholeautoupdate.sh -P /etc/piadvanced/installscripts/
