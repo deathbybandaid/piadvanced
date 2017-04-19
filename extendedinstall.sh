@@ -38,6 +38,9 @@ sudo bash /etc/piadvanced/ntp.sh
 ## Random Number Generation fix
 sudo bash /etc/piadvanced/randomnumberfix.sh
 
+## Better MOTD message
+sudo bash /etc/piadvanced/motd.sh
+
 ## Sources && Update && Upgrade
 sudo bash /etc/piadvanced/sources.sh
 sudo bash /etc/piadvanced/updateupgrade.sh
