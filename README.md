@@ -47,6 +47,9 @@ Rules can be added/removed with sudo /etc/iptables.firewall.rules
 * Connect to wifi easily
 * Set a static ip for wlan0
 
+### MOTD tweak
+For details see: https://github.com/deathbybandaid/pimotd
+
 ### Get's you up to date
 #### Adds sources for debian stretch
 #### Updates and Upgrades
