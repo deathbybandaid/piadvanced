@@ -105,6 +105,7 @@ With the webservers, you can set the ip address and ports to listen on.
 
 
 ### Things I want to add:
+* Guacamole
 * A wake-on-lan solution
 * HASS
 * HTPC softwares, just the monitoring apps like plexpy, ombi, plexboard.
