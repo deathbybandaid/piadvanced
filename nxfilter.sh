@@ -3,37 +3,6 @@
 
 ## the stuff below is for dnsmasq
 
-# If you want dnsmasq to listen for DHCP and DNS requests only on
-# specified interfaces (and the loopback) give the name of the
-# interface (eg eth0) here.
-interface=eth0
-except-interface=eth1
-except-interface=eth4
-except-interface=wlan0
-
-# Or which to listen on by address (remember to include 127.0.0.1 if
-# you use this.)
-# listen-address=127.0.0.1
-bind-interfaces
-
-# Set the cachesize here.
-cache-size=10000
-
-# For debugging purposes, log each DNS query as it passes through
-# dnsmasq.
-log-queries
-log-facility=/var/log/pihole.log
-
-# Normally responses which come from /etc/hosts and the DHCP lease
-# file have Time-To-Live set as zero, which conventionally means
-# do not cache further. If you are happy to trade lower load on the
-# server for potentially stale date, you can set a time-to-live (in
-# seconds) here.
-local-ttl=300
-
-# This allows it to continue functioning without being blocked by syslog, and allows syslog to use dnsmasq for DNS queries without risking deadlock
-log-async
-
 # From here entries from Jeroen
 local=/noads.local/
 domain=noads.local
