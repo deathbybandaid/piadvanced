@@ -7,6 +7,9 @@
 * A few of these things are easily done with raspi-config,, but this streamlines the process.
 * I am not a programmer, but I know enough to get into trouble.
 
+
+## I will be updating this with new stuff all the time. you can always run git pull the /etc/piadvanced to download any changes.
+
 ## Here is what this bad boy does:
 
 ##### With some tweaking could work on debian devices that aren't raspberry pi's
