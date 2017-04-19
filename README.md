@@ -106,6 +106,7 @@ With the webservers, you can set the ip address and ports to listen on.
 
 ### Things I want to add:
 * A wake-on-lan solution
+* HASS
 * HTPC softwares, just the monitoring apps like plexpy, ombi, plexboard.
 * Samba share
 * A script that makes regular backups to a directory with date/time stamps. maybe weekly.
