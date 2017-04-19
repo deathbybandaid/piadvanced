@@ -85,6 +85,9 @@ These will allow you to set the pi to email you when it needs updates, or has su
   * Configure with sudo nano /etc/dnsmasq.d/05-addint.conf
 * The ability to add your Windows Active-Directory DNS.
   * Configure with sudo nano /etc/dnsmasq.d/06-activedirectory.conf
+* The ability to add custom redirects.
+  * Configure with sudo nano /etc/dnsmasq.d/07-customredirect.conf
+  * and /etc/piadvanced/installscripts/customRedirect.list
 * The ability to make pihole -up run every half-hour.
 * The ability to make pihole -g run every 6 hours.
 * The ability to remove stale lists once weekly.
