@@ -54,7 +54,7 @@ sudo bash /etc/piadvanced/mail.sh
 sudo bash /etc/piadvanced/dnsmasq.sh
 
 ## DNSCrypt
-sudo bash /etc/piadvanced/dnscrypt.sh
+#sudo bash /etc/piadvanced/dnscrypt.sh
 
 ## Fail2Ban
 sudo bash /etc/piadvanced/fail2ban.sh
