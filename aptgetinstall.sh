@@ -47,5 +47,5 @@ sudo apt-get install -y iputils-ping
 sudo apt-get install -y lsof
 sudo apt-get install -y netcat
 sudo apt-get install -y sudo
-systemctl enable php7.0-fpm
+sudo systemctl enable php7.0-fpm
  }
