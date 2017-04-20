@@ -11,7 +11,7 @@ sudo apt-get install -t stretch -y nginx-full
 sudo cp -r /etc/nginx/ /etc/piadvanced/backups/nginx/
 sudo echo "NEW_NGINX80=$NEW_NGINX80" | sudo tee --append /etc/piadvanced/install/variables.conf
 sudo sed -i "s/listen 80 default_server/listen $NEW_NGINX80 default_server/" /etc/nginx/sites-available/default
-systemctl enable nginx
+sudo systemctl enable nginx
 fi  }
 else
 echo ""
