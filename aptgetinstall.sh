@@ -6,6 +6,8 @@ sudo apt-get install -y libio-pty-perl
 sudo apt-get install -y libsodium-dev
 sudo apt-get install -y locate 
 sudo apt-get install -y bash-completion
+sudo apt-get install -y bundler
+sudo apt-get install -y nodejs
 sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y zip
 sudo apt-get install -y unzip
