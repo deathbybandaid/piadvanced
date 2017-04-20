@@ -12,5 +12,5 @@ sudo gpg --keyserver pgpkeys.mit.edu --recv-key CCD91D6111A06851
 sudo gpg --armor --export CCD91D6111A06851 | apt-key add -
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
-sudo gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 && curl -sSL https://get.rvm.io | bash -s stable
+sudo gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
  }
