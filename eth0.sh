@@ -14,4 +14,5 @@ sudo echo "interface eth0" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static ip_address=$NEWETH_IP" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static routers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static domain_name_servers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
+sudo ifconfig eth0 $NEWETH_IP
 fi }
