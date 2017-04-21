@@ -109,11 +109,9 @@ With the webservers, you can set the ip address and ports to listen on.
 * Guacamole
 * A wake-on-lan solution
 * HASS
-* HTPC softwares, just the monitoring apps like plexpy, ombi, plexboard.
 * Samba share
 * A script that makes regular backups to a directory with date/time stamps. maybe weekly.
 * If OpenVPN uses an IP of 10.8.0.1, can a webserver be run on that ip address?
-* Running two instances of OpenVPN, and create a site-to-site connection.
 * Make a script to revert changes.
 * I want to try and automate the setup of the webservers
 * Cerbot Let's Encrypt
@@ -122,7 +120,7 @@ With the webservers, you can set the ip address and ports to listen on.
 * Setting up / mounting a usb device for permanent storage.
 * Email server
 * A way to load in a pihole teleport.
-* Since the install uses multiple variables, it may be possible to make a secondary script for an ultra-fast re-install (using the same variable) on the same device with the same device.
+* Since the install uses multiple variables, it may be possible to make a secondary script for an ultra-fast re-install (using the same variables) on the same device.
 
 
 ## Instructions
