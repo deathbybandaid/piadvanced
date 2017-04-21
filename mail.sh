@@ -1,7 +1,9 @@
 #!/bin/sh
 ## Mail
 source /etc/piadvanced/install/variables.conf
-{ if (whiptail --yesno "Do you want to recieve emails regarding successful cron jobs?" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to recieve emails regarding successful cron jobs?" 8 78) then
+echo "User Delined Mail"
+else
 MAIL_ROOT=$(whiptail --inputbox "What email address do you want to use?" 20 60 "user@gmail.com" 3>&1 1>&2 2>&3)
 MAIL_MAILHUB=$(whiptail --inputbox "What email server and port?" 20 60 "smtp.gmail.com:587" 3>&1 1>&2 2>&3)
 MAIL_HOSTNAME=$(whiptail --inputbox "Hostname" 20 60 "$NEW_HOSTNAME" 3>&1 1>&2 2>&3)
@@ -19,6 +21,4 @@ sudo echo "useSTARTTLS=$MAIL_STARTTLS" | sudo tee --append /etc/ssmtp/ssmtp.conf
 sudo echo "root:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
 sudo echo "pi:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
 sudo echo "$MAIL_MAILHUB" | sudo tee --append /root/.forward
-else
-echo ""
 fi }
