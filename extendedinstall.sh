@@ -24,7 +24,19 @@ sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.
 whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
 
 ## Static Ip's and wifi connection.
-sudo bash /etc/piadvanced/network.sh
+#sudo bash /etc/piadvanced/network.sh
+
+## Hostname
+sudo bash /etc/piadvanced/hostname.sh
+
+## Static IP for eth0
+sudo bash /etc/piadvanced/eth0.sh
+
+## Staic IP for wlan0
+sudo bash /etc/piadvanced/wlan0.sh
+
+## Wifi Credentials
+sudo bash /etc/piadvanced/wifissid.sh
 
 ## Memory Split
 sudo bash /etc/piadvanced/memorysplit.sh
