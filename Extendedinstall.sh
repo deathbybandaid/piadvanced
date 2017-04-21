@@ -115,5 +115,9 @@ sudo bash /etc/piadvanced/rpimonitor.sh
 ## iptools firewall (Part 2),, configure as install, then install a cron
 sudo bash /etc/piadvanced/firewall2.sh
 
+## HTPC
+sudo bash /etc/piadvanced/atomic.sh
+whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70 1
+
 ## All Done
 whiptail --msgbox "This concludes the script. Reboot to complete. Consult the readme for additional configuration." 20 70 1
