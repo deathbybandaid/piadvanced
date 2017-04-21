@@ -1,6 +1,8 @@
 #!/bin/sh
 ## Lighttpd
-{ if (whiptail --yesno "Do you plan on running Lighttpd" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Lighttpd" 8 78) then
+echo "User Decline Lighttpd"
+else
 {
 source /etc/piadvanced/install/variables.conf
 LIGHT_BIND=`sed -n '/server.port                 = 80/=' /etc/lighttpd/lighttpd.conf`
@@ -19,6 +21,4 @@ sudo echo "# Lighttpd" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -p tcp --dport 83 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi  }
-else
-echo ""
 fi }
