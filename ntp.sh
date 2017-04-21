@@ -6,7 +6,6 @@ else
 sudo dpkg-reconfigure tzdata
 fi }
 
-
 ## NTP
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set ntp servers? serverlist is available at http://support.ntp.org/bin/view/Servers/NTPPoolServers" 8 78) then
 echo "User Declined Changing NTP Server"
