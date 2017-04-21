@@ -14,4 +14,5 @@ sudo echo "interface wlan0" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static ip_address=$NEWWLAN_IP" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static routers=$OLDWLAN_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static domain_name_servers=$OLDWLAN_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
+sudo ifconfig wlan0 $NEWWLAN_IP
 fi }
