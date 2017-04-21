@@ -1,6 +1,6 @@
 #!/bin/sh
 ## Random Number fix
-{ if (whiptail --yesno "Do you wnat to install the random number fix?" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you wnat to install the random number fix?" 8 78) then
 echo "User Declined RNG"
 else
 sudo apt-get install -y rng-tools
