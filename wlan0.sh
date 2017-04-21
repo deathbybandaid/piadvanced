@@ -13,7 +13,6 @@ sudo sed -i '/interface wlan0/d' /etc/dhcpcd.conf
 sudo sed -i '/static ip_address=$OLDWLAN_IP/d' /etc/dhcpcd.conf
 sudo sed -i '/static routers=$OLDWLAN_GATEWAY/d' /etc/dhcpcd.conf
 sudo sed -i '/static domain_name_servers=$OLDWLAN_GATEWAY/d' /etc/dhcpcd.conf
-sudo sed -i '/APT::Default-Release "jessie";/d' /etc/dhcpcd.conf
 sudo echo "" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "#wlan0" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "interface wlan0" | sudo tee --append /etc/dhcpcd.conf
