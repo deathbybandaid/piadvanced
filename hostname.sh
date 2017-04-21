@@ -1,5 +1,5 @@
 #!/bin/sh
-## eth0 settings
+## hostname settings
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want set the hostname?" 8 78) then
 echo "User Declined setting a new hostname"
 else
