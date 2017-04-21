@@ -1,4 +1,8 @@
 #!/bin/sh
+
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Basic Software dependencies?" 8 78) then
+echo "User Declined Dependencies"
+else
 { whiptail --msgbox "I'm going to install some stuff." 20 70 1
 sudo apt-get install -y raspi-config -y
 sudo apt-get install -y tcpdump
@@ -49,3 +53,6 @@ sudo apt-get install -y netcat
 sudo apt-get install -y sudo
 sudo systemctl enable php7.0-fpm
  }
+fi }
+
+
