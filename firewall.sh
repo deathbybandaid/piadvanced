@@ -1,6 +1,6 @@
 #!/bin/sh
 ## sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
-
+sudo rm -r /etc/iptables.firewall.rules
 ## Initial 
 sudo echo "*filter" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo ":INPUT ACCEPT [0:0]" | sudo tee --append /etc/iptables.firewall.rules
