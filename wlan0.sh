@@ -8,6 +8,12 @@ OLDWLAN_IP=`ip addr show wlan0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 OLDWLAN_GATEWAY=`ip route show 0.0.0.0/0 dev wlan0 | cut -d\  -f3`
 NEWWLAN_IP=$(whiptail --inputbox "Please enter desired IP for wlan0" 20 60 "$OLDWLAN_IP" 3>&1 1>&2 2>&3)
 sudo cp /etc/dhcpcd.conf /etc/piadvanced/backups/dhcpcd.conf
+sudo sed -i '/#wlan0/d' /etc/dhcpcd.conf
+sudo sed -i '/interface wlan0/d' /etc/dhcpcd.conf
+sudo sed -i '/static ip_address=$OLDWLAN_IP/d' /etc/dhcpcd.conf
+sudo sed -i '/static routers=$OLDWLAN_GATEWAY/d' /etc/dhcpcd.conf
+sudo sed -i '/static domain_name_servers=$OLDWLAN_GATEWAY/d' /etc/dhcpcd.conf
+sudo sed -i '/APT::Default-Release "jessie";/d' /etc/dhcpcd.conf
 sudo echo "" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "#wlan0" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "interface wlan0" | sudo tee --append /etc/dhcpcd.conf
