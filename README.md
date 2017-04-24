@@ -88,6 +88,10 @@ These will allow you to set the pi to email you when it needs updates, or has su
 * The ability to add custom redirects.
   * Configure with sudo nano /etc/dnsmasq.d/07-customredirect.conf
   * and /etc/piadvanced/installscripts/customRedirect.list
+* The ability to set permanent static ip's. Helpful if your re-install often
+  * Configure with sudo nano /etc/dnsmasq.d/08-staticip.conf
+* The ability to block a mac address from recieving an IP address.
+  * Configure with sudo nano /etc/dnsmasq.d/09-noip4you.conf
 * The ability to make pihole -up run every half-hour.
 * The ability to make pihole -g run every 6 hours.
 * The ability to remove stale lists once weekly.
