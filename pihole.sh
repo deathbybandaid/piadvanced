@@ -57,6 +57,10 @@ sudo wget https://raw.githubusercontent.com/deathbybandaid/pihole-bypass/master/
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeinterfaces/master/05-addint.conf -P /etc/dnsmasq.d/
 # active directory
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeAD/master/06-activedirectory.conf -P /etc/dnsmasq.d/
+# Static leases.
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholestaticip/master/08-staticip.conf -P /etc/dnsmasq.d/
+#Do not lease IP to a certain device.
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeblockdhcp/master/09-noip4you.conf -P /etc/dnsmasq.d/
 # custom redirects
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholecustomredirect/master/07-customredirect.conf -P /etc/dnsmasq.d/
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholecustomredirect/master/customRedirect.list -P /etc/piadvanced/installscripts/
