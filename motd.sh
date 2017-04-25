@@ -4,7 +4,7 @@
 echo "User Declined setting a cooler motd message"
 else
 whiptail --msgbox "This is the message you receive at login" 20 70 1
-sudo uname -snrvm > /var/run/motd.dynamic
+#sudo uname -snrvm > /var/run/motd.dynamic
 sudo systemctl disable motd
 sudo mkdir /etc/update-motd.d
 sudo rm -f /etc/motd
