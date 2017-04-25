@@ -9,6 +9,6 @@ sudo systemctl disable motd
 sudo mkdir /etc/update-motd.d
 sudo rm -f /etc/motd
 sudo wget https://raw.githubusercontent.com/deathbybandaid/pimotd/master/10logo -P /etc/update-motd.d/
-chmod a+x /etc/update-motd.d/*
+sudo chmod a+x /etc/update-motd.d/*
 sudo sed -i "s/motd.dynamic/motd.new/" /etc/pam.d/sshd
 fi }
