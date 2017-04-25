@@ -35,8 +35,8 @@ sudo echo "-A INPUT -p icmp --icmp-type echo-request -j ACCEPT" | sudo tee --app
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
 sudo echo "#  Log iptables denied calls" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "#-A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "#" | sudo tee --append /etc/iptables.firewall.rules
 
 sudo echo "# DHCP" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -p udp --dport 67 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
