@@ -3,6 +3,7 @@
 whiptail --msgbox "Any network access will be blocked unless there is a rule to allow it." 20 70 1
 
 ## Variables
+source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 
 ## Remove old Firewall if there is one
@@ -22,6 +23,14 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "#  Allow all outbound traffic - you can modify this to only allow certain traffic" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A OUTPUT -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+
+## SSH
+{ if [ "$sshfirewall" = "yes" ]
+then
+sudo echo "# SSH" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
 
 ## HTTP HTTPS
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 80 and 443? These ports are typically web traffic" 8 78) then
@@ -98,19 +107,90 @@ sudo echo "#  Log iptables denied calls" | sudo tee --append /etc/iptables.firew
 sudo echo "-A INPUT -m limit --limit 5/min -j LOG --log-level 7" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
-
-if [ "$1" = "cool" ]
+## dnscrypt
+{ if [ "$dnscryptfirewall" = "yes" ]
 then
-echo "Cool Beans"
-fi
+sudo echo "#  DNSCrypt" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --destination-port 5454 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p udp --destination-port 5454 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --destination-port 5656 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p udp --destination-port 5656 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --destination-port 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p udp --destination-port 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules"
+fi }
 
-if [ "$1" = "cool" ]
+## fail2ban
+if [ "$fail2banfirewall" = "yes" ]
 then
-echo "Cool Beans"
-fi
+sudo echo "# Fail2Ban" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp -m multiport --dports 22 -j fail2ban-ssh" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A fail2ban-ssh -j RETURN" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
 
+## openvpn
+{ if [ "$openvpnfirewall" = "yes" ]
+then
+sudo echo "# OPENVPN" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 1194 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
 
+## Plexboard
+{ if [ "$plexboardfirewall" = "yes" ]
+then
+sudo echo "# Plexboard" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --destination-port 3000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
 
+## Privoxy
+{ if [ "$privoxyfirewall" = "yes" ]
+then
+sudo echo "# Privoxy" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 8118 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
+## RPI Monitor
+{ if [ "$rpimonitorfirewall" = "yes" ]
+then
+sudo echo "# rpi monitor" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 8889 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
+## Usermin
+{ if [ "$userminfirewall" = "yes" ]
+then
+sudo echo "# Usermin" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 20000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
+## Webmin
+{ if [ "$webminfirewall" = "yes" ]
+then
+sudo echo "# Webmin" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 10000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
+## XRDP
+{ if [ "$xrdpfirewall" = "yes" ]
+then
+sudo echo "# XRDP" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 3389 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p udp --dport 3389 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 3350 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p udp --dport 3350 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 5910 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p udp --dport 5910 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
+## Don't allow any other traffic than what is specified in these rules
 sudo echo "#  Drop all other inbound - default deny unless explicitly allowed policy" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -j DROP" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A FORWARD -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
@@ -127,10 +207,14 @@ sudo echo "*nat" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
-sudo echo "## Openvpn (If Selected)" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "$OPENVPN_NAT" | sudo tee --append /etc/iptables.firewall.rules
+## OpenVPN
+{ if [ "$openvpnfirewall" = "yes" ]
+then
+sudo echo "## Openvpn" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "OPENVPN_NAT=-A POSTROUTING -s 10.8.0.0/24 -j SNAT --to-source $NEWETH_IP" | sudo tee --append /etc/piadvanced/install/firewall.conf
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
 
 ## End of *nat
 sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
