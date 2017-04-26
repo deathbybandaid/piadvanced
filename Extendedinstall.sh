@@ -117,7 +117,7 @@ whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 8 78) then
 echo "User Declined Firewall"
 else
-sudo bash /etc/piadvanced/iptablesfirewall.sh
+sudo bash /etc/piadvanced/FIREWALL.sh
 fi }
 
 ## All Done
