@@ -49,4 +49,5 @@ sudo /etc/init.d/dnsmasq start
 ps aux | grep 'dnscrypt-proxy'
 echo Done
 sudo echo "dnscryptfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo wget https://raw.githubusercontent.com/deathbybandaid/DNSCryptPihole/master/10-dnscrypt.conf -P /etc/dnsmasq.d/
 fi }
