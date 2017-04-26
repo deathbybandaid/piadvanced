@@ -74,7 +74,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## Ping
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow Ping requests? These ports are for IMAP" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow Ping requests?" 8 78) then
 echo "User Declined Firewall Ping"
 else
 sudo echo "#  Allow ping" | sudo tee --append /etc/iptables.firewall.rules
