@@ -64,9 +64,6 @@ sudo bash /etc/piadvanced/mail.sh
 ## DNSmasq
 sudo bash /etc/piadvanced/dnsmasq.sh
 
-## DNSCrypt
-#sudo bash /etc/piadvanced/dnscrypt.sh
-
 ## Fail2Ban
 sudo bash /etc/piadvanced/fail2ban.sh
 
@@ -81,6 +78,9 @@ sudo bash /etc/piadvanced/openvpn.sh
 
 ## Pi-Hole
 sudo bash /etc/piadvanced/pihole.sh
+
+## DNSCrypt
+sudo bash /etc/piadvanced/dnscrypt.sh
 
 ## Webserver settings
 whiptail --msgbox "During the install, multiple webservers could have been installed. Let's try to adjust the configs to not interfere with eachother" 20 70 1
