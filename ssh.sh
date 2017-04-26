@@ -8,9 +8,7 @@ if [ $RET -eq 0 ]; then
 update-rc.d ssh enable &&
 invoke-rc.d ssh start &&
 whiptail --msgbox "SSH server enabled" 20 60 1
-sudo echo "# SSH" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "sshfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 elif [ $RET -eq 1 ]; then
 update-rc.d ssh disable &&
 whiptail --msgbox "SSH server disabled" 20 60 1
