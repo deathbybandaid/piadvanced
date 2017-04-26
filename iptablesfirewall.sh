@@ -122,9 +122,10 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "## Openvpn (If Selected)" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "$OPENVPN_NAT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
+## End of *nat
 sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
-
 
 ## This will create a script to make sure the firewall is intact at boot , and every 6 hours.
 { if (whiptail --yesno "Do you want Activate this firewall with scripts?" 8 78) then
