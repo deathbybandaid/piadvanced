@@ -48,4 +48,5 @@ sudo sed -i '$i server=127.0.0.4#5757' /etc/dnsmasq.d/01-pihole.conf
 sudo /etc/init.d/dnsmasq start
 ps aux | grep 'dnscrypt-proxy'
 echo Done
+sudo echo "dnscryptfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
