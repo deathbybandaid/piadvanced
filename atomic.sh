@@ -4,5 +4,5 @@
 echo "User Declined Atomic"
 else
 sudo git clone https://github.com/htpcBeginner/AtoMiC-ToolKit ~/AtoMiC-ToolKit
-cd ~/AtoMiC-ToolKit/setup.sh
+sudo bash ~/AtoMiC-ToolKit/setup.sh
 fi }
