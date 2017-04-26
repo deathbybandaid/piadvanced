@@ -13,6 +13,7 @@
 ## Here is what this bad boy does:
 
 ##### With some tweaking could work on debian devices that aren't raspberry pi's
+
 #### This install will ask you many yes/no questions. If you don't want to install something, simply say NO!
 
 #### This is set up like "modules" I plan on adding more pi projects to it later. If it can be automated, it should go here. Message me if you have any reccomendations to add.
@@ -22,11 +23,13 @@
 ### Makes backups of many of the default configuration files.
 
 ### Configures a strong firewall using iptables.
+
 This is based on what you choose to install. All traffic to the pi is blocked unless there is a rule that allows the traffic.
 
 Rules can be added/removed with sudo /etc/iptables.firewall.rules
 
 ### Some basic settings:
+
 #### Set the time
 * Set the timezone
 * Change your NTP servers
@@ -62,14 +65,20 @@ For details see: https://github.com/deathbybandaid/pimotd
 These will allow you to set the pi to email you when it needs updates, or has successful cronjobs.
 
 ### Other Great Softwares
+
 #### No-IP Dynamic Update Client
 #### OpenVPN
+
 #### Webmin
+
 #### Usermin
+
 #### xRDP
+
 #### Rpi Monitor
 
 ### DNS Server Stuff
+
 #### DNSMasq
 * Gives the option to use the version 2.77test4.
 #### Pi-Hole
@@ -97,8 +106,10 @@ These will allow you to set the pi to email you when it needs updates, or has su
 * The ability to remove stale lists once weekly.
 * A way to Parse lists not compatible with Pihole.
   * Configure this with sudo nano /etc/piadvanced/installscripts/ublockpihole/lists.lst
+
+
 #### DNSCrypt
-(I haven't used the dnsmasq install yet)
+
 
 ### Webservers
 With the webservers, you can set the ip address and ports to listen on.
