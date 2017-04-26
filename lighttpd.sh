@@ -17,8 +17,5 @@ sudo echo "NEW_LIGHTTPD80=$NEW_LIGHTTPD80" | sudo tee --append /etc/piadvanced/i
 sudo cp -r /etc/lighttpd/ /etc/piadvanced/backups/lighttpd/
 sudo sed -i "$LIGHT_BIND a\server.bind                 = "$NEW_LIGHTTPDBIND"" /etc/lighttpd/lighttpd.conf
 sudo sed -i "s/80/$NEW_LIGHTTPD80/" /etc/lighttpd/lighttpd.conf
-#sudo echo "# Lighttpd" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A INPUT -p tcp --dport 83 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi  }
 fi }
