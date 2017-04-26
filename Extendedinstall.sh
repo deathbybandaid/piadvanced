@@ -11,9 +11,6 @@ sudo mkdir /etc/piadvanced/installscripts
 ## This is where we will put backups of important files. I maywrite a reversion script later.
 sudo mkdir /etc/piadvanced/backups
 
-## iptools firewall,, configure as install, then install a cron
-sudo bash /etc/piadvanced/firewall.sh
-
 ## This document will contain all of our setup variables. Date/Time Stamped.
 mkdir /etc/piadvanced/install
 timestamp=`date --rfc-3339=seconds`
@@ -111,18 +108,15 @@ sudo bash /etc/piadvanced/rpimonitor.sh
 
 ## Add privoxy and/or squid
 
-## iptools firewall (Part 2),, configure as install, then install a cron
-sudo bash /etc/piadvanced/firewall2.sh
-
 ## HTPC
 sudo bash /etc/piadvanced/atomic.sh
 whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70 1
 
-#{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 8 78) then
-#echo "User Declined Firewall"
-#else
-#sudo bash /etc/piadvanced/iptablesfirewall.sh
-#fi }
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 8 78) then
+echo "User Declined Firewall"
+else
+sudo bash /etc/piadvanced/iptablesfirewall.sh
+fi }
 
 ## All Done
 whiptail --msgbox "This concludes the script. Reboot to complete. Consult the readme for additional configuration." 20 70 1
