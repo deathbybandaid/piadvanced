@@ -23,9 +23,6 @@ sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.
 ## Here we Go!!
 whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
 
-## Static Ip's and wifi connection.
-#sudo bash /etc/piadvanced/network.sh
-
 ## Hostname
 sudo bash /etc/piadvanced/hostname.sh
 
@@ -95,7 +92,6 @@ sudo service nginx stop
 sudo service apache2 start
 sudo service lighttpd start
 sudo service nginx start
-
 ## Usermin
 sudo bash /etc/piadvanced/usermin.sh
 
@@ -109,8 +105,6 @@ sudo bash /etc/piadvanced/xrdp.sh
 sudo bash /etc/piadvanced/rpimonitor.sh
 
 ## Add privoxy and/or squid
-
-## rpimonitor
 
 ## iptools firewall (Part 2),, configure as install, then install a cron
 sudo bash /etc/piadvanced/firewall2.sh
