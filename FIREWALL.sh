@@ -117,7 +117,7 @@ sudo echo "-A INPUT -p tcp --destination-port 5656 -j ACCEPT" | sudo tee --appen
 sudo echo "-A INPUT -p udp --destination-port 5656 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -p tcp --destination-port 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -p udp --destination-port 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "" | sudo tee --append /etc/iptables.firewall.rules"
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## fail2ban
