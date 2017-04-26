@@ -20,6 +20,11 @@ timestamp=`date --rfc-3339=seconds`
 sudo echo "## Variables for Install" | sudo tee --append /etc/piadvanced/install/variables.conf
 sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf
 
+## This is where I will put firewall variables
+sudo echo "## Variables for Firewall" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/firewall.conf
+
+
 ## Here we Go!!
 whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
 
