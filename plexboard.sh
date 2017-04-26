@@ -13,6 +13,6 @@ sudo chmod 777 /opt -R && cd /opt
 git clone https://github.com/scytherswings/Plex-Board.git && cd /opt/Plex-Board
 rvm install 2.3.4 && rvm use 2.3.4@plexdashboard --create
 ./serverSetup.sh
-./startServer.sh
+sudo echo "plexboardfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
 fi }
