@@ -93,7 +93,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## DNS
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Port 53? This port are for DNS" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Port 53? This port is for DNS" 8 78) then
 echo "User Declined Firewall Ports 53"
 else
 sudo echo "# DNS" | sudo tee --append /etc/iptables.firewall.rules
