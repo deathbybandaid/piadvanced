@@ -14,10 +14,12 @@ sudo mkdir /etc/piadvanced/backups
 ## This document will contain all of our setup variables. Date/Time Stamped.
 mkdir /etc/piadvanced/install
 timestamp=`date --rfc-3339=seconds`
+sudo rm -r /etc/piadvanced/install/variables.conf
 sudo echo "## Variables for Install" | sudo tee --append /etc/piadvanced/install/variables.conf
 sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## This is where I will put firewall variables
+sudo rm -r /etc/piadvanced/install/firewall.conf
 sudo echo "## Variables for Firewall" | sudo tee --append /etc/piadvanced/install/firewall.conf
 sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
