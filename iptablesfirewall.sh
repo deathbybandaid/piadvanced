@@ -117,11 +117,7 @@ sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
 sudo echo "*nat" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo ":PREROUTING ACCEPT [264:40146]" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo ":INPUT ACCEPT [48:3296]" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo ":OUTPUT ACCEPT [192:14170]" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo ":POSTROUTING ACCEPT [192:14170]" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+
 
 sudo echo "## Openvpn (If Selected)" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "$OPENVPN_NAT" | sudo tee --append /etc/iptables.firewall.rules
