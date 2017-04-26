@@ -99,7 +99,15 @@ sudo echo "-A INPUT -m limit --limit 5/min -j LOG --log-level 7" | sudo tee --ap
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
 
+if [ "$1" = "cool" ]
+then
+echo "Cool Beans"
+fi
 
+if [ "$1" = "cool" ]
+then
+echo "Cool Beans"
+fi
 
 
 
