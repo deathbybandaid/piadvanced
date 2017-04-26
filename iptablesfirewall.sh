@@ -1,4 +1,9 @@
 #!/bin/sh
+## Message
+whiptail --msgbox "Any network access will be blocked unless there is a rule to allow it." 20 70 1
+
+## Variables
+source /etc/piadvanced/install/variables.conf
 
 ## Remove old Firewall if there is one
 sudo rm -r /etc/iptables.firewall.rules
@@ -93,31 +98,26 @@ sudo echo "#  Log iptables denied calls" | sudo tee --append /etc/iptables.firew
 sudo echo "-A INPUT -m limit --limit 5/min -j LOG --log-level 7" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
-################
 
-source /etc/piadvanced/install/variables.conf
-## IPTables Firewall
-## This will create a script to make sure the firewall is intact at boot , and every 6 hours.
-{ if (whiptail --yesno "Do you want Activate a firwall created based on this install?" 8 78) then
-sudo echo "#!/bin/sh" | sudo tee --append /etc/network/if-pre-up.d/firewall
-sudo echo "/sbin/iptables-restore < /etc/iptables.firewall.rules" | sudo tee --append /etc/network/if-pre-up.d/firewall
-sudo chmod +x /etc/network/if-pre-up.d/firewall
-sudo cp /etc/network/if-pre-up.d/firewall /etc/piadvanced/installscripts/firewall.sh 
-(crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall.sh") | crontab -
-else
-echo ""
-fi }
+
+
+
 
 sudo echo "#  Drop all other inbound - default deny unless explicitly allowed policy" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -j DROP" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A FORWARD -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
-
-sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
-sudo echo "*nat" | sudo tee --append /etc/iptables.firewall.rules
+## End of *Filter
+sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
+## Begin Nat
+sudo echo "*nat" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
 sudo echo "## Openvpn (If Selected)" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "$OPENVPN_NAT" | sudo tee --append /etc/iptables.firewall.rules
@@ -126,3 +126,13 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
 
 
+## This will create a script to make sure the firewall is intact at boot , and every 6 hours.
+{ if (whiptail --yesno "Do you want Activate this firewall with scripts?" 8 78) then
+sudo echo "#!/bin/sh" | sudo tee --append /etc/network/if-pre-up.d/firewall
+sudo echo "/sbin/iptables-restore < /etc/iptables.firewall.rules" | sudo tee --append /etc/network/if-pre-up.d/firewall
+sudo chmod +x /etc/network/if-pre-up.d/firewall
+sudo cp /etc/network/if-pre-up.d/firewall /etc/piadvanced/installscripts/firewall.sh 
+(crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall.sh") | crontab -
+else
+echo ""
+fi }
