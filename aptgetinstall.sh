@@ -4,7 +4,8 @@
 echo "User Declined Dependencies"
 else
 { whiptail --msgbox "I'm going to install some stuff." 20 70 1
-sudo apt-get install -y raspi-config -y
+sudo apt-get install -y raspi-config
+sudo apt-get install -y gawk
 sudo apt-get install -y tcpdump
 sudo apt-get install -t stretch libio-pty-perl -y
 sudo apt-get install -y libsodium-dev
