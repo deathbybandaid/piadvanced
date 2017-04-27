@@ -241,6 +241,9 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "*nat" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo ":PREROUTING ACCEPT [0:0]" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo ":POSTROUTING ACCEPT [0:0]" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 
 ## OpenVPN
 { if [ "$openvpnfirewall" = "yes" ]
