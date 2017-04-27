@@ -130,13 +130,13 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## fail2ban
-{ if [ "$fail2banfirewall" = "yes" ]
-then
-sudo echo "# Fail2Ban" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT -p tcp -m multiport --dports 22 -j fail2ban-ssh" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A fail2ban-ssh -j RETURN" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
-fi }
+#{ if [ "$fail2banfirewall" = "yes" ]
+#then
+#sudo echo "# Fail2Ban" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A INPUT -p tcp -m multiport --dports 22 -j fail2ban-ssh" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A fail2ban-ssh -j RETURN" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+#fi }
 
 ## openvpn
 { if [ "$openvpnfirewall" = "yes" ]
