@@ -186,6 +186,14 @@ sudo echo "-A INPUT -p tcp --dport 10000 -j ACCEPT" | sudo tee --append /etc/ipt
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## Tomcat Guacamole
+{ if [ "$guacamolefirewall" = "yes" ]
+then
+sudo echo "# Guacamole" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 8080 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## XRDP
 { if [ "$xrdpfirewall" = "yes" ]
 then
