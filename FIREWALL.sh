@@ -199,6 +199,7 @@ fi }
 then
 sudo echo "# Guacamole" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -p tcp --dport 8080 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 4822 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
