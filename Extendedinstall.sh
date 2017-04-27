@@ -113,6 +113,9 @@ sudo bash /etc/piadvanced/webmin.sh
 ## xRDP
 sudo bash /etc/piadvanced/xrdp.sh
 
+## Guacamole
+sudo bash /etc/piadvanced/guacamole.sh
+
 ## CUPS
 sudo bash /etc/piadvanced/cups.sh
 
