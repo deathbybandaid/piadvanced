@@ -190,6 +190,15 @@ sudo echo "-A INPUT -p udp --dport 5910 -j ACCEPT" | sudo tee --append /etc/ipta
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## CUPS
+{ if [ "$cupsfirewall" = "yes" ]
+then
+sudo echo "# CUPS" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 631 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p udp --dport 631 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## Don't allow any other traffic than what is specified in these rules
 sudo echo "#  Drop all other inbound - default deny unless explicitly allowed policy" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -j DROP" | sudo tee --append /etc/iptables.firewall.rules
