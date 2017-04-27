@@ -79,6 +79,9 @@ sudo bash /etc/piadvanced/noip.sh
 ## Dyndns
 sudo bash /etc/piadvanced/ddclient.sh
 
+## VPNs
+whiptail --msgbox "The next two installs are openvpn and pivpn, choose one ONLY!" 20 70 1
+
 ## OpenVPN
 sudo bash /etc/piadvanced/openvpn.sh
 
