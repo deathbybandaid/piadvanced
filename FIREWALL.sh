@@ -42,6 +42,15 @@ sudo echo "-A INPUT -p tcp --dport 443 -j ACCEPT" | sudo tee --append /etc/iptab
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## Mysql
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Port 3306? This port is for MySQL" 8 78) then
+echo "User Declined Firewall Ports 3306"
+else
+sudo echo "#  MySQL" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 3306 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## SMTP
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 25, 465, and 587? These ports are for SMTP" 8 78) then
 echo "User Declined Firewall Ports 25, 465, and 587"
