@@ -146,6 +146,14 @@ sudo echo "-A INPUT -p tcp --dport 1194 -j ACCEPT" | sudo tee --append /etc/ipta
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## pivpn
+{ if [ "$pivpnfirewall" = "yes" ]
+then
+sudo echo "# piVPN" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 1194 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## Plexboard
 { if [ "$plexboardfirewall" = "yes" ]
 then
