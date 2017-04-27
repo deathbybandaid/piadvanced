@@ -251,6 +251,17 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## Privoxy
+{ if [ "$privoxyfirewall" = "yes" ]
+then
+sudo echo "## Privoxy" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo echo "-A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo echo "-A PREROUTING -i tun0 -p tcp --dport 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## End of *nat
 sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
 
