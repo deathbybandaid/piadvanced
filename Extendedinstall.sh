@@ -62,6 +62,7 @@ sudo bash /etc/piadvanced/aptgetinstall.sh
 ## Admin Email
 sudo bash /etc/piadvanced/apticron.sh
 sudo bash /etc/piadvanced/mail.sh
+sudo bash /etc/piadvanced/exim4.sh
 
 ## DNSmasq
 sudo bash /etc/piadvanced/dnsmasq.sh
@@ -75,8 +76,14 @@ sudo bash /etc/piadvanced/psad.sh
 ## No-ip Dynamic Update Client
 sudo bash /etc/piadvanced/noip.sh
 
+## Dyndns
+sudo bash /etc/piadvanced/ddclient.sh
+
 ## OpenVPN
 sudo bash /etc/piadvanced/openvpn.sh
+
+## pivpn
+sudo bash /etc/piadvanced/pivpn.sh
 
 ## Pi-Hole
 sudo bash /etc/piadvanced/pihole.sh
@@ -96,6 +103,7 @@ sudo service nginx stop
 sudo service apache2 start
 sudo service lighttpd start
 sudo service nginx start
+
 ## Usermin
 sudo bash /etc/piadvanced/usermin.sh
 
@@ -104,6 +112,9 @@ sudo bash /etc/piadvanced/webmin.sh
 
 ## xRDP
 sudo bash /etc/piadvanced/xrdp.sh
+
+## CUPS
+sudo bash /etc/piadvanced/cups.sh
 
 ## rpimonitor
 sudo bash /etc/piadvanced/rpimonitor.sh
