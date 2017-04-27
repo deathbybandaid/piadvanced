@@ -253,6 +253,8 @@ fi }
 ## End of *nat
 sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
 
+sudo iptables-restore < /etc/iptables.firewall.rules
+
 ## This will create a script to make sure the firewall is intact at boot , and every 6 hours.
 { if (whiptail --yesno "Do you want Activate this firewall with scripts?" 8 78) then
 sudo echo "#!/bin/sh" | sudo tee --append /etc/network/if-pre-up.d/firewall
@@ -263,3 +265,6 @@ sudo cp /etc/network/if-pre-up.d/firewall /etc/piadvanced/installscripts/firewal
 else
 echo ""
 fi }
+
+
+## sudo iptables-restore < /etc/iptables.firewall.rules
