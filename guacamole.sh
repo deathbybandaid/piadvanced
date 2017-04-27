@@ -10,3 +10,6 @@ sudo dos2unix /etc/piadvanced/installscripts/guac-install.sh
 sudo bash /etc/piadvanced/installscripts/guac-install.sh
 sudo echo "guacamolefirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
+
+
+## Default credentials are guacadmin
