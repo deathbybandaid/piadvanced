@@ -1,4 +1,8 @@
 #!/bin/sh
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 8 78) then
+echo "User Declined Firewall"
+else
+
 ## Message
 whiptail --msgbox "Any network access will be blocked unless there is a rule to allow it." 20 70 1
 
@@ -290,3 +294,6 @@ else
 echo "User Declined Firewall"
 fi }
 ## sudo iptables-restore < /etc/iptables.firewall.rules
+
+## End of file
+fi }
