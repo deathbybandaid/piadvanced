@@ -19,28 +19,28 @@
 
 ### I suggest that you use the removedefaultpiuser script below. This will bolster your pi's security by not using the default username.
 
-### Makes backups of many of the default configuration files.
+## Makes backups of many of the default configuration files.
 * You can find the backups in /etc/piadvanced/backups
 
-### Configures a strong firewall using iptables.
+## Configures a strong firewall using iptables.
 * This is based on what you choose to install.
 * All traffic to the pi is blocked unless there is a rule that allows the traffic.
   * Rules can be added/removed with sudo /etc/iptables.firewall.rules
 
-### Some basic settings:
+## Some basic settings:
 
-#### Set the time
+### Set the time
 * Set the timezone
 * Change your NTP servers
 * Add a script to update the time every half hour.
 
-#### SSH
+### SSH
 * on/off
 * fail2ban
   * Helps protect against brute-forcing
 * psad
 
-## Random Number Fix with rng-tools
+### Random Number Fix with rng-tools
 * Greatly helps when the system needs to randomize something.
 
 ### Memory
@@ -53,33 +53,32 @@
 * Connect to wifi easily
 * Set a static ip for wlan0
 
-### MOTD tweak
+## MOTD tweak
 * This makes the login message much nicer than a bloc of text
   * For details see: https://github.com/deathbybandaid/pimotd
 
-### Get's your system up to date
+## Get's your system up to date
 #### Adds sources for debian stretch
 #### Updates and Upgrades
 #### Installs some basic programs and dependencies.
 (if curious what it installs, look at the script files)
 
-### Admin Mail
+# Admin Mail
 Handy if you want to get email from your device when things happen, or you need updates.
-#### Options include:
 * Apticron
 * Mail
 * Exim4
 
-#### Dynamic Domain Name Services
+## Dynamic Domain Name Services
 * No-IP DUC (Dynamic Update Client)
 * DDClient, which I believe works with dyndns
 
-#### VPN
+## VPN
   * Port 1194 defualt
 * OpenVPN
 * piVPN
 
-#### Administration Web UI's
+## Administration Web UI's
 * Webmin
   * Port 10000
 * Usermin
@@ -87,17 +86,17 @@ Handy if you want to get email from your device when things happen, or you need 
 * Rpi Monitor
   * Port 8889
 
-#### xRDP
+## xRDP
 * This let's you remote-in to your pi, using the Windows native Remote Desktop program.
   * I have found this handy when fail2ban locks me out due to invalid password attempts.
 
-#### DNSMasq
+## DNSMasq
 * Gives the option to use the version 2.77test4.
 
-#### DNSCrypt
+## DNSCrypt
 This is fully functional, and works!
 
-#### Pi-Hole
+## Pi-Hole
 * Asks you to change the password for the webui immediately.
 * A dark theme, thanks to LKD70
 * The Wally3k adlists.
@@ -123,19 +122,19 @@ This is fully functional, and works!
 * A way to Parse lists not compatible with Pihole.
   * Configure this with sudo nano /etc/piadvanced/installscripts/ublockpihole/lists.lst
 
-### Webservers
+## Webservers
 With the webservers, you can set the ip address and ports to listen on. This helps with port conflict issues.
 * Lightttpd
 * Apache
 * Nginx
   * I have stuff in the works for nginx, stay tuned.
 
-### Guacamole
+## Guacamole
 * Set up a RDP/VNC/Gateway for your home network.
 * It runs on Tomcat using Port 8080
 * The default username and password is guacadmin
 
-### Proxy programs
+## Proxy programs
   * These have the potential of being setup to function transparently alongside pihole.
 * Privoxy
 * Squid/Squidguard
@@ -148,7 +147,7 @@ With the webservers, you can set the ip address and ports to listen on. This hel
   * Refer to https://github.com/htpcBeginner/AtoMiC-ToolKit for more information.
 * Anything that is installed by this will need a firewall rule added.
 
-### Things in the works:
+## Things in the works:
 * PXE Server
 * Moboticz
 * Nagios
