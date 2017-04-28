@@ -23,112 +23,112 @@ sudo rm -r /etc/piadvanced/install/firewall.conf
 sudo echo "## Variables for Firewall" | sudo tee --append /etc/piadvanced/install/firewall.conf
 sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
-
 ## Here we Go!!
 whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
 
 ## Hostname
-sudo bash /etc/piadvanced/hostname.sh
+sudo bash /etc/piadvanced/maininstalls/hostname.sh
 
 ## Static IP for eth0
-sudo bash /etc/piadvanced/eth0.sh
+sudo bash /etc/piadvanced/maininstalls/eth0.sh
 
 ## Wifi Credentials
-sudo bash /etc/piadvanced/wifissid.sh
+sudo bash /etc/piadvanced/maininstalls/wifissid.sh
 
 ## Staic IP for wlan0
-sudo bash /etc/piadvanced/wlan0.sh
+sudo bash /etc/piadvanced/maininstalls/wlan0.sh
 
 ## Memory Split
-sudo bash /etc/piadvanced/memorysplit.sh
+sudo bash /etc/piadvanced/maininstalls/memorysplit.sh
 
 ## SSH
-sudo bash /etc/piadvanced/ssh.sh
+sudo bash /etc/piadvanced/maininstalls/ssh.sh
 
 ## Time
-sudo bash /etc/piadvanced/ntp.sh
+sudo bash /etc/piadvanced/maininstalls/ntp.sh
 
 ## Random Number Generation fix
-sudo bash /etc/piadvanced/randomnumberfix.sh
+sudo bash /etc/piadvanced/maininstalls/randomnumberfix.sh
 
 ## Better MOTD message
-sudo bash /etc/piadvanced/motd.sh
+sudo bash /etc/piadvanced/maininstalls/motd.sh
 
 ## Sources && Update && Upgrade
-sudo bash /etc/piadvanced/sources.sh
-sudo bash /etc/piadvanced/updateupgrade.sh
-sudo bash /etc/piadvanced/aptgetinstall.sh
+sudo bash /etc/piadvanced/maininstalls/sources.sh
+sudo bash /etc/piadvanced/maininstalls/updateupgrade.sh
+sudo bash /etc/piadvanced/maininstalls/aptgetinstall.sh
 
 ## Admin Email
-sudo bash /etc/piadvanced/apticron.sh
-sudo bash /etc/piadvanced/mail.sh
-sudo bash /etc/piadvanced/exim4.sh
+sudo bash /etc/piadvanced/maininstalls/apticron.sh
+sudo bash /etc/piadvanced/maininstalls/mail.sh
+sudo bash /etc/piadvanced/maininstalls/exim4.sh
 
 ## DNSmasq
-sudo bash /etc/piadvanced/dnsmasq.sh
+sudo bash /etc/piadvanced/maininstalls/dnsmasq.sh
 
 ## Fail2Ban
-sudo bash /etc/piadvanced/fail2ban.sh
+sudo bash /etc/piadvanced/maininstalls/fail2ban.sh
 
 ## PSAD
-sudo bash /etc/piadvanced/psad.sh
+sudo bash /etc/piadvanced/maininstalls/psad.sh
 
 ## No-ip Dynamic Update Client
-sudo bash /etc/piadvanced/noip.sh
+sudo bash /etc/piadvanced/maininstalls/noip.sh
 
 ## Dyndns
-sudo bash /etc/piadvanced/ddclient.sh
+sudo bash /etc/piadvanced/maininstalls/ddclient.sh
 
 ## VPNs
 whiptail --msgbox "The next two installs are openvpn and pivpn, choose one ONLY!" 20 70 1
 
 ## OpenVPN
-sudo bash /etc/piadvanced/openvpn.sh
+sudo bash /etc/piadvanced/maininstalls/openvpn.sh
 
 ## pivpn
-sudo bash /etc/piadvanced/pivpn.sh
+sudo bash /etc/piadvanced/maininstalls/pivpn.sh
 
 ## Pi-Hole
-sudo bash /etc/piadvanced/pihole.sh
+sudo bash /etc/piadvanced/maininstalls/pihole.sh
 
 ## DNSCrypt
-sudo bash /etc/piadvanced/dnscrypt.sh
+sudo bash /etc/piadvanced/maininstalls/dnscrypt.sh
 
 ## Webserver settings
 whiptail --msgbox "During the install, multiple webservers could have been installed. Let's try to adjust the configs to not interfere with eachother" 20 70 1
 whiptail --msgbox "If these aren't set correctly, you will have to manually adjust them, because they may not start properly." 20 70 1
-sudo bash /etc/piadvanced/apache.sh
-sudo bash /etc/piadvanced/lighttpd.sh
-sudo bash /etc/piadvanced/nginx.sh
-sudo service apache2 stop
-sudo service lighttpd stop
-sudo service nginx stop
-sudo service apache2 start
-sudo service lighttpd start
-sudo service nginx start
+sudo bash /etc/piadvanced/maininstalls/apache.sh
+sudo bash /etc/piadvanced/maininstalls/lighttpd.sh
+sudo bash /etc/piadvanced/maininstalls/nginx.sh
 
 ## Usermin
-sudo bash /etc/piadvanced/usermin.sh
+sudo bash /etc/piadvanced/maininstalls/usermin.sh
 
 ## Webmin
-sudo bash /etc/piadvanced/webmin.sh
+sudo bash /etc/piadvanced/maininstalls/webmin.sh
 
 ## xRDP
-sudo bash /etc/piadvanced/xrdp.sh
+sudo bash /etc/piadvanced/maininstalls/xrdp.sh
 
 ## Guacamole
-sudo bash /etc/piadvanced/guacamole.sh
+sudo bash /etc/piadvanced/maininstalls/guacamole.sh
 
 ## CUPS
-sudo bash /etc/piadvanced/cups.sh
+sudo bash /etc/piadvanced/maininstalls/cups.sh
 
 ## rpimonitor
-sudo bash /etc/piadvanced/rpimonitor.sh
+sudo bash /etc/piadvanced/maininstalls/rpimonitor.sh
 
-## Add privoxy and/or squid
+## Proxies
+whiptail --msgbox "The next two installs are Squid and Privoxy, choose one ONLY!" 20 70 1
+
+## Privoxy
+sudo bash /etc/piadvanced/maininstalls/privoxy.sh
+
+## Squid
+sudo bash /etc/piadvanced/maininstalls/squid.sh
 
 ## HTPC
-sudo bash /etc/piadvanced/atomic.sh
+sudo bash /etc/piadvanced/maininstalls/atomic.sh
 whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70 1
 
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 8 78) then
