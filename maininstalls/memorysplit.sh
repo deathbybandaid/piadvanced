@@ -4,7 +4,6 @@
 sudo sed -i '/total_mem/ d' /boot/config.txt
 else
 NEWMEM_SPLIT=$(whiptail --inputbox "Do you plan on running headless? If so, set the memory split to 16." 20 60 "16" 3>&1 1>&2 2>&3)
-sudo mkdir /etc/piadvanced/backups/boot
 sudo cp /boot/config.txt /etc/piadvanced/backups/boot/
 sudo sed -i '/gpu_mem/ d' /boot/config.txt
 sudo echo "gpu_mem=$NEWMEM_SPLIT" | sudo tee --append /boot/config.txt
