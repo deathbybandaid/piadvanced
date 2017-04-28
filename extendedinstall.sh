@@ -122,11 +122,8 @@ sudo bash /etc/piadvanced/maininstalls/squid.sh
 sudo bash /etc/piadvanced/maininstalls/atomic.sh
 whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70 1
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 8 78) then
-echo "User Declined Firewall"
-else
+## THE FIREWALL!!
 sudo bash /etc/piadvanced/FIREWALL.sh
-fi }
 
 ## All Done
 whiptail --msgbox "This concludes the script. Reboot to complete. Consult the readme for additional configuration." 20 70 1
