@@ -78,5 +78,10 @@ sudo apt-get -t stretch -y install freerdp
 sudo apt-get -t stretch -y install ghostscript
 sudo apt-get -t stretch -y install jq
 sudo apt-get install -y dos2unix
+sudo apt-get install -y libsodium-dev
+sudo apt-get install -y locate
+sudo apt-get install -y bash-completion
+sudo apt-get install -y libsystemd-dev
+sudo apt-get install -y pkg-config
  }
 fi }
