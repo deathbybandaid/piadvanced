@@ -34,7 +34,7 @@ else
 sudo bash /etc/piadvanced/piholetweaks/Wally3kBlockPage.sh
 fi }
 
-## Bypass
+## DNSTweaks
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install deathbybandaid dnsmasq tweaks? See readme for more information." 8 78) then
 echo "User Declined deathbybandaid dnsmasq tweaks"
 else
