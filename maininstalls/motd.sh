@@ -8,7 +8,7 @@ whiptail --msgbox "This is the message you receive at login" 20 70 1
 sudo systemctl disable motd
 sudo mkdir /etc/update-motd.d
 sudo rm -f /etc/motd
-sudo wget https://raw.githubusercontent.com/deathbybandaid/pimotd/master/10logo -P /etc/update-motd.d/
+sudo cp /etc/piadvanced/installscripts/pimotd/10logo /etc/update-motd.d/
 sudo chmod a+x /etc/update-motd.d/*
 sudo sed -i "s/motd.dynamic/motd.new/" /etc/pam.d/sshd
 fi }
