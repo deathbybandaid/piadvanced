@@ -11,7 +11,7 @@
 
 ### I will be updating this with new stuff all the time. you can always run git pull the /etc/piadvanced to download any changes.
 
-# Here is what this bad boy does:
+# Here is what this half MB bad boy does:
 
 #### This install:
 * Will ask you many yes/no questions. If you don't want to install something, simply say NO!
