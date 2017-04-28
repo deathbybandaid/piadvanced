@@ -5,23 +5,10 @@
 ##    This Must be run as root, or it fails is some places    ##
 ################################################################
 
-## This is where we will download installations.
-sudo mkdir /etc/piadvanced/installscripts
-
-## This is where we will put backups of important files. I maywrite a reversion script later.
-sudo mkdir /etc/piadvanced/backups
-
-## This document will contain all of our setup variables. Date/Time Stamped.
-mkdir /etc/piadvanced/install
+## These documents will contain all of our setup variables. Date/Time Stamped.
 timestamp=`date --rfc-3339=seconds`
-sudo rm -r /etc/piadvanced/install/variables.conf
-sudo echo "## Variables for Install" | sudo tee --append /etc/piadvanced/install/variables.conf
-sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf
-
-## This is where I will put firewall variables
-sudo rm -r /etc/piadvanced/install/firewall.conf
-sudo echo "## Variables for Firewall" | sudo tee --append /etc/piadvanced/install/firewall.conf
-sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo mv /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf /etc/piadvanced/backups/
+sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf
 
 ## Here we Go!!
 whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
