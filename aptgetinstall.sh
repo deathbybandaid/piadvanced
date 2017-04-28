@@ -77,5 +77,6 @@ sudo apt-get -t stretch -y install tomcat8
 sudo apt-get -t stretch -y install freerdp
 sudo apt-get -t stretch -y install ghostscript
 sudo apt-get -t stretch -y install jq
+sudo apt-get install -y dos2unix
  }
 fi }
