@@ -3,6 +3,8 @@
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole?" 8 78) then
 echo "User Declined Pi-Hole"
 else
+
+## Main Pi-Hole installation
 git clone --depth 1 https://github.com/pi-hole/pi-hole.git /etc/piadvanced/installscripts/Pi-hole
 cd /etc/piadvanced/installscripts/Pi-hole/automated\ install/
 bash basic-install.sh
@@ -31,20 +33,11 @@ chmod +x install.sh
 sudo bash install.sh
 fi }
 
-## Wall3k Block Page
+## Wally3k Block Page
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the wally3k block page?" 8 78) then
 echo "User Declined using Wally3k's Block Page"
 else
-[ -f "/var/phbp.ini" ] && sudo mv /var/phbp.ini /var/phbp.ini.BAK
-html=$(grep server.document-root /etc/lighttpd/lighttpd.conf | awk -F\" '{print $2}')
-sudo wget -q https://raw.githubusercontent.com/WaLLy3K/Pi-hole-Block-Page/master/index.php -O "$html/index.php"
-sudo wget -q https://raw.githubusercontent.com/WaLLy3K/Pi-hole-Block-Page/master/phbp.ini -O "/var/phbp.ini"
-sudo chmod 755 "$html/index.php"
-[ -f "/var/phbp.php" ] && sudo mv /var/phbp.php /var/phbp.old.BAK
-[ ! -d "/etc/lighttpd/conf-enabled" ] && sudo mkdir -m 755 /etc/lighttpd/conf-enabled
-[ ! -f "/etc/lighttpd/conf-enabled/phbp.conf" ] && echo -e '# Pi-hole "server.error-handler-404" override\nurl.rewrite-once = ( "pihole/index.php" => "/index.php" )' | sudo tee /etc/lighttpd/conf-enabled/phbp.conf
-echo "Done! Please edit '/var/phbp.ini' to customise your install"
-sudo service lighttpd force-reload
+sudo bash /etc/piadvanced/piholetweaks/Wally3kBlockPage.sh
 fi }
 
 ## Bypass
@@ -63,7 +56,7 @@ sudo wget https://raw.githubusercontent.com/deathbybandaid/piholestaticip/master
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeblockdhcp/master/09-noip4you.conf -P /etc/dnsmasq.d/
 # custom redirects
 sudo wget https://raw.githubusercontent.com/deathbybandaid/piholecustomredirect/master/07-customredirect.conf -P /etc/dnsmasq.d/
-sudo wget https://raw.githubusercontent.com/deathbybandaid/piholecustomredirect/master/customRedirect.list -P /etc/piadvanced/installscripts/
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholecustomredirect/master/customRedirect.list -P /etc/dnsmasq.d/
 fi }
 
 
