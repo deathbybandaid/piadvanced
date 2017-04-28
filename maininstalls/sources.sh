@@ -1,5 +1,8 @@
 #!/bin/sh
 ## Sources
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install sources?" 8 78) then
+echo "User Declined Dependencies"
+else
 { whiptail --msgbox "I'm going to add sources ." 20 70 1 
 sudo mkdir /etc/piadvanced/backups/sources
 sudo sed -i '/repozytorium.mati75.eu/d' /etc/apt/sources.list
@@ -17,3 +20,4 @@ sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A17031138
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
  }
+fi }
