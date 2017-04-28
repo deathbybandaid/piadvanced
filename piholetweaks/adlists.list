@@ -1,0 +1,226 @@
+## Pi-hole ad-list sources. Updated 06/04/2017 #########################
+## Duplicates were removed and are under Wally3k section                      ##
+##____________________________________________________________________________##
+## If you are having trouble with a list,                                     ##
+## You can always uncomment a list, and rerun "pihole -g"                     ##
+## The blacklist is generated fresh EVERY time                                ##
+################################################################################
+# The below list amalgamates several lists used previously.
+# See `https://github.com/StevenBlack/hosts` for details
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+##
+# Other lists we consider safe:
+https://mirror1.malwaredomains.com/files/justdomains
+http://sysctl.org/cameleon/hosts
+https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
+https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
+##
+# hosts-file.net list. Updated frequently, but has been known to block legitimate sites.
+https://hosts-file.net/ad_servers.txt
+##
+# ADZHOSTS list. Has been known to block legitimate domains
+#http://pilotfiber.dl.sourceforge.net/project/adzhosts/HOSTS.txt
+##
+# Windows 10 telemetry list
+#https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win10/spy.txt
+##
+# Block the BBC News website Breaking News banner
+#https://raw.githubusercontent.com/BreakingTheNews/BreakingTheNews.github.io/master/hosts
+##
+# Untested Lists:
+#https://raw.githubusercontent.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt
+#http://malwaredomains.lehigh.edu/files/domains.txt
+##
+# Following two lists should be used simultaneously: 
+# (readme https://github.com/notracking/hosts-blocklists/)
+#https://raw.github.com/notracking/hosts-blocklists/master/hostnames.txt
+#https://raw.github.com/notracking/hosts-blocklists/master/domains.txt
+##
+# Combination of several host files on the internet 
+# (warning some facebook domains are also blocked but you can go to facebook.com). 
+# See https://github.com/mat1th/Dns-add-block for more information.
+#https://raw.githubusercontent.com/mat1th/Dns-add-block/master/hosts
+################################################################################
+## Deathbybandaid' added Lists                                                ##
+#https://raw.githubusercontent.com/HenningVanRaumle/pihole-ytadblock/master/ytadblock.txt
+#https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Dead/hosts
+#https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts
+#https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
+#https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
+#https://raw.githubusercontent.com/azet12/KADhosts/master/KADhosts.txt
+#https://raw.githubusercontent.com/FadeMind/hosts.extras/master/SpotifyAds/hosts
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts
+#https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext&useip=0.0.0.0
+#http://hosts-file.net/fsa.txt
+#http://hosts-file.net/mmt.txt
+#https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win7/spy.txt
+#https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win81/spy.txt
+#https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/win10/spy.txt
+################################################################################
+## Below is Wally3k's lists                                                   ##
+## The Default Pihole Lists should get you near 100K Domains                  ##
+## The non-"suspicious" lists should get you 400k-500k                        ##
+## Some of the bigger lists will get you over 1 Million!                      ##
+##____________________________________________________________________________##
+## Comment/Uncomment at your own risk                                         ##
+##----------------------------------------------------------------------------##
+## Wally3k lists                                                              ##
+## There are some things worth noting:                                        ##
+## * If you want a (relatively) hands-off adblocking experience,              ##
+##   consider not installing any 'suspicious' lists                           ##
+## * Lists marked with ✔ are suggested for their minimal false positives      ##
+## * DO NOT just install all these lists at once                              ##
+## If you have hardware with 1GB of RAM or more, you may increase PHP's memory##
+##----------------------------------------------------------------------------##
+## Advertising Lists:                                                         ##
+##
+# ✔ AdAway
+#https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt
+##
+# ✔ Adguard DNS
+#http://v.firebog.net/hosts/AdguardDNS.txt
+##
+# ✔ Disconnect Ads
+#https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
+##
+# ✔ hpHosts Ads/Trackers
+#https://hosts-file.net/ad_servers.txt
+##
+# ✔ Easylist
+#http://v.firebog.net/hosts/Easylist.txt
+##
+# ✔ Steven Blacks Spotify Ads
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/SpotifyAds/hosts
+##
+# ✔ Steven Blacks Unchecky Ads
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/UncheckyAds/hosts
+##----------------------------------------------------------------------------##
+## Tracking & Telemetry Lists:
+##
+# ✔ Airelle Trackers
+#http://v.firebog.net/hosts/Airelle-trc.txt
+##
+# ✔ Easyprivacy
+#http://v.firebog.net/hosts/Easyprivacy.txt
+##
+# ✔ Quidsup Trackers
+#https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt
+##
+# ✔ Steven Blacks Trackers
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.2o7Net/hosts
+##
+# ✔ Steven Blacks Microsoft Telemetry
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/tyzbit/hosts
+##
+# Samsung SmartTV Domains
+#http://v.firebog.net/hosts/static/SamsungSmart.txt
+##
+## Malicious Lists:
+##
+# ✔ Airelle High Risk
+#http://v.firebog.net/hosts/Airelle-hrsk.txt
+##
+# ✔ Disconnect Malvertising
+#https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
+##
+# ✔ DNS-BH Malware
+#http://mirror1.malwaredomains.com/files/justdomains
+##
+# ✔ hpHosts Exploit
+#https://hosts-file.net/exp.txt
+##
+# ✔ hpHosts Malware
+#https://hosts-file.net/emd.txt
+##
+# ✔ hpHosts Phishing
+#https://hosts-file.net/psh.txt
+##
+# ✔ 'Immortal' Malware Domains
+#https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt
+##
+# ✔ Malware Domain List
+#https://www.malwaredomainlist.com/hostslist/hosts.txt
+##
+# ✔ Mandiant APT1 Report
+#https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt
+##
+# ✔ Openphish
+#https://openphish.com/feed.txt
+##
+# Quidsup Malicious
+#https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt
+##
+# ✔ Ransomware Tracker
+#https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt
+##
+# Shalla Malicious
+#http://v.firebog.net/hosts/Shalla-mal.txt
+##
+# Steven Blacks Risky Hosts
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Risk/hosts
+##
+# ✔ Zeus Tracker
+#https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
+##
+##----------------------------------------------------------------------------##
+## Suspicious Lists:
+##
+# ✔ hpHosts Spam
+#https://hosts-file.net/grm.txt
+##
+# ✔ ReddestDream
+#https://raw.githubusercontent.com/ReddestDream/reddestdream.github.io/master/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts
+##
+# ✔ Steven Blacks KAD
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/KADhosts/hosts
+##
+# ✔ Steven Blacks Spammers
+#https://raw.githubusercontent.com/StevenBlack/hosts/master/data/add.Spam/hosts
+##
+# Bill Stearn
+#http://v.firebog.net/hosts/BillStearns.txt
+##
+# CAMELEON
+#http://sysctl.org/cameleon/hosts
+##
+# DSHEILD Suspicious
+#https://www.dshield.org/feeds/suspiciousdomains_Low.txt
+##
+# Kowabit BoD
+#http://v.firebog.net/hosts/Kowabit.txt
+##
+# Joe Wein
+#http://www.joewein.net/dl/bl/dom-bl-base.txt
+##
+# Piwik Referrer Spam
+#https://raw.githubusercontent.com/piwik/referrer-spam-blacklist/master/spammers.txt
+##
+# SecureMecca
+# Also blocks "adult" sites (pornography/gambling etc)
+#http://securemecca.com/Downloads/hosts.txt
+##
+# Someone Who Cares
+#http://someonewhocares.org/hosts/zero/hosts
+##
+# Spam404
+#https://raw.githubusercontent.com/Dawsey21/Lists/master/main-blacklist.txt
+##
+# Vokins yhosts
+#https://raw.githubusercontent.com/vokins/yhosts/master/hosts
+##
+# Winhelp2002 MVPS
+#http://winhelp2002.mvps.org/hosts.txt
+##
+# X Andy Short
+#http://hostsfile.mine.nu/hosts0.txt
+##
+# X Elad Karako
+#https://raw.githubusercontent.com/eladkarako/hosts.eladkarako.com/master/_raw__hosts.txt
+##
+# X Mahakala
+# Has been known to block legitimate domains including the entire .com range.
+# Warning: Due to the sheer size of this list, the web admin console will be unresponsive.
+#https://adblock.mahakala.is
+##
+################################################################################
