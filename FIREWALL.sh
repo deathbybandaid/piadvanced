@@ -283,14 +283,10 @@ sudo iptables-restore < /etc/iptables.firewall.rules
 
 ## This will create a script to make sure the firewall is intact at boot , and every 6 hours.
 { if (whiptail --yesno "Do you want Activate this firewall with scripts?" 8 78) then
-sudo echo "#!/bin/sh" | sudo tee --append /etc/network/if-pre-up.d/firewall
-sudo echo "/sbin/iptables-restore < /etc/iptables.firewall.rules" | sudo tee --append /etc/network/if-pre-up.d/firewall
-sudo chmod +x /etc/network/if-pre-up.d/firewall
-sudo cp /etc/network/if-pre-up.d/firewall /etc/piadvanced/installscripts/firewall.sh 
+sudo chmod +x /etc/piadvanced/installscripts/firewall.sh
+sudo cp /etc/piadvanced/installscripts/firewall.sh /etc/network/if-pre-up.d/firewall
 (crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall.sh") | crontab -
 else
-echo ""
+echo "User Declined Firewall"
 fi }
-
-
 ## sudo iptables-restore < /etc/iptables.firewall.rules
