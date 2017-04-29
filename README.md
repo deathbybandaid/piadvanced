@@ -120,7 +120,12 @@ This is fully functional, and works!
 * The ability to make pihole -g run every 6 hours.
 * The ability to remove stale lists once weekly.
 * A way to Parse lists not compatible with Pihole.
-  * Configure this with sudo nano /etc/piadvanced/installscripts/ublockpihole/lists.lst
+  * Configure this with sudo nano /etc/piadvanced/piholetweaks/ublockpihole/lists.lst
+* A Second way to parse lists.
+  * Configure with sudo nano /var/www/html/admin/parser.php
+* A way to tweet daily blockings.
+  * Configure this with sudo nano /etc/piadvanced/piholetweaks/twittertweeter-ads.py
+  * Credit goes to https://github.com/DarthKeizer/Pi-Hole-stats-tweeter
 
 ## Webservers
 With the webservers, you can set the ip address and ports to listen on. This helps with port conflict issues.
