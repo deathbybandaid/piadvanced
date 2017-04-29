@@ -3,7 +3,6 @@
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Nginx" 8 78) then
 echo "User Declined Nginx"
 else
-source /home/dbbvariables
 whiptail --msgbox "What ports do you want NGINX to use?" 20 70 1
 whiptail --msgbox "I suggest setting port 80 to the static ip of eth0" 20 70 1
 NEW_NGINX80=$(whiptail --inputbox "Change the default port 80 for Nginx" 20 60 "$NEWETH_IP:80" 3>&1 1>&2 2>&3)
