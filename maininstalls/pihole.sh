@@ -3,8 +3,6 @@
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole?" 8 78) then
 echo "User Declined Pi-Hole"
 else
-
-## Main Pi-Hole installation
 sudo bash /etc/piadvanced/installscripts/piholeinstall.sh
 
 ## Wally3k Adlists
