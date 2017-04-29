@@ -5,4 +5,5 @@ echo "User Declined Atomic"
 else
 sudo git clone https://github.com/htpcBeginner/AtoMiC-ToolKit ~/AtoMiC-ToolKit
 sudo bash ~/AtoMiC-ToolKit/setup.sh
+whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70 1
 fi }
