@@ -93,6 +93,12 @@ sudo echo "#http://localhost/admin/parser.php?list=adguard_en" | sudo tee --appe
 sudo echo "#http://localhost/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use HenningVanRaumle's youtube adblock list?" 8 78) then
+echo "User Declined HenningVanRaumle"
+else
+sudo echo "#https://raw.githubusercontent.com/HenningVanRaumle/pihole-ytadblock/master/ytadblock.txt" | sudo tee --append /etc/pihole/adlists.list
+fi }
+
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole tweeter?" 8 78) then
 echo "User Declined Tweeter"
 else
