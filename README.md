@@ -142,12 +142,16 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 ## CUPS
 * This is probably the nicest printer server software out there.
 
-## HTPC Softwares
+## AtoMiC-ToolKit
 * This uses the AtoMiC-ToolKit.
   * Refer to https://github.com/htpcBeginner/AtoMiC-ToolKit for more information.
 * Anything that is installed by this will need a firewall rule added.
 
+## Dplatform
+* See https://github.com/DFabric/DPlatform-ShellCore for details.
+
 ## Things in the works:
+* Steam Cache
 * PXE Server
 * Moboticz
 * Nagios
