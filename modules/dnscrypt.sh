@@ -5,5 +5,5 @@ echo "User Declined DNSCrypt"
 else
 sudo bash /etc/piadvanced/installscripts/dnsproxy/dnscryptinstall.sh
 sudo echo "dnscryptfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
-sudo cp /etc/piadvanced/piholetweaks/dnscrypt/10-dnscrypt.conf /etc/dnsmasq.d/
+sudo cp -n /etc/piadvanced/piholetweaks/dnscrypt/10-dnscrypt.conf /etc/dnsmasq.d/
 fi }
