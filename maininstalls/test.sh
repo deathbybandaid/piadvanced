@@ -6,13 +6,16 @@
 ################################################################
 
 ## These documents will contain all of our setup variables. Date/Time Stamped.
+#timestamp=`date --rfc-3339=seconds`
+#{ if (whiptail --yes-button "First Time!" --no-button "Not The First Time!" --yesno "Is this the First run of this install?" 8 78) then
+#sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf
+#else
+#sudo mv /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf /etc/piadvanced/backups/
+#sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf
+#fi }
 timestamp=`date --rfc-3339=seconds`
-{ if (whiptail --yes-button "First Time!" --no-button "Not The First Time!" --yesno "Is this the First run of this install?" 8 78) then
 sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf
-else
 sudo mv /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf /etc/piadvanced/backups/
-sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf
-fi }
 
 ## Here we Go!!
 whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
