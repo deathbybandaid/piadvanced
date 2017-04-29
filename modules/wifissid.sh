@@ -15,6 +15,4 @@ sudo echo "network={"| sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
 sudo echo "    ssid="$NEW_SSID"" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
 sudo echo "    psk="$NEW_PSK"" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
 sudo echo "}" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
-sudo sed -i "s/$NEW_SSID/"$NEW_SSID"/" /etc/wpa_supplicant/wpa_supplicant.conf
-sudo sed -i "s/$NEW_PSK/"$NEW_PSK"/" /etc/wpa_supplicant/wpa_supplicant.conf
 fi }
