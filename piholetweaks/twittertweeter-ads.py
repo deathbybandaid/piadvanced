@@ -27,10 +27,10 @@ def get_api(cfg):
 def main():
   # Fill in the values noted in previous step here
   cfg = { 
-    "consumer_key"        : "VALUE",
-    "consumer_secret"     : "VALUE",
-    "access_token"        : "VALUE",
-    "access_token_secret" : "VALUE" 
+    "consumer_key"        : "VALUE1",
+    "consumer_secret"     : "VALUE2",
+    "access_token"        : "VALUE3",
+    "access_token_secret" : "VALUE4" 
     }
 
   api = get_api(cfg)
