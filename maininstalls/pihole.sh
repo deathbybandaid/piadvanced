@@ -107,5 +107,11 @@ sudo echo "#http://localhost/admin/parser.php?list=adguard_en" | sudo tee --appe
 sudo echo "#http://localhost/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole tweeter?" 8 78) then
+echo "User Declined Tweeter"
+else
+(crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/twittertweeter.py") | crontab -
+fi }
+
 
 fi }
