@@ -1,7 +1,6 @@
 #!/bin/sh
 ## pihole
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole?" 8 78) 
-then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole?" 8 78) then
 echo "User Declined Pi-Hole"
 else
 
