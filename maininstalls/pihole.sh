@@ -3,11 +3,8 @@
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole?" 8 78) then
 echo "User Declined Pi-Hole"
 else
-
-## Main Pi-Hole install
 sudo bash /etc/piadvanced/installscripts/piholeinstall.sh
 
-## Wally3k Adlists
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the Wally3k adlists.list?" 8 78) then
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Would you like to copy adlists.default to adlists.list instead?" 8 78) then
 echo "User Declined Using adlists.list"
@@ -18,7 +15,6 @@ else
 sudo wget https://raw.githubusercontent.com/deathbybandaid/wally3k-adlists.list/master/adlists.list -P /etc/pihole/
 fi }
 
-## Dark Theme
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Dark webui theme?" 8 78) then
 echo "User Declined Dark Theme"
 else
@@ -27,43 +23,36 @@ cd /var/www/html
 sudo bash install.sh
 fi }
 
-## Wally3k Block Page
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the wally3k block page?" 8 78) then
 echo "User Declined using Wally3k's Block Page"
 else
 sudo bash /etc/piadvanced/piholetweaks/Wally3kBlockPage.sh
 fi }
 
-## DNSTweaks
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install deathbybandaid dnsmasq tweaks? See readme for more information." 8 78) then
 echo "User Declined deathbybandaid dnsmasq tweaks"
 else
 sudo cp -n /etc/piadvanced/piholetweaks/dnsmasqtweaks/*.conf /etc/dnsmasq.d/
 fi }
 
-
-## pihole -up 30 minutes
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do youw want to run pihole -up every 30 minutes?" 8 78) then
 echo "User Declined 30 minute autoupdates"
 else
 (crontab -l ; echo "0,30 * * * * sudo bash /etc/piadvanced/piholetweaks/piholeautoupdate.sh") | crontab -
 fi }
 
-## Weekly old list removal
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want a script to keep cached lists from becoming stale?" 8 78) then
 echo "User Declined Stale List Fix"
 else
 (crontab -l ; echo "0 5 * * 1 sudo bash /etc/piadvanced/piholetweaks/piholefreshlists.sh") | crontab -
 fi }
 
-## Gravity 6 hours
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want a script to update gravity every 6 hours?" 8 78) then
 echo "User Declined Updating gravity every 6 hours"
 else
 (crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/piholetweaks/piholegravity.sh") | crontab -
 fi }
 
-## Ublock Parser
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want a program to parse additional lists? By default this uses lists used by ublock. To change the lists, edit lists.lst in /etc/piadvanced/installscripts/ublockpihole/" 8 78) then
 echo "User Declined the UBlock Parser"
 else
@@ -71,7 +60,6 @@ else
 sudo echo "#http://localhost/admin/ublock.txt" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
-## Experimental youtube ad blocking
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use an script to add additional youtube adblocking?" 8 78) then
 echo "User Declined the youtube ad blocker"
 else
@@ -80,7 +68,6 @@ sudo pip install -r /etc/piadvanced/piholetweaks/youtubeadblock/requirements.txt
 sudo echo "#http://localhost/admin/youtube.txt" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
-## Adguard
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use a script to add adguard blocking?" 8 78) then
 echo "User Declined adguard parser"
 else
@@ -88,7 +75,6 @@ else
 sudo echo "#http://localhost/admin/adguard.txt" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
-## PHP list parser
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use the PHP Parser?" 8 78) then
 echo "User Declined the PHP Parser"
 else
