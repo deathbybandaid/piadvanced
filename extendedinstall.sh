@@ -120,7 +120,9 @@ sudo bash /etc/piadvanced/maininstalls/squid.sh
 
 ## HTPC
 sudo bash /etc/piadvanced/maininstalls/atomic.sh
-whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70 1
+
+## Dplatform
+sudo bash /etc/piadvanced/maininstalls/dplatform.sh
 
 ## THE FIREWALL!!
 sudo bash /etc/piadvanced/FIREWALL.sh
