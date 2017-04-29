@@ -5,7 +5,7 @@ echo "User Declined Pi-Hole"
 else
 
 ## Main Pi-Hole installation
-sudo bash /etc/piadvanced/installscripts/piholeinstall.sh
+#sudo bash /etc/piadvanced/installscripts/piholeinstall.sh
 
 ## Wally3k Adlists
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the Wally3k adlists.list?" 8 78) then
@@ -107,18 +107,18 @@ sudo echo "#http://localhost/admin/parser.php?list=adguard_en" | sudo tee --appe
 sudo echo "#http://localhost/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
-#{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole tweeter?" 8 78) then
-#echo "User Declined Tweeter"
-#else
-#CONSUMER_KEY=$(whiptail --inputbox "Consumer Key" 20 60 "" 3>&1 1>&2 2>&3)
-#CONSUMER_SECRET=$(whiptail --inputbox "Consumer Secret" 20 60 "" 3>&1 1>&2 2>&3)
-#ACCESS_TOKEN=$(whiptail --inputbox "Access Token" 20 60 "" 3>&1 1>&2 2>&3)
-#ACCESS_TOKEN_SECRET=$(whiptail --inputbox "Access Token Secret" 20 60 "" 3>&1 1>&2 2>&3)
-#sudo sed -i "s/VALUE1/$CONSUMER_KEY/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
-#sudo sed -i "s/VALUE2/$CONSUMER_SECRET/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
-#sudo sed -i "s/VALUE3/$ACCESS_TOKEN/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
-#sudo sed -i "s/VALUE4/$ACCESS_TOKEN_SECRET/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
-#(crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/twittertweeter.py") | crontab -
-#fi }
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole tweeter?" 8 78) then
+echo "User Declined Tweeter"
+else
+CONSUMER_KEY=$(whiptail --inputbox "Consumer Key" 20 60 "" 3>&1 1>&2 2>&3)
+CONSUMER_SECRET=$(whiptail --inputbox "Consumer Secret" 20 60 "" 3>&1 1>&2 2>&3)
+ACCESS_TOKEN=$(whiptail --inputbox "Access Token" 20 60 "" 3>&1 1>&2 2>&3)
+ACCESS_TOKEN_SECRET=$(whiptail --inputbox "Access Token Secret" 20 60 "" 3>&1 1>&2 2>&3)
+sudo sed -i "s/VALUE1/$CONSUMER_KEY/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
+sudo sed -i "s/VALUE2/$CONSUMER_SECRET/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
+sudo sed -i "s/VALUE3/$ACCESS_TOKEN/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
+sudo sed -i "s/VALUE4/$ACCESS_TOKEN_SECRET/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
+(crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/twittertweeter.py") | crontab -
+fi }
 
 fi }
