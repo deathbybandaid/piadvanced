@@ -1,7 +1,6 @@
 #!/bin/sh
 ## hostname settings
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want set the hostname?" 8 78)
-then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want set the hostname?" 8 78) then
 echo "User Declined setting a new hostname"
 else
 OLD_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
