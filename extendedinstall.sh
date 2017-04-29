@@ -17,6 +17,8 @@ fi }
 ## Here we Go!!
 whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
 
+cd /etc/piadvanced/maininstalls/
+
 ## Hostname
 sudo bash /etc/piadvanced/maininstalls/hostname.sh
 
