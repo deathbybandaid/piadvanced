@@ -126,6 +126,7 @@ This is fully functional, and works!
 * A way to tweet daily blockings.
   * Configure this with sudo nano /etc/piadvanced/piholetweaks/twittertweeter-ads.py
   * Credit goes to https://github.com/DarthKeizer/Pi-Hole-stats-tweeter
+* HenningVanRaumle's Youtube Adblock List
 
 ## Webservers
 With the webservers, you can set the ip address and ports to listen on. This helps with port conflict issues.
