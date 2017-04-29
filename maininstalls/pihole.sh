@@ -1,8 +1,8 @@
 #!/bin/sh
 ## pihole
-#{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole?" 8 78) then
-#echo "User Declined Pi-Hole"
-#else
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole?" 8 78) then
+echo "User Declined Pi-Hole"
+else
 
 ## Main Pi-Hole install
 sudo bash /etc/piadvanced/installscripts/piholeinstall.sh
@@ -121,4 +121,4 @@ sudo sed -i "s/VALUE4/$ACCESS_TOKEN_SECRET/" /etc/piadvanced/piholetweaks/twitte
 (crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/twittertweeter.py") | crontab -
 fi }
 
-#fi }
+fi }
