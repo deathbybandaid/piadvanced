@@ -118,14 +118,14 @@ sudo bash /etc/piadvanced/modules/privoxy.sh
 ## Squid
 sudo bash /etc/piadvanced/modules/squid.sh
 
+## HASS
+#sudo bash /etc/piadvanced/modules/hass.sh
+
 ## HTPC
 sudo bash /etc/piadvanced/modules/atomic.sh
 
 ## Dplatform
 sudo bash /etc/piadvanced/modules/dplatform.sh
-
-## HASS
-sudo bash /etc/piadvanced/modules/hass.sh
 
 ## THE FIREWALL!!
 sudo bash /etc/piadvanced/FIREWALL.sh
