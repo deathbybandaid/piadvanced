@@ -124,7 +124,7 @@ sudo bash /etc/piadvanced/modules/atomic.sh
 ## Dplatform
 sudo bash /etc/piadvanced/modules/dplatform.sh
 
-## Dplatform
+## HASS
 sudo bash /etc/piadvanced/modules/hass.sh
 
 ## THE FIREWALL!!
