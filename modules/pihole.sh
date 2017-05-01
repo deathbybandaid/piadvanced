@@ -102,6 +102,10 @@ fi }
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole tweeter?" 8 78) then
 echo "User Declined Tweeter"
 else
+sudo pip install tweepy
+sudo pip install urllib
+sudo pip install json
+sudo pip install datetime
 CONSUMER_KEY=$(whiptail --inputbox "Consumer Key" 20 60 "" 3>&1 1>&2 2>&3)
 CONSUMER_SECRET=$(whiptail --inputbox "Consumer Secret" 20 60 "" 3>&1 1>&2 2>&3)
 ACCESS_TOKEN=$(whiptail --inputbox "Access Token" 20 60 "" 3>&1 1>&2 2>&3)
