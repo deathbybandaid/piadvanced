@@ -234,6 +234,9 @@ fi }
 then
 sudo echo "# HASS" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "-A INPUT -p tcp --dport 8123 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 8888 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 1883 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 9001 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
