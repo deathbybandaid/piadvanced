@@ -105,6 +105,7 @@ else
 sudo pip install tweepy
 sudo pip install urllib
 sudo pip install json
+sudo pip install simplejson
 sudo pip install datetime
 CONSUMER_KEY=$(whiptail --inputbox "Consumer Key" 20 60 "" 3>&1 1>&2 2>&3)
 CONSUMER_SECRET=$(whiptail --inputbox "Consumer Secret" 20 60 "" 3>&1 1>&2 2>&3)
