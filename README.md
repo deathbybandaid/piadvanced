@@ -100,6 +100,7 @@ This is fully functional, and works!
 * https://pi-hole.net/
 * Asks you to change the password for the webui immediately.
 * A dark theme, thanks to LKD70
+  * NOTE: DOES NOT WORK WITH Pi-Hole 3.0 update.
   * Refer to https://github.com/lkd70/PiHole-Dark for details.
 * The Wally3k adlists.
   * Configure this with sudo nano /etc/pihole/adlists.list
