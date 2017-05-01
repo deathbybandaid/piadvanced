@@ -97,11 +97,14 @@ Handy if you want to get email from your device when things happen, or you need 
 This is fully functional, and works!
 
 ## Pi-Hole
+* https://pi-hole.net/
 * Asks you to change the password for the webui immediately.
 * A dark theme, thanks to LKD70
+  * Refer to https://github.com/lkd70/PiHole-Dark for details.
 * The Wally3k adlists.
   * Configure this with sudo nano /etc/pihole/adlists.list
 * The Wally3k Block Page
+  * Refer to https://github.com/WaLLy3K/Pi-hole-Block-Page for details.
   * Configure with sudo nano /var/phbp.ini
 * The ability to bypass by mac address.
   * Configure with sudo nano /etc/dnsmasq.d/04-bypass.conf
@@ -136,6 +139,7 @@ With the webservers, you can set the ip address and ports to listen on. This hel
   * I have stuff in the works for nginx, stay tuned.
 
 ## Guacamole
+* Refer to https://guacamole.incubator.apache.org/
 * Set up a RDP/VNC/Gateway for your home network.
 * It runs on Tomcat using Port 8080
 * The default username and password is guacadmin
@@ -146,11 +150,11 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 * Squid/Squidguard
 
 ## CUPS
+* https://www.cups.org/
 * This is probably the nicest printer server software out there.
 
 ## AtoMiC-ToolKit
-* This uses the AtoMiC-ToolKit.
-  * Refer to https://github.com/htpcBeginner/AtoMiC-ToolKit for more information.
+* Refer to https://github.com/htpcBeginner/AtoMiC-ToolKit for more information.
 * Anything that is installed by this will need a firewall rule added.
 
 ## Dplatform
