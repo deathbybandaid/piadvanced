@@ -103,6 +103,7 @@ fi }
 echo "User Declined Tweeter"
 else
 sudo pip install tweepy
+sudo pip install request
 sudo pip install urllib
 sudo pip install json
 sudo pip install simplejson
