@@ -115,7 +115,7 @@ sudo sed -i "s/VALUE1/$CONSUMER_KEY/" /etc/piadvanced/piholetweaks/twittertweete
 sudo sed -i "s/VALUE2/$CONSUMER_SECRET/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
 sudo sed -i "s/VALUE3/$ACCESS_TOKEN/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
 sudo sed -i "s/VALUE4/$ACCESS_TOKEN_SECRET/" /etc/piadvanced/piholetweaks/twittertweeter-ads.py
-(crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/twittertweeter.py") | crontab -
+(crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/twittertweeter-ads.py") | crontab -
 fi }
 
 fi }
