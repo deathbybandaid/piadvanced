@@ -198,6 +198,14 @@ sudo echo "-A INPUT -p tcp --dport 10000 -j ACCEPT" | sudo tee --append /etc/ipt
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## Pihole
+{ if [ "$piholefirewall" = "yes" ]
+then
+sudo echo "# Pi-Hole" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT -p tcp --dport 4711 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## Tomcat Guacamole
 { if [ "$guacamolefirewall" = "yes" ]
 then
