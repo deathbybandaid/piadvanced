@@ -119,7 +119,7 @@ sudo bash /etc/piadvanced/modules/privoxy.sh
 sudo bash /etc/piadvanced/modules/squid.sh
 
 ## HASS
-#sudo bash /etc/piadvanced/modules/hass.sh
+sudo bash /etc/piadvanced/modules/hass.sh
 
 ## HTPC
 sudo bash /etc/piadvanced/modules/atomic.sh
