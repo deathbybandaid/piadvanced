@@ -4,6 +4,7 @@
 echo "User Declined Pi-Hole"
 else
 sudo bash /etc/piadvanced/installscripts/piholeinstall.sh
+sudo echo "piholefirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the Wally3k adlists.list?" 8 78) then
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Would you like to copy adlists.default to adlists.list instead?" 8 78) then
