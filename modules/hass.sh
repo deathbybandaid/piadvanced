@@ -12,5 +12,7 @@ curl -O https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/m
 #sudo chown pi:pi /etc/piadvanced/installscripts/hass_rpi_installer.sh
 #fi }
 #bash /etc/piadvanced/installscripts/hass_rpi_installer.sh
+sudo mosquitto_passwd /etc/mosquitto/pwfile pi
+sudo systemctl restart mosquitto.service
 sudo echo "hassfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
