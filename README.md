@@ -124,7 +124,7 @@ This is fully functional, and works!
 * A Second way to parse lists.
   * Configure with sudo nano /var/www/html/admin/parser.php
 * A way to tweet daily blockings.
-  * Configure this with sudo nano /etc/piadvanced/piholetweaks/twittertweeter-ads.py
+  * Configure this with sudo nano /etc/piadvanced/piholetweaks/piholetweeter.py
   * Credit goes to https://github.com/DarthKeizer/Pi-Hole-stats-tweeter
 * HenningVanRaumle's Youtube Adblock List
 
