@@ -156,6 +156,9 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 ## Dplatform
 * See https://github.com/DFabric/DPlatform-ShellCore for details.
 
+## HASS
+* See https://github.com/home-assistant/fabric-home-assistant for details.
+
 ## Things in the works:
 * Steam Cache
 * PXE Server
@@ -165,7 +168,6 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 * ShellinaBox
 * Plexboard
 * A wake-on-lan solution
-* HASS
 * Samba share
 * A script that makes regular backups to a directory with date/time stamps. maybe weekly.
 * Cerbot Let's Encrypt
