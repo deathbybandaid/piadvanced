@@ -1,5 +1,6 @@
 #!/bin/bash
 ## HASS
+
 sudo apt-get --force-yes --yes install python-dev
 sudo apt-get --force-yes --yes install python-pip
 sudo apt-get --force-yes --yes install git
