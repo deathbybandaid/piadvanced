@@ -6,7 +6,8 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use an script to add additional youtube adblocking?" 10 80) 
+{ if 
+(whiptail --title "Youtube adlocking" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use an script to add additional youtube adblocking?" 10 80) 
 then
 echo "User Declined the youtube ad blocker"
 else
