@@ -6,10 +6,12 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on using the OpenVPN Server?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on using the OpenVPN Server?" 10 80) 
+then
 echo "User Declined OpenVPN"
 else
-whiptail --msgbox "Select TCP during the install" 20 70 1
+whiptail --msgbox "Select TCP during the install" 10 80 1
 sudo wget https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh -P /etc/piadvanced/installscripts/
 sudo chmod +x /etc/piadvanced/installscripts/openvpn-install.sh
 sudo bash /etc/piadvanced/installscripts/openvpn-install.sh
