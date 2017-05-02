@@ -1,5 +1,11 @@
 #!/bin/sh
 ## Apticron
+
+## Variables
+source /etc/piadvanced/install/firewall.conf
+source /etc/piadvanced/install/variables.conf
+source /etc/piadvanced/install/userchange.conf
+
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install apticron to recieve updates when you have pending updates?" 8 78) then
 echo "User Declined Apticron"
 else
