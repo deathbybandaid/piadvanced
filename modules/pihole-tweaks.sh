@@ -6,7 +6,9 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install any Pi-Hole tweaks?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install any Pi-Hole tweaks?" 10 80) 
+then
 echo "User Declined Dark Pi-Hole Tweaks"
 else
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-wally3kadlists.sh
