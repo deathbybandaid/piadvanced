@@ -193,7 +193,7 @@ sudo bash /etc/piadvanced/extendedinstall.sh
 
 sudo passwd root
 
-sudo bash /etc/piadvanced/removedefaultpiuser.sh
+sudo bash /etc/piadvanced/renamedefaultpiuser.sh
 
 ###### This will remove the root password we added earlier and lock the account.
 passwd -dl root
