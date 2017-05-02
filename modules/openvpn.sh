@@ -1,6 +1,11 @@
 #!/bin/sh
-source /etc/piadvanced/install/variables.conf
 ## OpenVPN
+
+## Variables
+source /etc/piadvanced/install/firewall.conf
+source /etc/piadvanced/install/variables.conf
+source /etc/piadvanced/install/userchange.conf
+
 { if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on using the OpenVPN Server?" 8 78) then
 echo "User Declined OpenVPN"
 else
