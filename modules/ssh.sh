@@ -1,5 +1,11 @@
 #!/bin/sh
 ## SSH
+
+## Variables
+source /etc/piadvanced/install/firewall.conf
+source /etc/piadvanced/install/variables.conf
+source /etc/piadvanced/install/userchange.conf
+
 ## I might add the option to use a key versus password for login.
 { whiptail --yesno "Would you like the SSH server enabled or disabled?" 20 60 2 \
 --yes-button Enable --no-button Disable
