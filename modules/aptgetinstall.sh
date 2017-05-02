@@ -6,10 +6,12 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Basic Software dependencies?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Basic Software dependencies?" 10 80) 
+then
 echo "User Declined Dependencies"
 else
-{ whiptail --msgbox "I'm going to install some stuff." 20 70 1
+whiptail --msgbox "I'm going to install some stuff." 20 70 1
 sudo apt-get install -y raspi-config
 sudo apt-get install -y gawk
 sudo apt-get install -y tcpdump
@@ -89,5 +91,4 @@ sudo apt-get install -y locate
 sudo apt-get install -y bash-completion
 sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y pkg-config
- }
 fi }
