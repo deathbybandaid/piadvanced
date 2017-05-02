@@ -7,7 +7,9 @@
 
 ## These documents will contain all of our setup variables. Date/Time Stamped.
 timestamp=`date --rfc-3339=seconds`
-{ if (whiptail --yes-button "First Time!" --no-button "Not The First Time!" --yesno "Is this the First run of this install?" 8 78) then
+{ if 
+(whiptail --title "First Run?" --yes-button "First Time!" --no-button "Not The First Time!" --yesno "Is this the First run of this install?" 10 80) 
+then
 sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf
 else
 sudo mv /etc/piadvanced/install/variables.conf /etc/piadvanced/install/firewall.conf /etc/piadvanced/backups/
@@ -15,7 +17,8 @@ sudo echo "## $timestamp" | sudo tee --append /etc/piadvanced/install/variables.
 fi }
 
 ## Here we Go!!
-whiptail --msgbox "This is The Deathbybandaid Pi Install" 20 70 1
+echo "This is The Deathbybandaid Pi Install" > herewego_textbox
+whiptail --textbox --title "Let's Start!" herewego_textbox 10 80
 
 ## Hostname
 sudo bash /etc/piadvanced/modules/hostname.sh
@@ -71,7 +74,8 @@ sudo bash /etc/piadvanced/modules/noip.sh
 sudo bash /etc/piadvanced/modules/ddclient.sh
 
 ## VPNs
-whiptail --msgbox "The next two installs are openvpn and pivpn, choose one ONLY!" 20 70 1
+echo "The next two installs are openvpn and pivpn, choose one ONLY!" > vpns_textbox
+whiptail --textbox --title "VPN Options" vpns_textbox 10 80
 
 ## OpenVPN
 sudo bash /etc/piadvanced/modules/openvpn.sh
@@ -86,8 +90,8 @@ sudo bash /etc/piadvanced/modules/pihole.sh
 sudo bash /etc/piadvanced/modules/dnscrypt.sh
 
 ## Webserver settings
-whiptail --msgbox "During the install, multiple webservers could have been installed. Let's try to adjust the configs to not interfere with eachother" 20 70 1
-whiptail --msgbox "If these aren't set correctly, you will have to manually adjust them, because they may not start properly." 20 70 1
+echo "During the install, multiple webservers could have been installed. Let's try to adjust the configs to not interfere with eachother. If these aren't set correctly, you will have to manually adjust them, because they may not start properly." > webserver_textbox
+whiptail --textbox --title "Webserver Questions Ahead" webserver_textbox 10 80
 sudo bash /etc/piadvanced/modules/apache.sh
 sudo bash /etc/piadvanced/modules/lighttpd.sh
 sudo bash /etc/piadvanced/modules/nginx.sh
@@ -111,7 +115,9 @@ sudo bash /etc/piadvanced/modules/cups.sh
 sudo bash /etc/piadvanced/modules/rpimonitor.sh
 
 ## Proxies
-whiptail --msgbox "The next two installs are Squid and Privoxy, choose one ONLY!" 20 70 1
+echo "The next two installs are Squid and Privoxy, choose one ONLY!" > proxies_textbox
+whiptail --textbox --title "Proxies" proxies_textbox 10 80
+
 
 ## Privoxy
 sudo bash /etc/piadvanced/modules/privoxy.sh
@@ -132,4 +138,5 @@ sudo bash /etc/piadvanced/modules/dplatform.sh
 sudo bash /etc/piadvanced/FIREWALL.sh
 
 ## All Done
-whiptail --msgbox "This concludes the script. Reboot to complete. Consult the readme for additional configuration." 20 70 1
+echo "This concludes the script. Reboot to complete. Consult the readme for additional configuration." > completed_textbox
+whiptail --textbox --title "Completed" completed_textbox 10 80
