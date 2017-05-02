@@ -6,10 +6,12 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install and use the AtoMiC-ToolKit for htpc softwares?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install and use the AtoMiC-ToolKit for htpc softwares?" 10 80) 
+then
 echo "User Declined Atomic"
 else
 sudo git clone https://github.com/htpcBeginner/AtoMiC-ToolKit ~/AtoMiC-ToolKit
 sudo bash ~/AtoMiC-ToolKit/setup.sh
-whiptail --msgbox "Any programs installed via Atomic need firewall rules." 20 70 1
+whiptail --msgbox "Any programs installed via Atomic need firewall rules." 10 80 1
 fi }
