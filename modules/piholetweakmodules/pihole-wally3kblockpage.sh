@@ -7,7 +7,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the wally3k block page?" 10 80) 
+(whiptail --title "Wally3k Block Page" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the wally3k block page?" 10 80) 
 then
 echo "User Declined using Wally3k's Block Page"
 else
