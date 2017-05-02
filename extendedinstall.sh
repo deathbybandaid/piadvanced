@@ -34,6 +34,7 @@ sudo bash /etc/piadvanced/modules/wlan0.sh
 
 ## Memory Split
 sudo bash /etc/piadvanced/modules/memorysplit.sh
+sudo bash /etc/piadvanced/modules/totalmemtweak.sh
 
 ## SSH
 sudo bash /etc/piadvanced/modules/ssh.sh
