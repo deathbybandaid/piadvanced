@@ -184,7 +184,11 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 
 sudo git clone https://github.com/deathbybandaid/piadvanced.git /etc/piadvanced/
 
-### Step one, we are going to change the root password.
+### The main script
+
+sudo bash /etc/piadvanced/extendedinstall.sh
+
+### Optional Step, we are going to change the root password.
 ##### If you are paranoid,,, make it something secure, use a password generator if needbe. Or simply don't be connected to a network for this step.
 
 sudo passwd root
@@ -198,6 +202,4 @@ sudo reboot
 
 after it reboots, login as your new user.
 
-### Step two, my main script here
-
-sudo bash /etc/piadvanced/extendedinstall.sh
+# Enjoy
