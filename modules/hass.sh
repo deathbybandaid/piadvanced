@@ -6,7 +6,9 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install HASS? This install takes some decent time." 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install HASS? This install takes some decent time." 10 80) 
+then
 echo "User Declined HASS"
 else
 sudo wget https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh -P  /etc/piadvanced/installscripts/
