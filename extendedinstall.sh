@@ -36,6 +36,7 @@ sudo bash /etc/piadvanced/modules/memorysplit.sh
 sudo bash /etc/piadvanced/modules/ssh.sh
 
 ## Time
+sudo bash /etc/piadvanced/modules/timezone.sh
 sudo bash /etc/piadvanced/modules/ntp.sh
 
 ## Random Number Generation fix
