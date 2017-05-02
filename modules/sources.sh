@@ -6,10 +6,12 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install sources?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install sources?" 10 80) 
+then
 echo "User Declined Dependencies"
 else
-{ whiptail --msgbox "I'm going to add sources ." 20 70 1 
+whiptail --msgbox "I'm going to add sources ." 10 80 1 
 sudo sed -i '/repozytorium.mati75.eu/d' /etc/apt/sources.list
 sudo sed -i '/mirrordirector.raspbian.org/d' /etc/apt/sources.list.d/stretch.list
 sudo sed -i '/APT::Default-Release "jessie";/d' /etc/apt/apt.conf.d/99-default-release
@@ -24,5 +26,4 @@ sudo gpg --armor --export CCD91D6111A06851 | apt-key add -
 sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
- }
 fi }
