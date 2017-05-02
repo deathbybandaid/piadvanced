@@ -1,5 +1,5 @@
 #!/bin/sh
-## wlan0 setup
+## wifi setup
 
 ## Variables
 source /etc/piadvanced/install/firewall.conf
