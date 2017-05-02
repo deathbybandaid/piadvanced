@@ -6,12 +6,15 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --title "Remove User pi" --yes-button "I am Not Root" --no-button "I am Root" --yesno "Are you running as root?" 8 78) then
+## Ask if Root, If Not exits
+{ if 
+(whiptail --title "Remove User pi" --yes-button "I am Not Root" --no-button "I am Root" --yesno "Are you running as root?" 8 78)
+then
 echo "User Not Root"
 echo "Exiting"
 exit
 else
-whiptail --msgbox "
+whiptail -msgbox --title "Information" "
 Let's rename the user pi.
 This will make the pi a great deal more secure.
 I will ask you for a username and a password.
