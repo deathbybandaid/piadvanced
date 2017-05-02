@@ -6,11 +6,12 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to Change your message of the day to a much cooler one?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to Change your message of the day to a much cooler one?" 10 80) 
+then
 echo "User Declined setting a cooler motd message"
 else
-whiptail --msgbox "This is the message you receive at login" 20 70 1
-#sudo uname -snrvm > /var/run/motd.dynamic
+whiptail --msgbox "This is the message you receive at login" 10 80 1
 sudo systemctl disable motd
 sudo mkdir /etc/update-motd.d
 sudo rm -f /etc/motd
