@@ -1,27 +1,20 @@
 #!/bin/sh
 ## SSH
+## I might add the option to use a key versus password for login.
 
 ## Variables
 source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-## I might add the option to use a key versus password for login.
-{ whiptail --yesno "Would you like the SSH server enabled or disabled?" 10 80 2 \
---yes-button Enable --no-button Disable
-RET=$?
-if 
-[ $RET -eq 0 ]; 
-then
-update-rc.d ssh enable &&
-invoke-rc.d ssh start &&
-whiptail --msgbox "SSH server enabled" 10 80 1
-sudo echo "sshfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
-elif 
-[ $RET -eq 1 ]; 
+{ if 
+(whiptail --yes-button "Disable" --no-button "Enable" --yesno "Would you like the SSH server enabled or disabled?" 10 80) 
 then
 update-rc.d ssh disable &&
 whiptail --msgbox "SSH server disabled" 10 80 1
 else
-return $RET
+update-rc.d ssh enable &&
+invoke-rc.d ssh start &&
+whiptail --msgbox "SSH server enabled" 10 80 1
+sudo echo "sshfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
