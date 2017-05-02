@@ -6,11 +6,14 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Cups?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Cups?" 10 80) 
+then
 echo "User Declined CUPS"
 else
 sudo apt-get install -y cups
-{ if [ "$CHANGED_USERNAME" = "yes" ]
+{ if 
+[ "$CHANGED_USERNAME" = "yes" ]
 then
 sudo usermod -a -G lpadmin $NEW_USERNAME
 else
