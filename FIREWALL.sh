@@ -1,10 +1,11 @@
 #!/bin/sh
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 10 80) then
 echo "User Declined Firewall"
 else
 
 ## Message
-whiptail --msgbox "Any network access will be blocked unless there is a rule to allow it." 20 70 1
+echo "Any network access will be blocked unless there is a rule to allow it." > firewall_textbox
+whiptail --textbox --title "Firewall" firewall_textbox 10 80
 
 ## Variables
 source /etc/piadvanced/install/firewall.conf
@@ -38,7 +39,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## HTTP HTTPS
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 80 and 443? These ports are typically web traffic" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 80 and 443? These ports are typically web traffic" 10 80) then
 echo "User Declined Firewall Ports 80 and 443"
 else
 sudo echo "#  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL)." | sudo tee --append /etc/iptables.firewall.rules
@@ -48,7 +49,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## Mysql
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Port 3306? This port is for MySQL" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Port 3306? This port is for MySQL" 10 80) then
 echo "User Declined Firewall Ports 3306"
 else
 sudo echo "#  MySQL" | sudo tee --append /etc/iptables.firewall.rules
@@ -57,7 +58,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## SMTP
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 25, 465, and 587? These ports are for SMTP" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 25, 465, and 587? These ports are for SMTP" 10 80) then
 echo "User Declined Firewall Ports 25, 465, and 587"
 else
 sudo echo "# Allows SMTP access" | sudo tee --append /etc/iptables.firewall.rules
@@ -68,7 +69,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## POP POPS
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 110 and 995? These ports are for POP" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 110 and 995? These ports are for POP" 10 80) then
 echo "User Declined Firewall Ports 110 and 995"
 else
 sudo echo "# Allows pop and pops connections" | sudo tee --append /etc/iptables.firewall.rules
@@ -78,7 +79,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## IMAP IMAPS
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 143 and 993? These ports are for IMAP" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 143 and 993? These ports are for IMAP" 10 80) then
 echo "User Declined Firewall Ports 143 and 993"
 else
 sudo echo "# Allows imap and imaps connections" | sudo tee --append /etc/iptables.firewall.rules
@@ -97,7 +98,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## DHCP
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 67 and 68? These ports are for DHCP" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Ports 67 and 68? These ports are for DHCP" 10 80) then
 echo "User Declined Firewall Ports 67 and 68"
 else
 sudo echo "# DHCP" | sudo tee --append /etc/iptables.firewall.rules
@@ -107,7 +108,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
 ## DNS
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Port 53? This port is for DNS" 8 78) then
+{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to allow traffic on Port 53? This port is for DNS" 10 80) then
 echo "User Declined Firewall Ports 53"
 else
 sudo echo "# DNS" | sudo tee --append /etc/iptables.firewall.rules
@@ -311,7 +312,7 @@ sudo echo "COMMIT" | sudo tee --append /etc/iptables.firewall.rules
 sudo iptables-restore < /etc/iptables.firewall.rules
 
 ## This will create a script to make sure the firewall is intact at boot , and every 6 hours.
-{ if (whiptail --yesno "Do you want Activate this firewall with scripts?" 8 78) then
+{ if (whiptail --yesno "Do you want Activate this firewall with scripts?" 10 80) then
 sudo chmod +x /etc/piadvanced/installscripts/firewall.sh
 sudo cp /etc/piadvanced/installscripts/firewall.sh /etc/network/if-pre-up.d/firewall
 (crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall.sh") | crontab -
