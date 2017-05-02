@@ -11,7 +11,7 @@ source /etc/piadvanced/install/userchange.conf
 then
 echo "User Declined Dependencies"
 else
-whiptail --msgbox "I'm going to install some stuff." 20 70 1
+whiptail --msgbox "I'm going to install some stuff." 10 80 1
 sudo apt-get install -y raspi-config
 sudo apt-get install -y gawk
 sudo apt-get install -y tcpdump
