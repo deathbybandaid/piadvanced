@@ -6,13 +6,15 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set a static ip address for wlan0?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set a static ip address for wlan0?" 10 80) 
+then
 echo "User Declined Setting a Static IP Address for wlan0"
 else
-whiptail --msgbox "Let's set a static IP using wlan0" 20 70 1
+whiptail --msgbox "Let's set a static IP using wlan0" 10 80 1
 OLDWLAN_IP=`ip addr show wlan0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 OLDWLAN_GATEWAY=`ip route show 0.0.0.0/0 dev wlan0 | cut -d\  -f3`
-NEWWLAN_IP=$(whiptail --inputbox "Please enter desired IP for wlan0" 20 60 "$OLDWLAN_IP" 3>&1 1>&2 2>&3)
+NEWWLAN_IP=$(whiptail --inputbox "Please enter desired IP for wlan0" 10 80 "$OLDWLAN_IP" 3>&1 1>&2 2>&3)
 sudo cp /etc/dhcpcd.conf /etc/piadvanced/backups/dhcpcd.conf
 sudo sed -i '/#wlan0/d' /etc/dhcpcd.conf
 sudo sed -i '/interface wlan0/d' /etc/dhcpcd.conf
