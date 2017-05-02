@@ -39,7 +39,7 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 [ "$sshfirewall" = "yes" ]
 then
 sudo echo "# SSH" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -m state --state NEW -–destination-port 22 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -m state --state NEW -–dport 22 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -50,8 +50,8 @@ then
 echo "User Declined Firewall Ports 80 and 443"
 else
 sudo echo "#  Allow HTTP and HTTPS connections from anywhere (the normal ports for websites and SSL)." | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 80 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 443 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 80 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 443 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -62,7 +62,7 @@ then
 echo "User Declined Firewall Ports 3306"
 else
 sudo echo "#  MySQL" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 3306 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 3306 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -73,9 +73,9 @@ then
 echo "User Declined Firewall Ports 25, 465, and 587"
 else
 sudo echo "# Allows SMTP access" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 25 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 465 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 587 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 25 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 465 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 587 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -86,8 +86,8 @@ then
 echo "User Declined Firewall Ports 110 and 995"
 else
 sudo echo "# Allows pop and pops connections" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 110 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 995 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 110 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 995 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -98,8 +98,8 @@ then
 echo "User Declined Firewall Ports 143 and 993"
 else
 sudo echo "# Allows imap and imaps connections" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 143 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 993 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 143 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 993 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -121,8 +121,8 @@ then
 echo "User Declined Firewall Ports 67 and 68"
 else
 sudo echo "# DHCP" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp -–destination-port 67 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp -–destination-port 68 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp -–dport 67 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp -–dport 68 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -133,8 +133,8 @@ then
 echo "User Declined Firewall Ports 53"
 else
 sudo echo "# DNS" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp --destination-port 53 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp --destination-port 53 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp --dport 53 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp --dport 53 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -148,12 +148,12 @@ sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 [ "$dnscryptfirewall" = "yes" ]
 then
 sudo echo "#  DNSCrypt" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp --destination-port 5454 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp --destination-port 5454 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp --destination-port 5656 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp --destination-port 5656 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp --destination-port 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp --destination-port 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp --dport 5454 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp --dport 5454 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp --dport 5656 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp --dport 5656 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp --dport 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp --dport 5757 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -162,7 +162,7 @@ fi }
 #[ "$fail2banfirewall" = "yes" ]
 #then
 #sudo echo "# Fail2Ban" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A INPUT –p tcp -m multiport -–destination-port 22 -j fail2ban-ssh" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A INPUT –p tcp -m multiport -–dport 22 -j fail2ban-ssh" | sudo tee --append /etc/iptables.firewall.rules
 #sudo echo "-A fail2ban-ssh -j RETURN" | sudo tee --append /etc/iptables.firewall.rules
 #sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 #fi }
@@ -172,7 +172,7 @@ fi }
 [ "$openvpnfirewall" = "yes" ]
 then
 sudo echo "# OPENVPN" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 1194 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 1194 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -181,7 +181,7 @@ fi }
 [ "$pivpnfirewall" = "yes" ]
 then
 sudo echo "# piVPN" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 1194 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 1194 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -190,7 +190,7 @@ fi }
 [ "$plexboardfirewall" = "yes" ]
 then
 sudo echo "# Plexboard" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp --destination-port 3000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp --dport 3000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -199,7 +199,7 @@ fi }
 [ "$privoxyfirewall" = "yes" ]
 then
 sudo echo "# Privoxy" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 8118 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 8118 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -208,7 +208,7 @@ fi }
 [ "$rpimonitorfirewall" = "yes" ]
 then
 sudo echo "# rpi monitor" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 8889 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 8889 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -217,7 +217,7 @@ fi }
 [ "$userminfirewall" = "yes" ]
 then
 sudo echo "# Usermin" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 20000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 20000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -226,7 +226,7 @@ fi }
 [ "$webminfirewall" = "yes" ]
 then
 sudo echo "# Webmin" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 10000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 10000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -235,7 +235,7 @@ fi }
 [ "$piholefirewall" = "yes" ]
 then
 sudo echo "# Pi-Hole" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 4711 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 4711 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -244,10 +244,10 @@ fi }
 [ "$guacamolefirewall" = "yes" ]
 then
 sudo echo "# Guacamole" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 8080 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 8005 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 8009 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 4822 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 8080 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 8005 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 8009 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 4822 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -256,12 +256,12 @@ fi }
 [ "$xrdpfirewall" = "yes" ]
 then
 sudo echo "# XRDP" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 3389 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp -–destination-port 3389 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 3350 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp -–destination-port 3350 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 5910 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp -–destination-port 5910 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 3389 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp -–dport 3389 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 3350 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp -–dport 3350 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 5910 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp -–dport 5910 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -270,8 +270,8 @@ fi }
 [ "$cupsfirewall" = "yes" ]
 then
 sudo echo "# CUPS" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 631 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p udp -–destination-port 631 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 631 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p udp -–dport 631 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -280,13 +280,13 @@ fi }
 [ "$hassfirewall" = "yes" ]
 then
 sudo echo "# HASS" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 8123 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 8888 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 1883 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 9001 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 5353 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 2689 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
-sudo echo "-A INPUT –p tcp -–destination-port 1900 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 8123 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 8888 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 1883 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 9001 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 5353 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 2689 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 1900 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
@@ -325,9 +325,9 @@ fi }
 #[ "$privoxyfirewall" = "yes" ]
 #then
 #sudo echo "## Privoxy" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A PREROUTING -i eth0 –p tcp -–destination-port 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A PREROUTING -i wlan0 –p tcp -–destination-port 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A PREROUTING -i tun0 –p tcp -–destination-port 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A PREROUTING -i eth0 –p tcp -–dport 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A PREROUTING -i wlan0 –p tcp -–dport 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A PREROUTING -i tun0 –p tcp -–dport 80 -j REDIRECT --to-port 8118" | sudo tee --append /etc/iptables.firewall.rules
 #sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 #sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 #fi }
@@ -337,9 +337,9 @@ fi }
 #[ "$squidfirewall" = "yes" ]
 #then
 #sudo echo "## Squid" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A PREROUTING -i eth0 –p tcp -–destination-port 80 -j REDIRECT --to-port 3128" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A PREROUTING -i wlan0 –p tcp -–destination-port 80 -j REDIRECT --to-port 3128" | sudo tee --append /etc/iptables.firewall.rules
-#sudo echo "-A PREROUTING -i tun0 –p tcp -–destination-port 80 -j REDIRECT --to-port 3128" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A PREROUTING -i eth0 –p tcp -–dport 80 -j REDIRECT --to-port 3128" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A PREROUTING -i wlan0 –p tcp -–dport 80 -j REDIRECT --to-port 3128" | sudo tee --append /etc/iptables.firewall.rules
+#sudo echo "-A PREROUTING -i tun0 –p tcp -–dport 80 -j REDIRECT --to-port 3128" | sudo tee --append /etc/iptables.firewall.rules
 #sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 #sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 #fi }
