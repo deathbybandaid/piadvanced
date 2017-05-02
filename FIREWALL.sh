@@ -9,6 +9,7 @@ whiptail --msgbox "Any network access will be blocked unless there is a rule to 
 ## Variables
 source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
+source /etc/piadvanced/install/userchange.conf
 
 ## Remove old Firewall if there is one
 sudo rm -r /etc/iptables.firewall.rules
