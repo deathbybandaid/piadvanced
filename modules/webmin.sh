@@ -6,7 +6,9 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
-{ if (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Webmin?" 8 78) then
+{ if 
+(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Webmin?" 10 80) 
+then
 echo "User Declined Webmin"
 else
 sudo apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
