@@ -1,5 +1,5 @@
 #!/bin/sh
-## pihole
+## pihole gravity
 
 ## Variables
 source /etc/piadvanced/install/firewall.conf
