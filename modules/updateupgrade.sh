@@ -1,5 +1,11 @@
 #! / Bin / sh
 ## Updates
+
+## Variables
+source /etc/piadvanced/install/firewall.conf
+source /etc/piadvanced/install/variables.conf
+source /etc/piadvanced/install/userchange.conf
+
 {whiptail --msgbox "I'm going to run updates." 20 70 1
 sudo apt-get -y install
 sudo apt-get -y update --fix-missing
