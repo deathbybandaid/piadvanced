@@ -21,5 +21,6 @@ usermod -l $NEW_USERNAME -m -d /home/$NEW__USERNAME pi
 groupmod -n $NEW_USERNAME pi
 sudo passwd $NEW_USERNAME
 sudo echo "NEW_USERNAME=$NEW_USERNAME" | sudo tee --append /etc/piadvanced/install/userchange.conf
-sudo echo "CHANGED_USERNAME=yes" | sudo tee --append /etc/piadvanced/install/userchange.conf 
+sudo echo "CHANGED_USERNAME=yes" | sudo tee --append /etc/piadvanced/install/userchange.conf
+echo "pi has been replaced by $NEW_USERNAME"
 fi }
