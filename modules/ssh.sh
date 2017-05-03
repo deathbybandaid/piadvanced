@@ -8,7 +8,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Disable" --no-button "Enable" --yesno "Would you like the SSH server enabled or disabled?" 10 80) 
+(whiptail --title "SSH" --yes-button "Disable" --no-button "Enable" --yesno "Would you like the SSH server enabled or disabled?" 10 80) 
 then
 update-rc.d ssh disable &&
 whiptail --msgbox "SSH server disabled" 10 80 1
