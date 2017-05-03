@@ -13,7 +13,7 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User decline $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP"
 else
 sudo wget http://goo.gl/vewCLL -O /etc/apt/sources.list.d/rpimonitor.list
 sudo apt-get install -y rpimonitor
