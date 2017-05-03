@@ -1,6 +1,6 @@
 #!/bin/sh
 ## Dependencies
-NAMEOFAPP="Dependencies"
+NAMEOFAPP="dependencies"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
