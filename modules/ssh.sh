@@ -2,6 +2,9 @@
 ## SSH
 ## I might add the option to use a key versus password for login.
 
+## Dependencies Check
+sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
+
 ## Variables
 source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
