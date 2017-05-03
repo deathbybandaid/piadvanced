@@ -16,7 +16,9 @@ source /etc/piadvanced/install/userchange.conf
 then
 update-rc.d ssh disable &&
 whiptail --msgbox "SSH server disabled" 10 80 1
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 update-rc.d ssh enable &&
 invoke-rc.d ssh start &&
 whiptail --msgbox "SSH server enabled" 10 80 1
