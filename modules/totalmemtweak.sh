@@ -1,5 +1,6 @@
 #!/bin/sh
 ## This is an experimental tweak to unlock the pi's missing 16MB
+NAMEOFAPP="ramtweak"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -18,3 +19,5 @@ NEWMEM_UNLOCK=$(whiptail --inputbox "Setting to 1024 is the Maximum. It may be p
 sudo sed -i '/total_mem/ d' /boot/config.txt
 sudo echo "total_mem=$NEWMEM_UNLOCK" | sudo tee --append /boot/config.txt
 fi }
+
+unset NAMEOFAPP
