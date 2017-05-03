@@ -5,6 +5,9 @@
 ##    This Must be run as root, or it fails is some places    ##
 ################################################################
 
+## Dependencies Check
+sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
+
 ## These documents will contain all of our setup variables. Date/Time Stamped.
 timestamp=`date --rfc-3339=seconds`
 { if 
