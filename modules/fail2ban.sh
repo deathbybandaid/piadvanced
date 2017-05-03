@@ -1,5 +1,6 @@
 #!/bin/sh
 ##Fail2Ban
+NAMEOFAPP="fail2ban"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,10 +11,12 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Fail2Ban" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install fail2ban?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User Declined fail2ban"
+echo "User Declined $NAMEOFAPP"
 else
 sudo apt-get install -y fail2ban
-sudo echo "fail2banfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
+
+unset NAMEOFAPP
