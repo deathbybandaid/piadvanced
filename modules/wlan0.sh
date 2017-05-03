@@ -7,7 +7,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set a static ip address for wlan0?" 10 80) 
+(whiptail --title "wlan0 Setup" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set a static ip address for wlan0?" 10 80) 
 then
 echo "User Declined Setting a Static IP Address for wlan0"
 else
