@@ -1,6 +1,6 @@
 #!/bin/sh
 ## NAMEOFAPP
-NAMEOFAPP="PUTNAMEOFAPPHERE"
+NAMEOFAPP="PUTNAMEOFAPPHERE" # This helps set the name of your app throught the module.
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -28,7 +28,7 @@ echo "installing $NAMEOFAPP"
 #sudo bash /etc/piadvanced/installscripts/NAMEOFAPPinstall.sh
 
 ## If Firewall rule is needed
-sudo echo "$NAMEOFAPP-firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
+#sudo echo "$NAMEOFAPP-firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
 ## Save variable to the conf
 #sudo echo "NEW_VARIABLE=$NEW_VARIABLE" | sudo tee --append /etc/piadvanced/install/variables.conf
