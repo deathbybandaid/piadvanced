@@ -53,4 +53,5 @@ sudo apt-get install -y libxrandr-dev
 sudo apt-get install -y swig
 sudo git clone https://github.com/home-assistant/fabric-home-assistant.git /etc/piadvanced/fabric-home-assistant/
 cd /etc/piadvanced/fabric-home-assistant
+sudo sed -i "s/reboot/#reboot/" /etc/piadvanced/fabric-home-assistant/fabfile.py
 fab deploy_novenv -H localhost 2>&1 | sudo tee installation_report.txt
