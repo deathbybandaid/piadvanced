@@ -1,5 +1,6 @@
 #!/bin/sh
 ## Wally3k Block Page
+NAMEOFAPP="wally3kblockpage"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,11 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Wally3k Block Page" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install the wally3k block page?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User Declined using Wally3k's Block Page"
+echo "User Declined $NAMEOFAPP"
 else
 sudo bash /etc/piadvanced/piholetweaks/Wally3kBlockPage.sh
 fi }
+
+unset NAMEOFAPP
