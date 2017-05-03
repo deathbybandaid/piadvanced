@@ -7,7 +7,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Squid and Squidguard?" 10 80) 
+(whiptail --title "Squid" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Squid and Squidguard?" 10 80) 
 then
 echo "User Declined Squid"
 else
