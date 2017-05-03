@@ -1,5 +1,6 @@
 #!/bin/sh
 ## NGINX
+NAMEOFAPP="nginx"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Nginx" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Nginx" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running $NAMEOFAPP" 10 80) 
 then
-echo "User Declined Nginx"
+echo "User Declined $NAMEOFAPP"
 else
 whiptail --msgbox "What ports do you want NGINX to use?" 10 80 1
 whiptail --msgbox "I suggest setting port 80 to the static ip of eth0" 10 80 1
@@ -34,3 +35,5 @@ fi }
 
 ## Let's Encrypt
 #sudo bash /etc/piadvanced/letsencrypt.sh
+
+unset NAMEOFAPP
