@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use the PHP Parser?" 10 80) 
 then
-echo "User Declined $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 sudo cp /etc/piadvanced/piholetweaks/parser.php /var/www/html/admin/
 sudo echo "#http://localhost/admin/parser.php?list=antipopads" | sudo tee --append /etc/pihole/adlists.list
 sudo echo "#http://localhost/admin/parser.php?list=adware_filters" | sudo tee --append /etc/pihole/adlists.list
