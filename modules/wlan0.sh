@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set a static ip address for wlan0?" 10 80) 
 then
-echo "User Declined $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 whiptail --msgbox "Let's set a static IP using wlan0" 10 80 1
 OLDWLAN_IP=`ip addr show wlan0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 OLDWLAN_GATEWAY=`ip route show 0.0.0.0/0 dev wlan0 | cut -d\  -f3`
