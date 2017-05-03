@@ -7,7 +7,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to recieve emails regarding successful cron jobs?" 10 80) 
+(whiptail --title "Mail" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to recieve emails regarding successful cron jobs?" 10 80) 
 then
 echo "User Delined Mail"
 else
