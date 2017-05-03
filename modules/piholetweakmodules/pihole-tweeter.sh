@@ -1,5 +1,6 @@
 #!/bin/sh
 ## pihole tweeter
+NAMEOFAPP="piholetweeter"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Pihole Tweeter" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pihole tweeter?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User Declined Tweeter"
+echo "User Declined $NAMEOFAPP"
 else
 sudo apt-get install -y python3-pip
 sudo python3 -m pip install tweepy
@@ -32,3 +33,5 @@ sudo sed -i "s/VALUE3/$ACCESS_TOKEN/" /etc/piadvanced/piholetweaks/piholetweeter
 sudo sed -i "s/VALUE4/$ACCESS_TOKEN_SECRET/" /etc/piadvanced/piholetweaks/piholetweeter.py
 (crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/piholetweeter.py") | crontab -
 fi }
+
+unset NAMEOFAPP
