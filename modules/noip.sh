@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "No-IP DUC" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on using the No-IP dynamic Update Client?" 10 80) 
 then
-echo "User Declined $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 sudo mkdir /home/installs/noip
 sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz -P /etc/piadvanced/installscripts/noip/
 cd /etc/piadvanced/installscripts/noip/
