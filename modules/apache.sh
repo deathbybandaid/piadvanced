@@ -7,7 +7,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Apache" 10 80) 
+(whiptail --title "Apache" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Apache" 10 80) 
 then
 echo "User Declined Apache"
 else
