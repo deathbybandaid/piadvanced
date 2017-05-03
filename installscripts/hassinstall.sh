@@ -15,6 +15,7 @@ sudo python3 -m pip install pycrypto
 sudo python3 -m pip install cryptography
 sudo python3 -m pip install packaging
 sudo python3 -m pip install six
+sudo python3 -m pip install appdirs
 sudo python3 -m pip install fabric
 sudo pip install --upgrade pip
 sudo pip install --upgrade setuptools
