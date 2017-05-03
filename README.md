@@ -163,6 +163,8 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 
 ## HASS
 * See https://github.com/home-assistant/fabric-home-assistant for details.
+* I had to cobble the installation a bit to make sure dependencies worked.
+* I also have it set to remove the reboot instruction from their install script.
 
 ## Things in the works:
 * Steam Cache
