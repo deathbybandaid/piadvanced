@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP ?" 10 80) 
 then
-echo "User Declined $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 whiptail --msgbox "I'm going to add sources ." 10 80 1 
 sudo sed -i '/repozytorium.mati75.eu/d' /etc/apt/sources.list
 sudo sed -i '/mirrordirector.raspbian.org/d' /etc/apt/sources.list.d/stretch.list
