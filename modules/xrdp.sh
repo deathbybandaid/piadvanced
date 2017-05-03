@@ -1,5 +1,6 @@
 #!/bin/sh
 ## XRDP
+NAMEOFAPP="xrdp"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,10 +11,12 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "XRDP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install xrdp?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User Declined xrdp"
+echo "User Declined $NAMEOFAPP"
 else
 sudo apt-get install -y xrdp
-sudo echo "xrdpfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
+sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
+
+unset NAMEOFAPP
