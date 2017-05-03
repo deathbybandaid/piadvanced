@@ -95,6 +95,7 @@ sudo apt-get install -y locate
 sudo apt-get install -y bash-completion
 sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y pkg-config
+sudo apt-get install -y htop
 fi }
 
 unset NAMEOFAPP
