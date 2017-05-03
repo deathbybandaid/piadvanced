@@ -1,6 +1,6 @@
 #!/bin/sh
 ## Apache
-NAMEOFAPP="Apache2"
+NAMEOFAPP="apache"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
