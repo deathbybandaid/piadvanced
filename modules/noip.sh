@@ -1,5 +1,6 @@
 #!/bin/sh
 ## No-IP
+NAMEOFAPP="noipduc"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -12,7 +13,7 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "No-IP DUC" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on using the No-IP dynamic Update Client?" 10 80) 
 then
-echo "User Declined NOIP DUC"
+echo "User Declined $NAMEOFAPP"
 else
 sudo mkdir /home/installs/noip
 sudo wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz -P /etc/piadvanced/installscripts/noip/
@@ -24,3 +25,5 @@ sudo make install
 sudo /usr/local/bin/noip2
 sudo noip2 ­-S
 fi }
+
+unset NAMEOFAPP
