@@ -8,7 +8,7 @@ sudo apt-get --force-yes --yes install libssl-dev
 sudo apt-get --force-yes --yes install libffi-dev
 sudo apt-get --force-yes --yes remove apt-listchanges
 sudo apt-get install -t stretch -y python3-dev
-sudo apt-get install -y python3-pip
+sudo apt-get install -t stretch -y python3-pip
 sudo python3 -m pip install --upgrade pip
 sudo python3 -m pip install --upgrade setuptools
 sudo python3 -m pip install pycrypto
