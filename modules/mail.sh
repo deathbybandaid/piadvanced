@@ -1,5 +1,6 @@
 #!/bin/sh
 ## Mail
+NAMEOFAPP="mail"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Mail" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to recieve emails regarding successful cron jobs?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP ?" 10 80) 
 then
-echo "User Delined Mail"
+echo "User Delined $NAMEOFAPP"
 else
 MAIL_ROOT=$(whiptail --inputbox "What email address do you want to use?" 20 60 "user@gmail.com" 3>&1 1>&2 2>&3)
 MAIL_MAILHUB=$(whiptail --inputbox "What email server and port?" 20 60 "smtp.gmail.com:587" 3>&1 1>&2 2>&3)
@@ -32,3 +33,5 @@ sudo echo "root:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revalia
 sudo echo "pi:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
 sudo echo "$MAIL_MAILHUB" | sudo tee --append /root/.forward
 fi }
+
+unset NAMEOFAPP
