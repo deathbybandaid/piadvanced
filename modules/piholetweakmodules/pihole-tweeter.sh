@@ -17,7 +17,7 @@ echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/inst
 else
 echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 sudo apt-get install -y python3-pip
-sudo python3 -m pip install setuptools
+sudo python3 -m pip install -U setuptools
 sudo python3 -m pip install tweepy
 sudo python3 -m pip install request
 sudo python3 -m pip install urllib
