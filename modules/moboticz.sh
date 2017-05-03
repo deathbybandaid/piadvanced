@@ -14,11 +14,9 @@ source /etc/piadvanced/install/userchange.conf
 
 
 
-echo "User Declined $NAMEOFAPP"
-
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
-
-echo "installing stuff"
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 
 
 
