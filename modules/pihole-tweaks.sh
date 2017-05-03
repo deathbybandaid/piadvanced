@@ -1,5 +1,6 @@
 #!/bin/sh
 ## pihole tweaks
+NAMEOFAPP="piholetweaks"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -12,7 +13,7 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "Pi-Hole tweaks" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install any Pi-Hole tweaks?" 10 80) 
 then
-echo "User Declined Dark Pi-Hole Tweaks"
+echo "User Declined $NAMEOFAPP"
 else
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-wally3kadlists.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-lkd70-darktheme.sh
@@ -27,3 +28,5 @@ sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-phpparser.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-henningvanraumleyoutube.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-tweeter.sh
 fi }
+
+unset NAMEOFAPP
