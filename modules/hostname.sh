@@ -1,5 +1,6 @@
 #!/bin/sh
 ## hostname settings
+NAMEOFAPP="hostname"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -22,3 +23,5 @@ sudo echo "NEW_HOSTNAME=$NEW_HOSTNAME" | sudo tee --append /etc/piadvanced/insta
 sudo echo "$NEW_HOSTNAME" > /etc/hostname
 sudo sed -i "s/127.0.1.1.*$OLD_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
 fi }
+
+unset NAMEOFAPP
