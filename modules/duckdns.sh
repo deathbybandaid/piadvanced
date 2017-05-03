@@ -1,5 +1,6 @@
 #!/bin/sh
 ## duckdns
+NAMEOFAPP="duckdns"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,11 +11,13 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "DuckDNS" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install duckdns?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User Declined duckdns"
+echo "User Declined $NAMEOFAPP"
 else
 
 
 
 fi }
+
+unset NAMEOFAPP
