@@ -1,5 +1,6 @@
 #!/bin/sh
 ## eth0 settings
+NAMEOFAPP="eth0"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -32,3 +33,5 @@ sudo echo "static routers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static domain_name_servers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo ifconfig eth0 $NEWETH_IP
 fi }
+
+unset NAMEOFAPP
