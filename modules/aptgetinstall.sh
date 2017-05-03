@@ -1,5 +1,6 @@
 #!/bin/sh
 ## Dependencies
+NAMEOFAPP="Dependencies"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,11 +11,10 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Dependencies" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Basic Software dependencies?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP ?" 10 80) 
 then
-echo "User Declined Dependencies"
+echo "User Declined $NAMEOFAPP"
 else
-whiptail --msgbox "I'm going to install some stuff." 10 80 1
 sudo apt-get install -y raspi-config
 sudo apt-get install -y gawk
 sudo apt-get install -y tcpdump
@@ -95,3 +95,5 @@ sudo apt-get install -y bash-completion
 sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y pkg-config
 fi }
+
+unset NAMEOFAPP
