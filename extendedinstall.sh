@@ -52,6 +52,9 @@ sudo bash /etc/piadvanced/modules/randomnumberfix.sh
 ## Better MOTD message
 sudo bash /etc/piadvanced/modules/motd.sh
 
+## HTOP
+sudo bash /etc/piadvanced/modules/htop.sh
+
 ## Sources && Update && Upgrade
 sudo bash /etc/piadvanced/modules/sources.sh
 sudo bash /etc/piadvanced/modules/updateupgrade.sh
