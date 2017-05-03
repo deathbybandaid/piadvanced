@@ -7,7 +7,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Webmin?" 10 80) 
+(whiptail --title "Webmin" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install Webmin?" 10 80) 
 then
 echo "User Declined Webmin"
 else
