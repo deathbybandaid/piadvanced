@@ -1,5 +1,6 @@
 #!/bin/sh
 ## Lighttpd
+NAMEOFAPP="lighttpd"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Lighttpd" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Lighttpd" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running $NAMEOFAPP" 10 80) 
 then
-echo "User Declined Lighttpd"
+echo "User Declined $NAMEOFAPP"
 else
 source /etc/piadvanced/install/variables.conf
 LIGHT_BIND=`sed -n '/server.port                 = 80/=' /etc/lighttpd/lighttpd.conf`
@@ -27,3 +28,5 @@ sudo cp -r /etc/lighttpd/ /etc/piadvanced/backups/lighttpd/
 sudo sed -i "$LIGHT_BIND a\server.bind                 = "$NEW_LIGHTTPDBIND"" /etc/lighttpd/lighttpd.conf
 sudo sed -i "s/80/$NEW_LIGHTTPD80/" /etc/lighttpd/lighttpd.conf
 fi }
+
+unset NAMEOFAPP
