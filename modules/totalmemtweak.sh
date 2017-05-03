@@ -1,6 +1,9 @@
 #!/bin/sh
 ## This is an experimental tweak to unlock the pi's missing 16MB
 
+## Dependencies Check
+sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
+
 ## Variables
 source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
