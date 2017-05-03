@@ -13,7 +13,6 @@ echo "User Declined Apache"
 else
 source /etc/piadvanced/install/variables.conf
 whiptail --msgbox "What ports do you want Apache to use?" 10 80 1
-whiptail --msgbox "I suggest changing Apache Ports to something like 85 and 445" 10 80 1
 NEW_APACHE80=$(whiptail --inputbox "Change the default port 80 for Apache" 10 80 "85" 3>&1 1>&2 2>&3)
 NEW_APACHE443=$(whiptail --inputbox "Change the default port 443 for Apache" 10 80 "445" 3>&1 1>&2 2>&3)
 sudo apt-get install -y apache2
