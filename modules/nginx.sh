@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running $NAMEOFAPP" 10 80) 
 then
-echo "User Declined $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 whiptail --msgbox "What ports do you want NGINX to use?" 10 80 1
 whiptail --msgbox "I suggest setting port 80 to the static ip of eth0" 10 80 1
 NEW_NGINX80=$(whiptail --inputbox "Change the default port 80 for Nginx" 10 80 "$NEWETH_IP:80" 3>&1 1>&2 2>&3)
