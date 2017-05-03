@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running $NAMEOFAPP" 10 80) 
 then
-echo "User Declined $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 source /etc/piadvanced/install/variables.conf
 LIGHT_BIND=`sed -n '/server.port                 = 80/=' /etc/lighttpd/lighttpd.conf`
 whiptail --msgbox "What ports do you want Lighttpd to use?" 20 70 1
