@@ -1,6 +1,9 @@
 #!/bin/sh
 ## NAMEOFAPP
 
+## Dependencies Check
+sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
+
 ## Variables (if in every file, an installer can be re-run independently)
 source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
