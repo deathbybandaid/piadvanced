@@ -1,5 +1,6 @@
 #!/bin/sh
 ## php parser
+NAMEOFAPP="piholephpparser"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "PHP Parser" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use the PHP Parser?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use the PHP Parser?" 10 80) 
 then
-echo "User Declined the PHP Parser"
+echo "User Declined $NAMEOFAPP"
 else
 sudo cp /etc/piadvanced/piholetweaks/parser.php /var/www/html/admin/
 sudo echo "#http://localhost/admin/parser.php?list=antipopads" | sudo tee --append /etc/pihole/adlists.list
@@ -28,3 +29,5 @@ sudo echo "#http://localhost/admin/parser.php?list=easylist_de2" | sudo tee --ap
 sudo echo "#http://localhost/admin/parser.php?list=adguard_en" | sudo tee --append /etc/pihole/adlists.list
 sudo echo "#http://localhost/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
 fi }
+
+unset NAMEOFAPP
