@@ -1,6 +1,14 @@
 #!/bin/sh
 ## Super Secure Firewall
 
+## Dependencies Check
+sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
+
+## Variables
+source /etc/piadvanced/install/firewall.conf
+source /etc/piadvanced/install/variables.conf
+source /etc/piadvanced/install/userchange.conf
+
 { if 
 (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set up a firewall?" 10 80) 
 then
@@ -10,11 +18,6 @@ else
 ## Message
 echo "Any network access will be blocked unless there is a rule to allow it." > firewall_textbox
 whiptail --textbox --title "Firewall" firewall_textbox 10 80
-
-## Variables
-source /etc/piadvanced/install/firewall.conf
-source /etc/piadvanced/install/variables.conf
-source /etc/piadvanced/install/userchange.conf
 
 ## Remove old Firewall if there is one
 sudo rm -r /etc/iptables.firewall.rules
