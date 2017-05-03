@@ -32,7 +32,7 @@ sudo sed -i "s/VALUE1/$CONSUMER_KEY/" /etc/piadvanced/piholetweaks/piholetweeter
 sudo sed -i "s/VALUE2/$CONSUMER_SECRET/" /etc/piadvanced/piholetweaks/piholetweeter.py
 sudo sed -i "s/VALUE3/$ACCESS_TOKEN/" /etc/piadvanced/piholetweaks/piholetweeter.py
 sudo sed -i "s/VALUE4/$ACCESS_TOKEN_SECRET/" /etc/piadvanced/piholetweaks/piholetweeter.py
-(crontab -l ; echo "59 23 * * * sudo python3 /etc/piadvanced/piholetweaks/piholetweeter.py") | crontab -
+(crontab -l ; echo "59 23 * * * sudo bash /etc/piadvanced/piholetweaks/piholetweeter.sh") | crontab -
 fi }
 
 unset NAMEOFAPP
