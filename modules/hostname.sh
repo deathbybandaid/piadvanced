@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want set the hostname?" 10 80) 
 then
-echo "User Declined setting a new hostname"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 OLD_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
 NEW_HOSTNAME=$(whiptail --inputbox "Please enter a hostname" 20 60 "$OLD_HOSTNAME" 3>&1 1>&2 2>&3)
 sudo cp /etc/hosts /etc/piadvanced/backups/hostname/
