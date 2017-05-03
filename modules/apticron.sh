@@ -7,7 +7,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install apticron to recieve updates when you have pending updates?" 10 80) 
+(whiptail --title "Apticron" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install apticron to recieve updates when you have pending updates?" 10 80) 
 then
 echo "User Declined Apticron"
 else
