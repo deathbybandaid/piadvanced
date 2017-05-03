@@ -1,5 +1,6 @@
 #!/bin/sh
 ## ddclient
+NAMEOFAPP="ddclient"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,10 +11,11 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "DDClient" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install ddclient?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP ?" 10 80) 
 then
-echo "User Declined ddclient"
+echo "User Declined $NAMEOFAPP"
 else
 sudo apt-get install -y ddclient
-sudo echo "pivpnfirewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
+
+unset NAMEOFAPP
