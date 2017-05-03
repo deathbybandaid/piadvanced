@@ -1,5 +1,6 @@
 #!/bin/sh
 ## wifi setup
+NAMEOFAPP="wifi"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Connect to wifi" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to Connect to a wifi network using wlan0?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to Connect to a wifi network using wlan0?" 10 80) 
 then
-echo "User Declined Connecting to wifi"
+echo "User Declined $NAMEOFAPP"
 else
 NEW_SSID=$(whiptail --inputbox "Please enter SSID" 10 80 "" 3>&1 1>&2 2>&3)
 NEW_PSK=$(whiptail --inputbox "Please enter wifi password" 10 80 "" 3>&1 1>&2 2>&3)
@@ -27,3 +28,5 @@ sudo echo "    ssid="$NEW_SSID"" | sudo tee --append /etc/wpa_supplicant/wpa_sup
 sudo echo "    psk="$NEW_PSK"" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
 sudo echo "}" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
 fi }
+
+unset NAMEOFAPP
