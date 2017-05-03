@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "eth0 Settings" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want set a static ip for eth0?" 10 80) 
 then
-echo "User Declined Static IP for eth0"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 OLDETH_IP=`ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 OLDETH_GATEWAY=`ip route show 0.0.0.0/0 dev eth0 | cut -d\  -f3`
 NEWETH_IP=$(whiptail --inputbox "Please enter desired IP for eth0" 20 60 "$OLDETH_IP" 3>&1 1>&2 2>&3)
