@@ -1,5 +1,6 @@
 #!/bin/sh
 ## NTP
+NAMEOFAPP="ntp"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -24,3 +25,5 @@ sudo service ntp stop
 sudo ntpd -gq
 sudo service ntp start
 fi }
+
+unset NAMEOFAPP
