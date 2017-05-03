@@ -13,8 +13,9 @@ source /etc/piadvanced/install/userchange.conf
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User Declined $NAMEOFAPP"
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 git clone --depth 1 https://github.com/pi-hole/pi-hole.git /etc/piadvanced/installscripts/Pi-hole
 cd /etc/piadvanced/installscripts/Pi-hole/automated\ install/
 bash basic-install.sh
