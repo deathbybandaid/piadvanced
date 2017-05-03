@@ -1,5 +1,6 @@
 #!/bin/sh
 ## Sources
+NAMEOFAPP="sources"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Sources" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install sources?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP ?" 10 80) 
 then
-echo "User Declined Dependencies"
+echo "User Declined $NAMEOFAPP"
 else
 whiptail --msgbox "I'm going to add sources ." 10 80 1 
 sudo sed -i '/repozytorium.mati75.eu/d' /etc/apt/sources.list
@@ -30,3 +31,5 @@ sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A17031138
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
 fi }
+
+unset NAMEOFAPP
