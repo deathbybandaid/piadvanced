@@ -7,9 +7,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Lighttpd" 10 80) 
+(whiptail --title "Lighttpd" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Lighttpd" 10 80) 
 then
-echo "User Decline Lighttpd"
+echo "User Declined Lighttpd"
 else
 source /etc/piadvanced/install/variables.conf
 LIGHT_BIND=`sed -n '/server.port                 = 80/=' /etc/lighttpd/lighttpd.conf`
