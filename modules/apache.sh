@@ -1,5 +1,6 @@
 #!/bin/sh
 ## Apache
+NAMEOFAPP="Apache2"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,9 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "Apache" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running Apache" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you plan on running $NAMEOFAPP" 10 80) 
 then
-echo "User Declined Apache"
+echo "User Declined $NAMEOFAPP"
 else
 source /etc/piadvanced/install/variables.conf
 whiptail --msgbox "What ports do you want Apache to use?" 10 80 1
@@ -27,3 +28,5 @@ sudo sed -i "s/80/$NEW_APACHE80/" /etc/apache2/sites-enabled/000-default.conf
 sudo sed -i "s/443/$NEW_APACHE443/" /etc/apache2/ports.conf
 sudo sed -i "s/443/$NEW_APACHE443/" /etc/apache2/sites-enabled/000-default.conf
 fi }
+
+unset NAMEOFAPP
