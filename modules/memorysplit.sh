@@ -14,7 +14,9 @@ source /etc/piadvanced/install/userchange.conf
 (whiptail --title "Memory Split" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to set the memory split" 10 80) 
 then
 sudo sed -i '/total_mem/ d' /boot/config.txt
+echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 else
+echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 NEWMEM_SPLIT=$(whiptail --inputbox "Do you plan on running headless? If so, set the memory split to 16." 10 80 "16" 3>&1 1>&2 2>&3)
 sudo cp /boot/config.txt /etc/piadvanced/backups/boot/
 sudo sed -i '/gpu_mem/ d' /boot/config.txt
