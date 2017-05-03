@@ -1,5 +1,6 @@
 #!/bin/sh
 ## pivpn
+NAMEOFAPP="pivpn"
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -10,9 +11,11 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "pivpn" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install pivpn?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 10 80) 
 then
-echo "User Declined pivpn"
+echo "User Declined $NAMEOFAPP"
 else
 curl -L https://install.pivpn.io | bash
 fi }
+
+unset NAMEOFAPP
