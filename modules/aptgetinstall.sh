@@ -1,6 +1,7 @@
 #!/bin/sh
 ## Dependencies
 NAMEOFAPP="dependencies"
+WHATITDOES="These are programs that are a foundation for other softwares."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -14,11 +15,15 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP ?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
 then
-echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
 else
-echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
+
+## Below here is the magic.
 sudo apt-get install -y raspi-config
 sudo apt-get install -y gawk
 sudo apt-get install -y tcpdump
@@ -98,8 +103,13 @@ sudo apt-get install -y locate
 sudo apt-get install -y bash-completion
 sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y pkg-config
+
+## End of install
 fi }
 
 ## Unset Temporary Variables
 unset NAMEOFAPP
 unset CURRENTUSER
+unset WHATITDOES
+
+## Module Comments
