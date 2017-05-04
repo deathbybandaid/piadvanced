@@ -1,6 +1,7 @@
 #!/bin/sh
 ## pihole stalelist fix
 NAMEOFAPP="piholestalelistfix"
+WHATITDOES="This is a script that removes cached lists on a weekly basis."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -14,14 +15,23 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want a script to keep cached lists from becoming stale?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
 then
-echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
 else
-echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
+
+## Below here is the magic.
 (crontab -l ; echo "0 5 * * 1 sudo bash /etc/piadvanced/piholetweaks/piholefreshlists.sh") | crontab -
+
+## End of install
 fi }
 
 ## Unset Temporary Variables
 unset NAMEOFAPP
 unset CURRENTUSER
+unset WHATITDOES
+
+## Module Comments
