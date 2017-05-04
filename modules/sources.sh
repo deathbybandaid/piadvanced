@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Sources
 NAMEOFAPP="sources"
-WHATITDOES="These are various sources app installation."
+WHATITDOES="These are various sources for app installation."
 
 ## Current User
 CURRENTUSER="$(whoami)"
