@@ -2,6 +2,9 @@
 ## exim4
 NAMEOFAPP="exim4"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -20,4 +23,6 @@ sudo apt-get install -y exim4
 sudo dpkg-reconfigure exim4-config
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
