@@ -2,6 +2,9 @@
 ## DNSCRYPT
 NAMEOFAPP="dnscrypt"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -21,4 +24,6 @@ sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install
 sudo cp -n /etc/piadvanced/piholetweaks/dnscrypt/10-dnscrypt.conf /etc/dnsmasq.d/
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
