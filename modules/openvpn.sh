@@ -2,6 +2,9 @@
 ## OpenVPN
 NAMEOFAPP="openvpn"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -24,4 +27,6 @@ sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install
 sudo sed -i "s/push "dhcp-option DNS 8.8.8.8"/"dhcp-option DNS 10.8.0.1"/" /etc/openvpn/server.conf
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
