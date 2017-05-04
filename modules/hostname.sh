@@ -2,6 +2,9 @@
 ## hostname settings
 NAMEOFAPP="hostname"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -25,4 +28,6 @@ sudo echo "$NEW_HOSTNAME" > /etc/hostname
 sudo sed -i "s/127.0.1.1.*$OLD_HOSTNAME/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
