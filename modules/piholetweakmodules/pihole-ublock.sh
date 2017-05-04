@@ -2,6 +2,9 @@
 ## Ublock Parser
 NAMEOFAPP="piholeublockparser"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -21,4 +24,6 @@ sudo cp -n /etc/piadvanced/piholetweaks/ublockpihole/lists.lst.default /etc/piad
 sudo echo "#http://localhost/admin/ublock.txt" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
