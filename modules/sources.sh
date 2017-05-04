@@ -2,6 +2,9 @@
 ## Sources
 NAMEOFAPP="sources"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -33,4 +36,6 @@ sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
