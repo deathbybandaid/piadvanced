@@ -2,6 +2,9 @@
 ## Wally3k Block Page
 NAMEOFAPP="wally3kblockpage"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -19,4 +22,6 @@ echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/ins
 sudo bash /etc/piadvanced/piholetweaks/Wally3kBlockPage.sh
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
