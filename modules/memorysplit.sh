@@ -2,6 +2,9 @@
 ## This sets the memory split.
 NAMEOFAPP="memsplit"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -23,4 +26,6 @@ sudo sed -i '/gpu_mem/ d' /boot/config.txt
 sudo echo "gpu_mem=$NEWMEM_SPLIT" | sudo tee --append /boot/config.txt
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
