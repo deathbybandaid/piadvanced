@@ -2,6 +2,9 @@
 ## Plexboard
 NAMEOFAPP="plexboard"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -26,4 +29,6 @@ rvm install 2.3.4 && rvm use 2.3.4@plexdashboard --create
 sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
