@@ -1,6 +1,7 @@
 #!/bin/sh
 ## eth0 settings
 NAMEOFAPP="eth0"
+WHATITDOES="This will set a static IP address for the interface."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -14,11 +15,15 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "eth0 Settings" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want set a static ip for eth0?" 10 80) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
 then
-echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
 else
-echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
+
+## Below here is the magic.
 OLDETH_IP=`ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 OLDETH_GATEWAY=`ip route show 0.0.0.0/0 dev eth0 | cut -d\  -f3`
 NEWETH_IP=$(whiptail --inputbox "Please enter desired IP for eth0" 20 60 "$OLDETH_IP" 3>&1 1>&2 2>&3)
@@ -36,8 +41,13 @@ sudo echo "static ip_address=$NEWETH_IP" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static routers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static domain_name_servers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo ifconfig eth0 $NEWETH_IP
+
+## End of install
 fi }
 
 ## Unset Temporary Variables
 unset NAMEOFAPP
 unset CURRENTUSER
+unset WHATITDOES
+
+## Module Comments
