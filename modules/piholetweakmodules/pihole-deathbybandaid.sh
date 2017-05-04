@@ -17,6 +17,7 @@ echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/inst
 else
 echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 sudo cp -n /etc/piadvanced/piholetweaks/dnsmasqtweaks/*.conf /etc/dnsmasq.d/
+sudo cp -n /etc/piadvanced/piholetweaks/customRedirect.list.default /etc/piadvanced/piholetweaks/customRedirect.list
 fi }
 
 unset NAMEOFAPP
