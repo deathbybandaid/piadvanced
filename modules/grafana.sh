@@ -24,7 +24,9 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-
+sudo apt-get install adduser libfontconfig
+curl -L https://github.com/fg2it/grafana-on-raspberry/releases/download/v4.0.1/grafana_4.0.1-1480722482_armhf.deb -o /tmp/grafana_4.0.1-1480722482_armhf.deb
+sudo dpkg -i /tmp/grafana_4.0.1-1480722482_armhf.deb
 
 ## End of install
 fi }
