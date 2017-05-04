@@ -2,6 +2,9 @@
 ## wifi setup
 NAMEOFAPP="wifi"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -30,4 +33,6 @@ sudo echo "    psk="$NEW_PSK"" | sudo tee --append /etc/wpa_supplicant/wpa_suppl
 sudo echo "}" | sudo tee --append /etc/wpa_supplicant/wpa_supplicant.conf
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
