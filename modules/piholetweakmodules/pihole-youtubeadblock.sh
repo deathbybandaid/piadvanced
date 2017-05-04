@@ -2,6 +2,9 @@
 ## youtube adblocker
 NAMEOFAPP="youtubeadblocker"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -21,4 +24,6 @@ sudo pip install -r /etc/piadvanced/piholetweaks/youtubeadblock/requirements.txt
 sudo echo "#http://localhost/admin/youtube.txt" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
