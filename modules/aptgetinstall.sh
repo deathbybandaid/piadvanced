@@ -2,6 +2,9 @@
 ## Dependencies
 NAMEOFAPP="dependencies"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -97,4 +100,6 @@ sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y pkg-config
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
