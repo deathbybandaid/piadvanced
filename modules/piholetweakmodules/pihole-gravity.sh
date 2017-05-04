@@ -2,6 +2,9 @@
 ## pihole gravity
 NAMEOFAPP="piholegravity"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -19,4 +22,6 @@ echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/ins
 (crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/piholetweaks/piholegravity.sh") | crontab -
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
