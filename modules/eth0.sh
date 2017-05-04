@@ -2,6 +2,9 @@
 ## eth0 settings
 NAMEOFAPP="eth0"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -35,4 +38,6 @@ sudo echo "static domain_name_servers=$OLDETH_GATEWAY" | sudo tee --append /etc/
 sudo ifconfig eth0 $NEWETH_IP
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
