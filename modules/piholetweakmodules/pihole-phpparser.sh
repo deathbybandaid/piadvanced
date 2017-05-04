@@ -2,6 +2,9 @@
 ## php parser
 NAMEOFAPP="piholephpparser"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -31,4 +34,6 @@ sudo echo "#http://localhost/admin/parser.php?list=adguard_en" | sudo tee --appe
 sudo echo "#http://localhost/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
