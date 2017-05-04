@@ -3,6 +3,9 @@
 ## I might add the option to use a key versus password for login.
 NAMEOFAPP="ssh"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -25,4 +28,6 @@ whiptail --msgbox "SSH server enabled" 10 80 1
 sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
