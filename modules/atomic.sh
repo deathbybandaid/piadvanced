@@ -2,6 +2,9 @@
 ## AtoMiC-ToolKit
 NAMEOFAPP="AtoMiCToolKit"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -21,4 +24,6 @@ sudo bash ~/AtoMiC-ToolKit/setup.sh
 whiptail --msgbox "Any programs installed via Atomic need firewall rules." 10 80 1
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
