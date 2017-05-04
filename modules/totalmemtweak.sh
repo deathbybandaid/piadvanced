@@ -2,6 +2,9 @@
 ## This is an experimental tweak to unlock the pi's missing 16MB
 NAMEOFAPP="ramtweak"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -22,4 +25,6 @@ sudo sed -i '/total_mem/ d' /boot/config.txt
 sudo echo "total_mem=$NEWMEM_UNLOCK" | sudo tee --append /boot/config.txt
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
