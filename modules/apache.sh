@@ -2,6 +2,9 @@
 ## Apache
 NAMEOFAPP="apache"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -30,4 +33,6 @@ sudo sed -i "s/443/$NEW_APACHE443/" /etc/apache2/ports.conf
 sudo sed -i "s/443/$NEW_APACHE443/" /etc/apache2/sites-enabled/000-default.conf
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
