@@ -2,6 +2,9 @@
 ## Timezone
 NAMEOFAPP="timesone"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -19,4 +22,6 @@ echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/ins
 sudo dpkg-reconfigure tzdata
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
