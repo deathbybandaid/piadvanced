@@ -2,6 +2,9 @@
 ## pihole
 NAMEOFAPP="pihole"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -26,4 +29,6 @@ sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install
 sudo bash /etc/piadvanced/modules/pihole-tweaks.sh
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
