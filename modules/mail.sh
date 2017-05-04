@@ -2,6 +2,9 @@
 ## Mail
 NAMEOFAPP="mail"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -35,4 +38,6 @@ sudo echo "pi:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliase
 sudo echo "$MAIL_MAILHUB" | sudo tee --append /root/.forward
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
