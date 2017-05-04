@@ -2,6 +2,9 @@
 ## PSAD
 NAMEOFAPP="psad"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -22,4 +25,6 @@ cd psad-2.4.4
 sudo ./install.pl
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
