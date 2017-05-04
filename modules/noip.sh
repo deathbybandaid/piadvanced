@@ -2,6 +2,9 @@
 ## No-IP
 NAMEOFAPP="noipduc"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -27,4 +30,6 @@ sudo /usr/local/bin/noip2
 sudo noip2 ­-S
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
