@@ -2,6 +2,9 @@
 ## Updates
 NAMEOFAPP="updates"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -22,4 +25,6 @@ sudo apt-get autoremove-y
 sudo apt-get clean
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
