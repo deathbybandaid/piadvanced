@@ -1,6 +1,7 @@
 #!/bin/sh
 ## Let'sencrypt
 NAMEOFAPP="letsencrypt"
+WHATITDOES="This helps set up HTTPS."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -13,11 +14,28 @@ source /etc/piadvanced/install/firewall.conf
 source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
+{ if 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+then
+echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
+else
+echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
+
+## Below here is the magic.
 #sudo git clone https://github.com/certbot/certbot /etc/letsencrypt
 #sudo /etc/letsencrypt/certbot-auto certonly --agree-tos --webroot -w /data/mysite.com/www -d mysite.com -d www.mysite.com -d mail.mysite.com -d srv01.mysite.com
 
 #(crontab -l ; echo "0 6 * * * /etc/letsencrypt/certbot/certbot-auto renew --text >> /etc/letsencrypt/certbot/certbot-cron.log && sudo service nginx reload") | crontab -
 
+
+## End of install
+fi }
+
 ## Unset Temporary Variables
 unset NAMEOFAPP
 unset CURRENTUSER
+unset WHATITDOES
+
+## Module Comments
