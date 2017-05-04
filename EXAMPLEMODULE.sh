@@ -2,6 +2,9 @@
 ## NAMEOFAPP
 NAMEOFAPP="PUTNAMEOFAPPHERE" # This helps set the name of your app throught the module.
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -38,6 +41,7 @@ echo "installing $NAMEOFAPP"
 ## End of install
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
-
+unset CURRENTUSER
 
