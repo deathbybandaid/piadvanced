@@ -2,6 +2,9 @@
 ## pihole tweaks
 NAMEOFAPP="piholetweaks"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -30,4 +33,6 @@ sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-henningvanraumleyout
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-tweeter.sh
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
