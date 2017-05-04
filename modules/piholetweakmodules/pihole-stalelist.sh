@@ -2,6 +2,9 @@
 ## pihole stalelist fix
 NAMEOFAPP="piholestalelistfix"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -19,4 +22,6 @@ echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/ins
 (crontab -l ; echo "0 5 * * 1 sudo bash /etc/piadvanced/piholetweaks/piholefreshlists.sh") | crontab -
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
