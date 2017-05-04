@@ -2,6 +2,9 @@
 ## NGINX
 NAMEOFAPP="nginx"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -37,4 +40,6 @@ fi }
 ## Let's Encrypt
 #sudo bash /etc/piadvanced/letsencrypt.sh
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
