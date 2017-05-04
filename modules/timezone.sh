@@ -1,6 +1,6 @@
 #!/bin/sh
 ## Timezone
-NAMEOFAPP="timesone"
+NAMEOFAPP="timezone"
 WHATITDOES="Set what timezone you are in."
 
 ## Current User
