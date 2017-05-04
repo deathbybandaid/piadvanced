@@ -2,6 +2,9 @@
 ## Message of the day
 NAMEOFAPP="motd"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -25,4 +28,6 @@ sudo chmod a+x /etc/update-motd.d/*
 sudo sed -i "s/motd.dynamic/motd.new/" /etc/pam.d/sshd
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
