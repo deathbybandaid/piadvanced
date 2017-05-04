@@ -2,6 +2,9 @@
 ## wlan0 setup
 NAMEOFAPP="wlan0"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -35,4 +38,6 @@ sudo echo "static domain_name_servers=$OLDWLAN_GATEWAY" | sudo tee --append /etc
 sudo ifconfig wlan0 $NEWWLAN_IP
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
