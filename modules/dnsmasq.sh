@@ -2,6 +2,9 @@
 ## DNSMasq
 NAMEOFAPP="dnsmasq"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -25,4 +28,6 @@ sudo bash /etc/piadvanced/installscripts/dnsmasqupgrade.sh
 fi }
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
