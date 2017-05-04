@@ -2,6 +2,9 @@
 ## Dark Pi-Hole Theme
 NAMEOFAPP="piholedarktheme"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -21,4 +24,6 @@ cd /var/www/html
 sudo bash install.sh
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
