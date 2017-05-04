@@ -1,6 +1,7 @@
 #!/bin/sh
 ## Deathbybandaid dnsmasq tweaks
 NAMEOFAPP="deathbybandaiddnstweaks"
+WHATITDOES="These are tweaks to dnsmasq that are relevant to most techs."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -14,15 +15,24 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
 then
-echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
 else
-echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
+
+## Below here is the magic.
 sudo cp -n /etc/piadvanced/piholetweaks/dnsmasqtweaks/*.conf /etc/dnsmasq.d/
 sudo cp -n /etc/piadvanced/piholetweaks/customRedirect.list.default /etc/piadvanced/piholetweaks/customRedirect.list
+
+## End of install
 fi }
 
 ## Unset Temporary Variables
 unset NAMEOFAPP
 unset CURRENTUSER
+unset WHATITDOES
+
+## Module Comments
