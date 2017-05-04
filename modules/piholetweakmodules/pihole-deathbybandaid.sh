@@ -2,6 +2,9 @@
 ## Deathbybandaid dnsmasq tweaks
 NAMEOFAPP="deathbybandaiddnstweaks"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -20,4 +23,6 @@ sudo cp -n /etc/piadvanced/piholetweaks/dnsmasqtweaks/*.conf /etc/dnsmasq.d/
 sudo cp -n /etc/piadvanced/piholetweaks/customRedirect.list.default /etc/piadvanced/piholetweaks/customRedirect.list
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
