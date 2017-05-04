@@ -1,6 +1,7 @@
 #!/bin/sh
 ## NAMEOFAPP
 NAMEOFAPP="PUTNAMEOFAPPHERE" # This helps set the name of your app throught the module.
+WHATITDOES="PUTABRIEFDESCRIPTIONOFTHEPROGRAMHERE"
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -14,20 +15,32 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to install $NAMEOFAPP?" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
 then
-echo "User Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
 else
-echo "User Installed $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
+echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
+
+## Below here is the magic.
+
+
+## End of install
+fi }
+
+## Unset Temporary Variables
+unset NAMEOFAPP
+unset CURRENTUSER
+unset WHATITDOES
+
+## Module Comments
 
 ## Need a message box?
 #whiptail --msgbox "$NAMEOFAPP messagebox" 20 70 1
 
 ## Set a variable with a text box?
 #NEW_VARIABLE=$(whiptail --inputbox "NAMEOFAPP what do you want to type?" 10 80 "$NAMEOFAPP suggested text" 3>&1 1>&2 2>&3)
-
-
-echo "installing $NAMEOFAPP"
 
 ## Execute install script
 #sudo bash /etc/piadvanced/installscripts/NAMEOFAPPinstall.sh
@@ -37,11 +50,3 @@ echo "installing $NAMEOFAPP"
 
 ## Save variable to the conf
 #sudo echo "NEW_VARIABLE=$NEW_VARIABLE" | sudo tee --append /etc/piadvanced/install/variables.conf
-
-## End of install
-fi }
-
-## Unset Temporary Variables
-unset NAMEOFAPP
-unset CURRENTUSER
-
