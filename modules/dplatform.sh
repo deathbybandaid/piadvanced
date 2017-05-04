@@ -2,6 +2,9 @@
 ## Dplatform
 NAMEOFAPP="dplatform"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -21,4 +24,6 @@ sudo bash /etc/piadvanced/installscripts/dplatform/init.sh
 whiptail --msgbox "Any programs installed via Dplatform need firewall rules." 10 80 1
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
