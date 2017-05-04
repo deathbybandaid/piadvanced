@@ -2,6 +2,9 @@
 ## pihole tweeter
 NAMEOFAPP="piholetweeter"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -36,4 +39,6 @@ sudo sed -i "s/VALUE4/$ACCESS_TOKEN_SECRET/" /etc/piadvanced/piholetweaks/pihole
 (crontab -l ; echo "59 23 * * * sudo bash /etc/piadvanced/piholetweaks/piholetweeter.sh") | crontab -
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
