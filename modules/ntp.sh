@@ -2,6 +2,9 @@
 ## NTP
 NAMEOFAPP="ntp"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -27,4 +30,6 @@ sudo ntpd -gq
 sudo service ntp start
 fi }
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
