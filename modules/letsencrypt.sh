@@ -2,6 +2,9 @@
 ## Let'sencrypt
 NAMEOFAPP="letsencrypt"
 
+## Current User
+CURRENTUSER="$(whoami)"
+
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
@@ -15,4 +18,6 @@ source /etc/piadvanced/install/userchange.conf
 
 #(crontab -l ; echo "0 6 * * * /etc/letsencrypt/certbot/certbot-auto renew --text >> /etc/letsencrypt/certbot/certbot-cron.log && sudo service nginx reload") | crontab -
 
+## Unset Temporary Variables
 unset NAMEOFAPP
+unset CURRENTUSER
