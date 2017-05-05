@@ -61,8 +61,16 @@ sudo bash /etc/piadvanced/modules/updateupgrade.sh
 sudo bash /etc/piadvanced/modules/aptgetinstall.sh
 
 ## Admin Email
+echo "The next Three installs are Email options. Apticron, Mail, and Exim4" > adminmail_textbox
+whiptail --textbox --title "Email Options" adminmail_textbox 10 80
+
+## Apticron
 sudo bash /etc/piadvanced/modules/apticron.sh
+
+## Mail
 sudo bash /etc/piadvanced/modules/mail.sh
+
+## Exim4
 sudo bash /etc/piadvanced/modules/exim4.sh
 
 ## DNSmasq
@@ -75,7 +83,7 @@ sudo bash /etc/piadvanced/modules/fail2ban.sh
 sudo bash /etc/piadvanced/modules/psad.sh
 
 ## Dynamic Update Clients
-echo "The next Three installs are dynamic update clients for No-IP, Dyndns and DuckDNS" > ducs_textbox
+echo "The next Three installs are dynamic update clients for No-IP, Dyndns, and DuckDNS" > ducs_textbox
 whiptail --textbox --title "Dynamic Update Options" ducs_textbox 10 80
 
 ## No-ip Dynamic Update Client
