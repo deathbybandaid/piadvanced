@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Openvas
 NAMEOFAPP="openvas"
-WHATITDOES="This is a vulnerability testing program."
+WHATITDOES="OpenVAS is a framework of several services and tools offering a comprehensive and powerful vulnerability scanning and vulnerability management solution."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,8 +24,8 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-
-
+sudo bash /etc/piadvanced/installscripts/openvasinstall.sh
+sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
 ## End of install
 fi }
