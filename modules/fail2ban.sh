@@ -1,7 +1,7 @@
 #!/bin/sh
 ##Fail2Ban
 NAMEOFAPP="fail2ban"
-WHATITDOES="This helps prevent against bruteforce access to your device."
+WHATITDOES="Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks."
 
 ## Current User
 CURRENTUSER="$(whoami)"
