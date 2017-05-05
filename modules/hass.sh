@@ -1,7 +1,7 @@
 #!/bin/sh
 ## HASS
 NAMEOFAPP="hass"
-WHATITDOES="If you like Home Automation, this is the program for you."
+WHATITDOES="Home Assistant is an open-source home automation platform"
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,14 +24,6 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-#sudo wget https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh -P  /etc/piadvanced/installscripts/
-#{ if [ "$CHANGED_USERNAME" = "yes" ]
-#then
-#sudo chown $NEW_USERNAME:$NEW_USERNAME /etc/piadvanced/installscripts/hass_rpi_installer.sh
-#else
-#sudo chown pi:pi /etc/piadvanced/installscripts/hass_rpi_installer.sh
-#fi }
-#bash /etc/piadvanced/installscripts/hass_rpi_installer.sh
 sudo bash /etc/piadvanced/installscripts/hassinstall.sh
 sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
