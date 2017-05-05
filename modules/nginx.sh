@@ -34,12 +34,25 @@ sudo sed -i "s/listen 80 default_server/listen $NEW_NGINX80 default_server/" /et
 sudo systemctl enable nginx
 
 ## openssl 
-#sudo openssl dhparam -out /etc/nginxdh2048.pem 2048
+{ if 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to generate an Openssl key?" 8 78) 
+then
+sudo echo "User Declined Nginx Openssl."
+else
+sudo openssl dhparam -out /etc/nginxdh2048.pem 2048
+fi }
 
 ## Perfect forward secrecy
-#sudo echo "ssl_ciphers "ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS";" | sudo tee --append /etc/nginxperfect-forward-secrecy.conf
-#sudo echo "ssl_dhparam /etc/nginx/dh2048.pem;" | sudo tee --append /etc/nginxperfect-forward-secrecy.conf
-#sudo echo "add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";" | sudo tee --append /etc/nginxperfect-forward-secrecy.conf
+{ if 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to use perfect forward secrecy with nginx" 8 78) 
+then
+sudo echo "User Declined Perfect Forward Secrecy"
+else
+sudo echo "ssl_ciphers "ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS";" | sudo tee --append /etc/nginxperfect-forward-secrecy.conf
+sudo echo "ssl_dhparam /etc/nginx/dh2048.pem;" | sudo tee --append /etc/nginxperfect-forward-secrecy.conf
+sudo echo "add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";" | sudo tee --append /etc/nginxperfect-forward-secrecy.conf
+fi }
+
 
 ## End of install
 fi }
