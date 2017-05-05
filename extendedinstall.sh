@@ -112,7 +112,7 @@ sudo bash /etc/piadvanced/modules/pihole.sh
 sudo bash /etc/piadvanced/modules/dnscrypt.sh
 
 ## Webserver settings
-echo "During the install, multiple webservers could have been installed. Let's try to adjust the configs to not interfere with eachother. If these aren't set correctly, you will have to manually adjust them, because they may not start properly. Users of Pi-Hole, may need to look at the Lighttpd settings." > webserver_textbox
+echo "Let's modify the webserver configurations. Users of Pi-Hole, may need to look at the Lighttpd settings." > webserver_textbox
 whiptail --textbox --title "Webserver Questions Ahead" webserver_textbox 10 80
 sudo bash /etc/piadvanced/modules/lighttpd.sh
 sudo bash /etc/piadvanced/modules/apache.sh
