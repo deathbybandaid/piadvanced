@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Dependencies
 NAMEOFAPP="dependencies"
-WHATITDOES="These are programs that are a foundation for other softwares."
+WHATITDOES="These are programs that are a foundation for other softwares. Skipping could be fatal."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -25,6 +25,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo apt-get install -y raspi-config
+sudo apt-get install -y apt-transport-https 
 sudo apt-get install -y gawk
 sudo apt-get install -y tcpdump
 sudo apt-get install -t stretch libio-pty-perl -y
