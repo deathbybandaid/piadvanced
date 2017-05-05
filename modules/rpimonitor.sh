@@ -1,7 +1,7 @@
 #!/bin/sh
 #rpimonitor
 NAMEOFAPP="rpimonitor"
-WHATITDOES="This helps monitor you pi."
+WHATITDOES="RPi-Monitor is keeping an eye on your Raspberry Pi and presenting the globale health in a status page."
 
 ## Current User
 CURRENTUSER="$(whoami)"
