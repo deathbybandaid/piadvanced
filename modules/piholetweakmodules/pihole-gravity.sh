@@ -24,7 +24,9 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
+(crontab -l ; echo "## Pihole Gravity Schedule") | crontab -
 (crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/piholetweaks/piholegravity.sh") | crontab -
+(crontab -l ; echo "") | crontab -
 
 ## End of install
 fi }
