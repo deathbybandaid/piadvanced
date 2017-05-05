@@ -29,6 +29,9 @@ sudo bash /etc/piadvanced/modules/hostname.sh
 ## Static IP for eth0
 sudo bash /etc/piadvanced/modules/eth0.sh
 
+# vlan
+sudo bash /etc/piadvanced/modules/virtualinterface.sh
+
 ## Wifi Credentials
 sudo bash /etc/piadvanced/modules/wifissid.sh
 
