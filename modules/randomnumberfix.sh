@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Random Number fix
 NAMEOFAPP="rngtools"
-WHATITDOES="This helps fix issues with random number generation."
+WHATITDOES="The rng-tools is a set of utilities related to random number generation in kernel."
 
 ## Current User
 CURRENTUSER="$(whoami)"
