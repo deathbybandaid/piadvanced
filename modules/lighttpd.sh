@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Lighttpd
 NAMEOFAPP="lighttpd"
-WHATITDOES="This is a common webserver. It is used by the Pi-hole project."
+WHATITDOES="Lightweight open-source web server. It is used by the Pi-hole project."
 
 ## Current User
 CURRENTUSER="$(whoami)"
