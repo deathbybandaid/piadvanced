@@ -61,14 +61,14 @@ sudo bash /etc/piadvanced/modules/updateupgrade.sh
 sudo bash /etc/piadvanced/modules/aptgetinstall.sh
 
 ## Admin Email
-echo "The next Three installs are Email options. Apticron, Mail, and Exim4" > adminmail_textbox
+echo "The next Three installs are Email options. Apticron, Mailutils, and Exim4" > adminmail_textbox
 whiptail --textbox --title "Email Options" adminmail_textbox 10 80
 
 ## Apticron
 sudo bash /etc/piadvanced/modules/apticron.sh
 
 ## Mail
-sudo bash /etc/piadvanced/modules/mail.sh
+sudo bash /etc/piadvanced/modules/mailutils.sh
 
 ## Exim4
 sudo bash /etc/piadvanced/modules/exim4.sh
