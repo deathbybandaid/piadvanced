@@ -37,7 +37,8 @@
 ### SSH
 * on/off
 * fail2ban
-  * Helps protect against brute-forcing
+  * Helps protect against brute-force attempts.
+  * Configure for other services by sudo nano /etc/fail2ban/jail.conf
 * psad
 
 ### Random Number Fix with rng-tools
