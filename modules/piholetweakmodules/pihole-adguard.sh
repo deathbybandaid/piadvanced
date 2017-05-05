@@ -24,7 +24,9 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
+(crontab -l ; echo "## Pihole Adguard") | crontab -
 (crontab -l ; echo "0 3 * * * sudo bash /etc/piadvanced/piholetweaks/adguard.sh") | crontab -
+(crontab -l ; echo "") | crontab -
 sudo echo "#http://localhost/admin/adguard.txt" | sudo tee --append /etc/pihole/adlists.list
 
 ## End of install
