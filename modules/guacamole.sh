@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Guacamole
 NAMEOFAPP="guacamole"
-WHATITDOES="This is a VNC and RDP Gateway program."
+WHATITDOES="Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH."
 
 ## Current User
 CURRENTUSER="$(whoami)"
