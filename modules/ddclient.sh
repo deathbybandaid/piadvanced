@@ -1,7 +1,7 @@
 #!/bin/sh
 ## ddclient
 NAMEOFAPP="ddclient"
-WHATITDOES="This is used with Dyndns to keep your dynamic address working."
+WHATITDOES="DDclient is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider."
 
 ## Current User
 CURRENTUSER="$(whoami)"
