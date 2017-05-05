@@ -82,6 +82,9 @@ sudo bash /etc/piadvanced/modules/fail2ban.sh
 ## PSAD
 sudo bash /etc/piadvanced/modules/psad.sh
 
+## samba
+sudo bash /etc/piadvanced/modules/samba.sh
+
 ## Dynamic Update Clients
 echo "The next Three installs are dynamic update clients for No-IP, Dyndns, and DuckDNS" > ducs_textbox
 whiptail --textbox --title "Dynamic Update Options" ducs_textbox 10 80
@@ -165,6 +168,9 @@ sudo bash /etc/piadvanced/modules/grafana.sh
 echo "Warning: The OpenVas install (next) is untested." > openvas_textbox
 whiptail --textbox --title "OpenVas" openvas_textbox 10 80
 sudo bash /etc/piadvanced/modules/openvas.sh
+
+## plexboard
+sudo bash /etc/piadvanced/modules/plexboard.sh
 
 ## HTPC
 sudo bash /etc/piadvanced/modules/atomic.sh
