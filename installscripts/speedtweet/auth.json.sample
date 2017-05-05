@@ -1,0 +1,6 @@
+{
+	"token": "VALUE1",
+	"token_secret": "VALUE2",
+	"consumer_key": "VALUE3",
+	"consumer_secret": "VALUE4"
+}
