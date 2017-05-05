@@ -24,7 +24,9 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
+(crontab -l ; echo "## Pihole Auto Updates") | crontab -
 (crontab -l ; echo "0,30 * * * * sudo bash /etc/piadvanced/piholetweaks/piholeautoupdate.sh") | crontab -
+(crontab -l ; echo "") | crontab -
 
 ## End of install
 fi }
