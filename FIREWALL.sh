@@ -263,6 +263,15 @@ sudo echo "-A INPUT –p tcp -–dport 10000 -j ACCEPT" | sudo tee --append /etc
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## shellinabox
+{ if 
+[ "$shellinaboxfirewall" = "yes" ]
+then
+sudo echo "# shellinabox" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 6175 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## Pihole
 { if 
 [ "$piholefirewall" = "yes" ]
