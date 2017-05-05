@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Updates
 NAMEOFAPP="updates"
-WHATITDOES="This will download and install updates to programs on your device."
+WHATITDOES="This will download and install updates to programs on your device. Skipping Could Be Fatal."
 
 ## Current User
 CURRENTUSER="$(whoami)"
