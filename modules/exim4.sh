@@ -1,7 +1,7 @@
 #!/bin/sh
 ## exim4
 NAMEOFAPP="exim4"
-WHATITDOES="This will send you emails."
+WHATITDOES="Exim4 is a Message Transfer Agent."
 
 ## Current User
 CURRENTUSER="$(whoami)"
