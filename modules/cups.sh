@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Cups
 NAMEOFAPP="cups"
-WHATITDOES="This is probably the best printing server you could have."
+WHATITDOES="CUPS is a standards-based, open source printing system."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -25,13 +25,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo apt-get install -y cups
-{ if 
-[ "$CHANGED_USERNAME" = "yes" ]
-then
-sudo usermod -a -G lpadmin $NEW_USERNAME
-else
-sudo usermod -a -G lpadmin pi
-fi }
+sudo usermod -a -G lpadmin $CURRENTUSER
 sudo sed -i "s/Listen localhost:631/Port 631/" /etc/cups/cupsd.conf
 sudo gawk -i inplace '/Order deny,allow/{print;print "Allow from all";next}1' /etc/cups/cupsd.conf
 sudo gawk -i inplace '/Order allow,deny/{print;print "Allow from all";next}1' /etc/cups/cupsd.conf
