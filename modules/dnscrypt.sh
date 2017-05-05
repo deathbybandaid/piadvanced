@@ -1,7 +1,7 @@
 #!/bin/sh
 ## DNSCRYPT
 NAMEOFAPP="dnscrypt"
-WHATITDOES="DNSCrypt helps sheild your internet traffic."
+WHATITDOES="DNSCrypt is a protocol for securing communications between a client and a DNS resolver, using high-speed high-security elliptic-curve cryptography."
 
 ## Current User
 CURRENTUSER="$(whoami)"
