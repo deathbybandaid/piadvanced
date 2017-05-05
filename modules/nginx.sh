@@ -1,7 +1,7 @@
 #!/bin/sh
 ## NGINX
 NAMEOFAPP="nginx"
-WHATITDOES="This is a common Webserver."
+WHATITDOES="NGINX is a free, open-source, high-performance HTTP server, reverse proxy, and IMAP/POP3 proxy server."
 
 ## Current User
 CURRENTUSER="$(whoami)"
