@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Usermin
 NAMEOFAPP="usermin"
-WHATITDOES="This is a webui to help control local user accounts."
+WHATITDOES="Usermin is a web-based interface for webmail, password changing, mail filters, fetchmail and much more."
 
 ## Current User
 CURRENTUSER="$(whoami)"
