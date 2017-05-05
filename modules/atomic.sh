@@ -26,7 +26,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 ## Below here is the magic.
 sudo git clone https://github.com/htpcBeginner/AtoMiC-ToolKit ~/AtoMiC-ToolKit
 sudo bash ~/AtoMiC-ToolKit/setup.sh
-whiptail --msgbox "Any programs installed via Atomic need firewall rules." 10 80 1
+whiptail --msgbox "Any programs installed via Atomic need firewall rules added manually." 10 80 1
 
 ## End of install
 fi }
