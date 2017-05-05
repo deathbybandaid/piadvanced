@@ -150,6 +150,9 @@ sudo bash /etc/piadvanced/modules/squid.sh
 ## HASS
 sudo bash /etc/piadvanced/modules/hass.sh
 
+## Grafana
+sudo bash /etc/piadvanced/modules/grafana.sh
+
 ## HTPC
 sudo bash /etc/piadvanced/modules/atomic.sh
 
