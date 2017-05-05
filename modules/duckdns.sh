@@ -24,10 +24,14 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-
-
-
-
+DUCKDNSDOMAIN=$(whiptail --inputbox "What is your DuckDNS Domain Name?" 10 80 "" 3>&1 1>&2 2>&3)
+DUCKDNSTOKEN=$(whiptail --inputbox "What is your DuckDNS Token?" 10 80 "" 3>&1 1>&2 2>&3)
+cp -n /etc/piadvanced/installscripts/duckdnsscript.sh.default /etc/piadvanced/installscripts/duckdnsscript.sh
+sudo sed -i "s/DUCKDOMAIN/$DUCKDNSDOMAIN/" /etc/piadvanced/installscripts/duckdnsscript.sh
+sudo sed -i "s/TOKENVALUE/$DUCKDNSTOKEN/" /etc/piadvanced/installscripts/duckdnsscript.sh
+(crontab -l ; echo "## DuckDNS Update") | crontab -
+(crontab -l ; echo "*/5 * * * * /etc/piadvanced/installscripts/duckdnsscript.sh >/dev/null 2>&1") | crontab -
+(crontab -l ; echo "") | crontab -
 ## End of install
 fi }
 
