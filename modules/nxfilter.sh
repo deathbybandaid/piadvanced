@@ -34,6 +34,8 @@ sudo bash /etc/nxfilter/bin/startup.sh
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to change the dns listen port? dnsmasq/pihole uses 53, dnscrypt uses 5454, 5656, and 5757" 8 78) 
 then
+sudo echo "User Declined changing nxfilter dns port."
+else
 NXFILTERC=$(whiptail --inputbox "Please enter alternative dns port." 10 80 "5858" 3>&1 1>&2 2>&3)
 sudo echo "dns_port = $NXFILTERC" | sudo tee --append /etc/nxfilter/conf/cfg.properties
 fi }
