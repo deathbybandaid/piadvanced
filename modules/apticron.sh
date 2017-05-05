@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Apticron
 NAMEOFAPP="Apticron"
-WHATITDOES="This Program will send you an email when your system is in need of updates."
+WHATITDOES="Automatic package update nagging via email."
 
 ## Current User
 CURRENTUSER="$(whoami)"
