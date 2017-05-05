@@ -188,6 +188,15 @@ sudo echo "-A INPUT –p tcp -–dport 1194 -j ACCEPT" | sudo tee --append /etc/
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## Grafana
+{ if 
+[ "$grafanafirewall" = "yes" ]
+then
+sudo echo "# grafana" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 3000 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## Plexboard
 { if 
 [ "$plexboardfirewall" = "yes" ]
