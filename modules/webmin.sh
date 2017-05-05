@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Webmin
 NAMEOFAPP="webmin"
-WHATITDOES="This is a webui that helps you control the parameters of your device."
+WHATITDOES="Webmin is a web-based system configuration tool."
 
 ## Current User
 CURRENTUSER="$(whoami)"
