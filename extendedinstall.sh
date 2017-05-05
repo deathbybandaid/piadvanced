@@ -139,6 +139,9 @@ sudo bash /etc/piadvanced/modules/rpimonitor.sh
 ## phpmyadmin
 sudo bash /etc/piadvanced/modules/phpmyadmin.sh
 
+## nagios
+sudo bash /etc/piadvanced/modules/nagios.sh
+
 ## Proxies
 echo "The next two installs are Squid and Privoxy, choose one ONLY!" > proxies_textbox
 whiptail --textbox --title "Proxies" proxies_textbox 10 80
