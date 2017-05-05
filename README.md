@@ -67,7 +67,7 @@
 # Admin Mail
 Handy if you want to get email from your device when things happen, or you need updates.
 * Apticron
-* Mail
+* Mailutils
 * Exim4
 
 ## Dynamic Domain Name Services
@@ -171,7 +171,6 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 ## Things in the works:
 * Steam Cache
 * PXE Server
-* Moboticz
 * Nagios
 * OpenVAS
 * ShellinaBox
