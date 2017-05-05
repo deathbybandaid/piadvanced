@@ -38,6 +38,7 @@ NXFILTERC=$(whiptail --inputbox "Please enter alternative dns port." 10 80 "5858
 sudo echo "dns_port = $NXFILTERC" | sudo tee --append /etc/nxfilter/conf/cfg.properties
 fi }
 sudo sed -i '/exit 0/d' /etc/rc.local
+sudo sed -i '' /etc/rc.local
 sudo sed -i '$i /etc/nxfilter/bin/startup.sh -d' /etc/rc.local
 sudo sed -i '$i exit 0' /etc/rc.local
 sudo sed -i "s/http_port = 80/http_port = $NXFILTERA/" /etc/nxfilter/conf/cfg.properties
