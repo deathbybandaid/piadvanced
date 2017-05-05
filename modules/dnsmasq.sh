@@ -1,7 +1,7 @@
 #!/bin/sh
 ## DNSMasq
 NAMEOFAPP="dnsmasq"
-WHATITDOES="DNSmasq is a DNS resolver. It is what Pi-hole uses for DNS and DHCP."
+WHATITDOES="Dnsmasq is a DNS forwarder and DHCP server. This is used by the Pi-hole project."
 
 ## Current User
 CURRENTUSER="$(whoami)"
