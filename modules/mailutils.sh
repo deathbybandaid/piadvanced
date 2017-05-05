@@ -30,7 +30,9 @@ MAIL_HOSTNAME=$(whiptail --inputbox "Hostname" 20 60 "$NEW_HOSTNAME" 3>&1 1>&2 2
 MAIL_AUTHUSER=$(whiptail --inputbox "Username" 20 60 "$MAIL_ROOT" 3>&1 1>&2 2>&3)
 MAIL_AUTHPASS=$(whiptail --inputbox "Password" 20 60 "" 3>&1 1>&2 2>&3)
 MAIL_STARTTLS=$(whiptail --inputbox "Use STARTTLS? YES or NO" 20 60 "YES" 3>&1 1>&2 2>&3)
-sudo apt-get -y install ssmtp mailutils mpack
+sudo apt-get -y install ssmtp
+sudo apt-get -y install mailutils
+sudo apt-get -y install mpack
 sudo sed -i "s/root=postmaster/root=$MAIL_ROOT/" /etc/ssmtp/ssmtp.conf
 sudo echo "mailhub=$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/ssmtp.conf
 sudo sed -i "s/hostname=$OLD_HOSTNAME/hostname=$NEW_HOSTNAME/" /etc/ssmtp/ssmtp.conf
@@ -39,8 +41,8 @@ sudo echo "AuthUser$MAIL_AUTHUSER" | sudo tee --append /etc/ssmtp/ssmtp.conf
 sudo echo "AuthPass=$MAIL_AUTHPASS" | sudo tee --append /etc/ssmtp/ssmtp.conf
 sudo echo "useSTARTTLS=$MAIL_STARTTLS" | sudo tee --append /etc/ssmtp/ssmtp.conf
 sudo echo "root:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
-sudo echo "pi:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
-sudo echo "$MAIL_MAILHUB" | sudo tee --append /root/.forward
+sudo echo "$CURRENTUSER:$MAIL_ROOT:$MAIL_MAILHUB" | sudo tee --append /etc/ssmtp/revaliases
+sudo echo "$MAIL_MAILHUB" | sudo tee --append ~/.forward
 
 ## End of install
 fi }
