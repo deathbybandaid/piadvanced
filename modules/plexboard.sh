@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Plexboard
 NAMEOFAPP="plexboard"
-WHATITDOES="This is a program to monitor uptime on local network devices and programs."
+WHATITDOES="A dynamic dashboard for checking the status of multiple services related to Plex Media Server."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,7 +24,8 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-curl -sSL https://get.rvm.io | bash -s stable
+sudo wget https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/rvm-installer -P /etc/piadvanced/installscripts/
+sudo bash /etc/piadvanced/installscripts/rvm-installer
 source /home/pi/.rvm/scripts/rvm
 rvm requirements
 sudo chmod 777 /opt -R && cd /opt
