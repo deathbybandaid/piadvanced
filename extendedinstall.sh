@@ -146,12 +146,14 @@ sudo bash /etc/piadvanced/modules/nagios.sh
 echo "The next two installs are Squid and Privoxy, choose one ONLY!" > proxies_textbox
 whiptail --textbox --title "Proxies" proxies_textbox 10 80
 
-
 ## Privoxy
 sudo bash /etc/piadvanced/modules/privoxy.sh
 
 ## Squid
 sudo bash /etc/piadvanced/modules/squid.sh
+
+## nxfilter
+sudo bash /etc/piadvanced/modules/nxfilter.sh
 
 ## HASS
 sudo bash /etc/piadvanced/modules/hass.sh
