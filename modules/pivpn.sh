@@ -1,7 +1,7 @@
 #!/bin/sh
 ## pivpn
 NAMEOFAPP="pivpn"
-WHATITDOES="This will install a VPN on your network."
+WHATITDOES="Simple OpenVPN installer, designed for raspberry pi."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,7 +24,10 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-curl -L https://install.pivpn.io | bash
+sudo mkdir /etc/piadvanced/installscripts/pivpn
+sudo wget https://raw.githubusercontent.com/pivpn/pivpn/master/auto_install/install.sh -P /etc/piadvanced/installscripts/pivpn/
+sudo bash /etc/piadvanced/installscripts/pivpn/install.sh
+sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
 ## End of install
 fi }
