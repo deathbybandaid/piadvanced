@@ -1,7 +1,7 @@
 #!/bin/sh
 ## OpenVPN
 NAMEOFAPP="openvpn"
-WHATITDOES="This will install a VPN for your network."
+WHATITDOES="OpenVPN is an open-source software application that implements virtual private network (VPN) techniques for creating secure point-to-point or site-to-site connections in routed or bridged configurations and remote access facilities."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,9 +24,9 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-whiptail --msgbox "Select TCP during the install" 10 80 1
 sudo wget https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh -P /etc/piadvanced/installscripts/
 sudo chmod +x /etc/piadvanced/installscripts/openvpn-install.sh
+whiptail --msgbox "Select TCP during the install" 10 80 1
 sudo bash /etc/piadvanced/installscripts/openvpn-install.sh
 sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 sudo sed -i "s/push "dhcp-option DNS 8.8.8.8"/"dhcp-option DNS 10.8.0.1"/" /etc/openvpn/server.conf
