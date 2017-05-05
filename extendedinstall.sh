@@ -161,6 +161,11 @@ sudo bash /etc/piadvanced/modules/hass.sh
 ## Grafana
 sudo bash /etc/piadvanced/modules/grafana.sh
 
+## openvas
+echo "Warning: The OpenVas install (next) is untested." > openvas_textbox
+whiptail --textbox --title "OpenVas" openvas_textbox 10 80
+sudo bash /etc/piadvanced/modules/openvas.sh
+
 ## HTPC
 sudo bash /etc/piadvanced/modules/atomic.sh
 
