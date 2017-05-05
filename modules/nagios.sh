@@ -1,7 +1,7 @@
 #!/bin/sh
 ## nagios
 NAMEOFAPP="nagios"
-WHATITDOES="This programs helps you monitor internet traffic."
+WHATITDOES="Nagios provides enterprise-class Open Source IT monitoring, network monitoring, server and applications monitoring."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,8 +24,7 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-
-
+sudo bash /etc/piadvanced/installscripts/nagiosinstall.sh
 
 
 ## End of install
