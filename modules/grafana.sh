@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Grafana
 NAMEOFAPP="grafana" # This helps set the name of your app throught the module.
-WHATITDOES="This program helps you to visualize your data."
+WHATITDOES="Data visualization & Monitoring."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,10 +24,7 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-sudo apt-get install apt-transport-https curl
-curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
-echo "deb https://dl.bintray.com/fg2it/deb jessie main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
-sudo apt-get update
+
 sudo apt-get install grafana
 ## End of install
 fi }
