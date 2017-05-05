@@ -155,6 +155,9 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 * https://www.cups.org/
 * This is probably the nicest printer server software out there.
 
+## Grafana
+* Untested Install, should be sweet for data monitoring and stuff.
+
 ## AtoMiC-ToolKit
 * Refer to https://github.com/htpcBeginner/AtoMiC-ToolKit for more information.
 * Anything that is installed by this will need a firewall rule added.
