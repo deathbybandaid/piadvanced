@@ -1,7 +1,7 @@
 #!/bin/sh
 ## PSAD
 NAMEOFAPP="psad"
-WHATITDOES="This helps protects your device."
+WHATITDOES="psad is a program that can analyze iptables log messages to detect port scans and other suspicious traffic."
 
 ## Current User
 CURRENTUSER="$(whoami)"
