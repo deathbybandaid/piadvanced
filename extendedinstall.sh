@@ -74,14 +74,21 @@ sudo bash /etc/piadvanced/modules/fail2ban.sh
 ## PSAD
 sudo bash /etc/piadvanced/modules/psad.sh
 
+## Dynamic Update Clients
+echo "The next Three installs are dynamic update clients for No-IP, Dyndns and DuckDNS" > ducs_textbox
+whiptail --textbox --title "Dynamic Update Options" ducs_textbox 10 80
+
 ## No-ip Dynamic Update Client
 sudo bash /etc/piadvanced/modules/noip.sh
 
 ## Dyndns
 sudo bash /etc/piadvanced/modules/ddclient.sh
 
+## DuckDNS
+sudo bash /etc/piadvanced/modules/duckdns.sh
+
 ## VPNs
-echo "The next two installs are openvpn and pivpn, choose one ONLY!" > vpns_textbox
+echo "The next two installs are openvpn and pivpn" > vpns_textbox
 whiptail --textbox --title "VPN Options" vpns_textbox 10 80
 
 ## OpenVPN
