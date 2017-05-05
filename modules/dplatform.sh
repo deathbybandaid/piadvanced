@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Dplatform
 NAMEOFAPP="dplatform"
-WHATITDOES="DPlatform helps install various webserver programs."
+WHATITDOES="Deploy self-hosted apps easily: simple, bloat-free, independent installation."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -26,7 +26,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 ## Below here is the magic.
 sudo wget https://raw.githubusercontent.com/DFabric/DPlatform-ShellCore/master/init.sh -P /etc/piadvanced/installscripts/dplatform/
 sudo bash /etc/piadvanced/installscripts/dplatform/init.sh
-whiptail --msgbox "Any programs installed via Dplatform need firewall rules." 10 80 1
+whiptail --msgbox "Any programs installed via Dplatform need firewall rules added manually." 10 80 1
 
 ## End of install
 fi }
