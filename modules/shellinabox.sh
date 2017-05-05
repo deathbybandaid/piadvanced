@@ -1,7 +1,7 @@
 #!/bin/sh
 ## shellinabox
 NAMEOFAPP="shellinabox"
-WHATITDOES="This helps you cli in a browser."
+WHATITDOES="A Web-Based SSH Terminal to Access Remote Linux Servers."
 
 ## Current User
 CURRENTUSER="$(whoami)"
@@ -24,9 +24,9 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-
-
-
+sudo apt-get install -y openssl shellinabox
+sudo service shellinaboxd start
+sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
 ## End of install
 fi }
