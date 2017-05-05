@@ -1,7 +1,7 @@
 #!/bin/sh
 ## nxfilter
 NAMEOFAPP="nxfilter"
-WHATITDOES="Fast, Light, Powerful DNS Filter."
+WHATITDOES="Fast, Light, Powerful DNS Filter. If you set a non-standard dns port you will need to manually add a firewall rule to allow it."
 
 ## Current User
 CURRENTUSER="$(whoami)"
