@@ -1,0 +1,3 @@
+#!/bin/sh
+## DuckDNS client Updater Script
+echo url="https://www.duckdns.org/update?domains=booradly&token=TOKENVALUE&ip=" | curl -k -o ~/duckdns/duck.log -K -
