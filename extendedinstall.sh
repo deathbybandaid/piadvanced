@@ -47,7 +47,7 @@ sudo bash /etc/piadvanced/modules/timezone.sh
 sudo bash /etc/piadvanced/modules/ntp.sh
 
 ## Random Number Generation fix
-sudo bash /etc/piadvanced/modules/randomnumberfix.sh
+sudo bash /etc/piadvanced/modules/rngtools.sh
 
 ## Better MOTD message
 sudo bash /etc/piadvanced/modules/motd.sh
