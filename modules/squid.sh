@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Squid
 NAMEOFAPP="squid"
-WHATITDOES="This is a Internet proxy."
+WHATITDOES="Squid is a caching proxy for the Web"
 
 ## Current User
 CURRENTUSER="$(whoami)"
