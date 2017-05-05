@@ -27,11 +27,6 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 NXFILTERIP=$(whiptail --inputbox "Please enter an IP address to listen on." 10 80 "0.0.0.0" 3>&1 1>&2 2>&3)
 NXFILTERA=$(whiptail --inputbox "Please enter a port for http" 10 80 "80" 3>&1 1>&2 2>&3)
 NXFILTERB=$(whiptail --inputbox "Please enter a port for https" 10 80 "443" 3>&1 1>&2 2>&3)
-{ if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "If running alongside Pi-hole, do you want to change the dns listen port?" 8 78) 
-then
-NXFILTERC=$(whiptail --inputbox "Please enter alternative dns port." 10 80 "5858" 3>&1 1>&2 2>&3)
-fi }
 sudo wget http://nxfilter.org/download/nxfilter-3.3.4.zip -P /etc/
 sudo unzip /etc/nxfilter-3.3.4.zip -d /etc/nxfilter
 sudo rm -r /etc/nxfilter-3.3.4.zip
