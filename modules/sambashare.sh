@@ -1,6 +1,6 @@
 #!/bin/sh
 ## Samba Share
-NAMEOFAPP="samba"
+NAMEOFAPP="sambashare"
 WHATITDOES="This is a Windows compatible file-sharing protocol"
 
 ## Current User
@@ -24,7 +24,23 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-
+SAMBASHARENAME=$(whiptail --inputbox "What do you want your share to be named?" 10 80 "" 3>&1 1>&2 2>&3)
+sudo apt-get install -t stretch -y samba
+sudo apt-get install -t stretch -y samba-common-bin
+sudo sed -i "s/#   wins support = no/wins support = yes/" /etc/samba/smb.conf
+sudo mkdir /etc/piadvanced/$SAMBASHARENAME
+sudo echo "["$SAMBASHARENAME"]" | sudo tee --append /etc/samba/smb.conf
+sudo echo " comment=Raspberry Pi Share" | sudo tee --append /etc/samba/smb.conf
+sudo echo " path=/etc/piadvanced/"$SAMBASHARENAME"/" | sudo tee --append /etc/samba/smb.conf
+sudo echo " browseable=Yes" | sudo tee --append /etc/samba/smb.conf
+sudo echo " writeable=Yes" | sudo tee --append /etc/samba/smb.conf
+sudo echo " only guest=no" | sudo tee --append /etc/samba/smb.conf
+sudo echo " create mask=0777" | sudo tee --append /etc/samba/smb.conf
+sudo echo " directory mask=0777" | sudo tee --append /etc/samba/smb.conf
+sudo echo " public=no" | sudo tee --append /etc/samba/smb.conf
+sudo echo "" | sudo tee --append /etc/samba/smb.conf
+sudo smbpasswd -a $CURRENTUSER
+sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
 
 ## End of install
