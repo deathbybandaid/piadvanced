@@ -130,6 +130,9 @@ sudo bash /etc/piadvanced/modules/webmin.sh
 ## xRDP
 sudo bash /etc/piadvanced/modules/xrdp.sh
 
+## shellinabox
+sudo bash /etc/piadvanced/modules/shellinabox.sh
+
 ## Guacamole
 sudo bash /etc/piadvanced/modules/guacamole.sh
 
