@@ -25,7 +25,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 OLD_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
-NEW_HOSTNAME=$(whiptail --inputbox "Please enter a hostname" 20 60 "$OLD_HOSTNAME" 3>&1 1>&2 2>&3)
+NEW_HOSTNAME=$(whiptail --inputbox "Please enter a hostname" 10 80 "$OLD_HOSTNAME" 3>&1 1>&2 2>&3)
 sudo cp /etc/hosts /etc/piadvanced/backups/hostname/
 sudo cp /etc/hostname /etc/piadvanced/backups/hostname/
 sudo echo "NEW_HOSTNAME=$NEW_HOSTNAME" | sudo tee --append /etc/piadvanced/install/variables.conf
