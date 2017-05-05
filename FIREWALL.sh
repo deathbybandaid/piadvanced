@@ -188,6 +188,15 @@ sudo echo "-A INPUT –p tcp -–dport 1194 -j ACCEPT" | sudo tee --append /etc/
 sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
 fi }
 
+## openvas
+{ if 
+[ "$openvasfirewall" = "yes" ]
+then
+sudo echo "# openvas" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "-A INPUT –p tcp -–dport 9390 -j ACCEPT" | sudo tee --append /etc/iptables.firewall.rules
+sudo echo "" | sudo tee --append /etc/iptables.firewall.rules
+fi }
+
 ## Grafana
 { if 
 [ "$grafanafirewall" = "yes" ]
