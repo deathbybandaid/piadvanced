@@ -1,7 +1,7 @@
 #!/bin/sh
 ## pihole
 NAMEOFAPP="pihole"
-WHATITDOES="This is the best Network-wide Adblocking ever."
+WHATITDOES="A black hole for Internet advertisements."
 
 ## Current User
 CURRENTUSER="$(whoami)"
