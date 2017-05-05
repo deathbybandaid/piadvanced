@@ -25,7 +25,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo apt-get install grafana
-
+sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 ## End of install
 fi }
 
