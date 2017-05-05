@@ -1,7 +1,7 @@
 #!/bin/sh
 ## XRDP
 NAMEOFAPP="xrdp"
-WHATITDOES="This allows you to use the RDP protocal to connect to your device."
+WHATITDOES="An open source RDP server."
 
 ## Current User
 CURRENTUSER="$(whoami)"
