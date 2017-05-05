@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Mail
-NAMEOFAPP="mail"
-WHATITDOES="This will send you emails."
+NAMEOFAPP="mailutils"
+WHATITDOES="Mailutils is a swiss army knife of electronic mail handling."
 
 ## Current User
 CURRENTUSER="$(whoami)"
