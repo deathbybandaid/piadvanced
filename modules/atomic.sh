@@ -1,7 +1,7 @@
 #!/bin/sh
 ## AtoMiC-ToolKit
 NAMEOFAPP="AtoMiCToolKit"
-WHATITDOES="This script from HTPCBeginers will help install home theater applications."
+WHATITDOES="AtoMiC Toolkit simplifies HTPC / Home Server setup and management."
 
 ## Current User
 CURRENTUSER="$(whoami)"
