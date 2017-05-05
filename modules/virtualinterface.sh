@@ -37,6 +37,7 @@ sudo echo "interface eth0.1" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static ip_address=$NEWVLAN_IP" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static routers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
 sudo echo "static domain_name_servers=$OLDETH_GATEWAY" | sudo tee --append /etc/dhcpcd.conf
+sudo ifconfig eth0.1 $NEWVLAN_IP
 
 ## End of install
 fi }
