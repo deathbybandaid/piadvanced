@@ -1,7 +1,7 @@
 #!/bin/sh
 ## Privoxy
 NAMEOFAPP="privoxy"
-WHATITDOES="This is an internet Proxy program."
+WHATITDOES="Privoxy is a non-caching web proxy with advanced filtering capabilities for enhancing privacy, modifying web page data and HTTP headers, controlling access, and removing ads and other obnoxious Internet junk."
 
 ## Current User
 CURRENTUSER="$(whoami)"
