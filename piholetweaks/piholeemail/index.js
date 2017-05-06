@@ -24,7 +24,7 @@ function today() {
  }
 
 // HTTP GET stats from localhost
-http.get('http://127.0.0.1/admin/api.php', (res) => {
+http.get('http://localhost/admin/api.php', (res) => {
      res.setEncoding('utf8');
      res.on('data', function (body) {
          var obj = JSON.parse(body);
