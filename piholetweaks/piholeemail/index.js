@@ -4,7 +4,7 @@ var email = require("emailjs");
 var git = require("simple-git");
 
 // This is where your email config goes.
-var config = JSON.parse(fs.readFileSync("config.json"));
+var config = JSON.parse(fs.readFileSync("/etc/piadvanced/piholetweaks/piholeemail/config.json"));
 var server = email.server.connect({
         user: config.user,
         password: config.password,
@@ -44,4 +44,4 @@ http.get('http://localhost/admin/api.php', (res) => {
 });
 
 // Update from the Git repository
-git().pull("https://github.com/MilesGG/pi-hole-summary.git", "master");
+//git().pull("https://github.com/MilesGG/pi-hole-summary.git", "master");
