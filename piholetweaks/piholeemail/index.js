@@ -3,12 +3,6 @@ var http = require("http");
 var email = require("emailjs");
 var git = require("simple-git");
 
-//
-var options = {
-  host: 'localhost',
-  port: 8679,
-};
-
 // This is where your email config goes.
 var config = JSON.parse(fs.readFileSync("/etc/piadvanced/piholetweaks/piholeemail/config.json"));
 var server = email.server.connect({
