@@ -25,6 +25,11 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo apt-get install -t stretch -y npm
+sudo npm install emailjs --save
+sudo npm install simple-git --save
+sudo npm install http --save
+sudo npm install fs --save
+
 sudo cp /etc/piadvanced/piholetweaks/piholeemail/bare-config.json /etc/piadvanced/piholetweaks/piholeemail/config.json
 PIHOLESENDEMAIL=$(whiptail --inputbox "What Email are you sending from?" 20 60 "james@gmail.net" 3>&1 1>&2 2>&3)
 PIHOLESENDPASS=$(whiptail --inputbox "What is the password for $PIHOLESENDEMAIL" 20 60 "" 3>&1 1>&2 2>&3)
