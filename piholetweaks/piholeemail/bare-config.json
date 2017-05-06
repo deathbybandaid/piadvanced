@@ -1,0 +1,8 @@
+{
+    "user": "PIHOLESENDEMAIL",
+    "password": "PIHOLESENDPASS",
+    "host": "PIHOLEEMAILHOSTNAME",
+    "toname": "PIHOLEEMAILTONAME",
+    "toaddr": "PIHOLEEMAILTOADDRESS",
+    "ssl": PIHOLEEMAILSSL
+}
