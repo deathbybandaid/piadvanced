@@ -38,10 +38,9 @@ sudo sed -i "s/VALUE3/$PIHOLEEMAILHOSTNAME/" /etc/piadvanced/piholetweaks/pihole
 sudo sed -i "s/VALUE4/$PIHOLEEMAILTONAME/" /etc/piadvanced/piholetweaks/piholeemail/config.json
 sudo sed -i "s/VALUE5/$PIHOLEEMAILTOADDRESS/" /etc/piadvanced/piholetweaks/piholeemail/config.json
 sudo sed -i "s/VALUE6/$PIHOLEEMAILSSL/" /etc/piadvanced/piholetweaks/piholeemail/config.json
-
-#(crontab -l ; echo "## Pihole Email") | crontab -
-#(crontab -l ; echo "59 23 * * * /home/pi/node-v6.9.5-linux-armv6l/bin/node /etc/piadvanced/piholetweaks/piholeemail/index.js") | crontab -
-#(crontab -l ; echo "") | crontab -
+(crontab -l ; echo "## Pihole Email") | crontab -
+(crontab -l ; echo "59 23 * * * sudo nodejs /etc/piadvanced/piholetweaks/piholeemail/index.js") | crontab -
+(crontab -l ; echo "") | crontab -
 
 
 ## Node figure out
