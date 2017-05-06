@@ -26,7 +26,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 ## Below here is the magic.
 sudo apt-get install -t stretch -y npm
 sudo cp /etc/piadvanced/piholetweaks/piholeemail/bare-config.json /etc/piadvanced/piholetweaks/piholeemail/config.json
-PIHOLESENDEMAIL=$(whiptail --inputbox "What Email are you sending from?" 20 60 "example" 3>&1 1>&2 2>&3)
+PIHOLESENDEMAIL=$(whiptail --inputbox "What Email are you sending from?" 20 60 "james@gmail.net" 3>&1 1>&2 2>&3)
 PIHOLESENDPASS=$(whiptail --inputbox "What is the password for $PIHOLESENDEMAIL" 20 60 "" 3>&1 1>&2 2>&3)
 PIHOLEEMAILHOSTNAME=$(whiptail --inputbox "What is the email hostname?" 20 60 "smtp.host.net" 3>&1 1>&2 2>&3)
 PIHOLEEMAILTONAME=$(whiptail --inputbox "What is the name of the recipient?" 20 60 "John Doe" 3>&1 1>&2 2>&3)
