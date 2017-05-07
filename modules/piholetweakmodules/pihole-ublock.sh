@@ -28,7 +28,8 @@ sudo cp -n /etc/piadvanced/piholetweaks/ublockpihole/lists.lst.default /etc/piad
 (crontab -l ; echo "## UblockPihole") | crontab -
 (crontab -l ; echo "0 1 * * * sudo bash /etc/piadvanced/piholetweaks/ublockpihole/ublockpihole.sh") | crontab -
 (crontab -l ; echo "") | crontab -
-sudo echo "#http://localhost/admin/ublock.txt" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "## Ublock Pihole" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/admin/ublock.txt" | sudo tee --append /etc/pihole/adlists.list
 
 ## End of install
 fi }
