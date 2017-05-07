@@ -131,6 +131,8 @@ This is fully functional, and works!
 * A way to tweet daily blockings.
   * Configure this with sudo nano /etc/piadvanced/piholetweaks/piholetweeter.py
   * Credit goes to https://github.com/DarthKeizer/Pi-Hole-stats-tweeter
+* Recieve a daily email with your stats.
+  * Credit goes to https://github.com/MilesGG/pi-hole-summary
 * HenningVanRaumle's Youtube Adblock List
 
 ## Webservers
