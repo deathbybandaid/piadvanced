@@ -23,8 +23,8 @@ function today() {
      return day + "/" + month + "/" + year;
  }
 
-// HTTP GET stats from localhost
-http.get('http://localhost/admin/api.php', (res) => {
+// HTTP GET stats from pihole api
+http.get('http://pi.hole/admin/api.php', (res) => {
      res.setEncoding('utf8');
      res.on('data', function (body) {
          var obj = JSON.parse(body);
