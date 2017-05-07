@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -37,7 +37,7 @@ unset WHATITDOES
 ## Module Comments
 
 ## Need a message box?
-#whiptail --msgbox "$NAMEOFAPP messagebox" 20 70 1
+#whiptail --msgbox "$NAMEOFAPP messagebox" 10 80 1
 
 ## Set a variable with a text box?
 #NEW_VARIABLE=$(whiptail --inputbox "NAMEOFAPP what do you want to type?" 10 80 "$NAMEOFAPP suggested text" 3>&1 1>&2 2>&3)
