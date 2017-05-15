@@ -35,6 +35,7 @@ sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-youtubeadblock.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-adguard.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-phpparser.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-henningvanraumleyoutube.sh
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-chadmayfieldpornblock.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-tweeter.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-email.sh
 
