@@ -31,7 +31,7 @@ sudo pip install -r /etc/piadvanced/piholetweaks/youtubeadblock/requirements.txt
 (crontab -l ; echo "0 2 * * * sudo bash /etc/piadvanced/piholetweaks/youtubeadblock/youtube-ads.sh") | crontab -
 (crontab -l ; echo "") | crontab -
 sudo echo "Youtube Parser" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/youtube.txt" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/youtube.txt" | sudo tee --append /etc/pihole/adlists.list
 
 ## End of install
 fi }
