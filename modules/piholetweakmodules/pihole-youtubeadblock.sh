@@ -25,7 +25,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo pip install requests
-sudo pip install bs4
+sudo pip install beautifulsoup4
 sudo pip install -r /etc/piadvanced/piholetweaks/youtubeadblock/requirements.txt
 (crontab -l ; echo "## Pihole Youtube Blocking") | crontab -
 (crontab -l ; echo "0 2 * * * sudo bash /etc/piadvanced/piholetweaks/youtubeadblock/youtube-ads.sh") | crontab -
