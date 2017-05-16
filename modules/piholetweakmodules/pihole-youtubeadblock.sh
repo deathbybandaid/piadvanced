@@ -1,7 +1,7 @@
 #!/bin/sh
 ## youtube adblocker
 NAMEOFAPP="youtubeadblocker"
-WHATITDOES="This is a parser to help blcok Youtube ads."
+WHATITDOES="This is a parser to help block Youtube ads."
 
 ## Current User
 CURRENTUSER="$(whoami)"
