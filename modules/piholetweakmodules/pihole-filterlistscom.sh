@@ -1,6 +1,6 @@
 #!/bin/sh
-## DBB Parser
-NAMEOFAPP="dbbparser"
+## filterlistscom
+NAMEOFAPP="filterlistscom"
 WHATITDOES="This is a parser for filterlists.com"
 
 ## Current User
@@ -24,12 +24,11 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/breaktheinternet.list /etc/piadvanced/piholetweaks/dbbparser/lists.lst
-(crontab -l ; echo "## dbbparser") | crontab -
-(crontab -l ; echo "0 1 * * * sudo bash /etc/piadvanced/piholetweaks/dbbparser/dbbparser.sh") | crontab -
+(crontab -l ; echo "## filterlistscom") | crontab -
+(crontab -l ; echo "0 1 * * * sudo bash /etc/piadvanced/piholetweaks/filterlistscom/filterlistscom.sh") | crontab -
 (crontab -l ; echo "") | crontab -
-sudo echo "## dbbparser" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/lists/dbbparser.txt" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "## filterlistscom" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/filterlistscom.txt" | sudo tee --append /etc/pihole/adlists.list
 
 ## End of install
 fi }
