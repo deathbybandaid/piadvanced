@@ -29,7 +29,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 (crontab -l ; echo "") | crontab -
 sudo bash /etc/piadvanced/piholetweaks/adguard.sh
 sudo echo "## Adguard" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/adguard.txt" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/adguard.txt" | sudo tee --append /etc/pihole/adlists.list
 
 ## End of install
 fi }
