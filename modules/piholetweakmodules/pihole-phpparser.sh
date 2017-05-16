@@ -24,20 +24,20 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-sudo cp /etc/piadvanced/piholetweaks/parser.php /var/www/html/admin/
+sudo cp /etc/piadvanced/piholetweaks/parser.php /var/www/html/lists/
 sudo echo "# PHP Parser" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=antipopads" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=adware_filters" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=easyprivacy_easylist" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=adguard_dns" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=fanboy_ultimate" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=blockzilla" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=openpish" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=malwareurls" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=adguard_mobile" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=easylist_de2" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=adguard_en" | sudo tee --append /etc/pihole/adlists.list
-sudo echo "http://pi.hole/admin/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=antipopads" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=adware_filters" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=easyprivacy_easylist" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=adguard_dns" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=fanboy_ultimate" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=blockzilla" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=openpish" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=malwareurls" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=adguard_mobile" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=easylist_de2" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=adguard_en" | sudo tee --append /etc/pihole/adlists.list
+sudo echo "http://pi.hole/lists/parser.php?list=adguard_de" | sudo tee --append /etc/pihole/adlists.list
 
 ## End of install
 fi }
