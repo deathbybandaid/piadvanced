@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo rm /etc/piadvanced/piholetweaks/dbbparser/lists.lst
-sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/breaktheinternet.list /etc/piadvanced/piholetweaks/dbbparser/lists.lst
+sudo wget https://raw.githubusercontent.com/deathbybandaid/piholeparser/master/breaktheinternet.list /etc/piadvanced/piholetweaks/dbbparser/
+sudo mv /etc/piadvanced/piholetweaks/dbbparser/breaktheinternet.list /etc/piadvanced/piholetweaks/dbbparser/lists.lst
 sudo mkdir /var/www/html/lists
 sudo rm /var/www/html/lists/dbbparser.txt
 for source in `cat /etc/piadvanced/piholetweaks/dbbparser/lists.lst`; do
