@@ -1,5 +1,5 @@
 #!/bin/sh
-## youtube henning
+## ChadMayfield Porn Blocklist
 NAMEOFAPP="ChadMayfield Porn Blocklist"
 WHATITDOES="This is a block list from Chad Mayfield that helps block pornography."
 
