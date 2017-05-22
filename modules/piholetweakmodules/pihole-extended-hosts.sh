@@ -25,8 +25,6 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 cd /etc/piadvanced/piholetweaks/pihole-extended-hosts/
-sudo cp -n /etc/piadvanced/piholetweaks/pihole-extended-hosts/12-extendedhosts.conf /etc/dnsmasq.d/
-sudo cp -n /etc/piadvanced/piholetweaks/pihole-extended-hosts/custom.hosts.default /etc/piadvanced/piholetweaks/pihole-extended-hosts/custom.hosts
 git clone git://github.com/StevenBlack/hosts /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/
 mkdir -p /etc/piadvanced/piholetweaks/pihole-extended-hosts/custom.hosts
 sudo bash /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-update.sh
