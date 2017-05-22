@@ -1,6 +1,10 @@
 #!/bin/sh
 ## libs
 
+sudo apt-get -y -t stretch install libnetfilter-conntrack-dev 
+sudo apt-get -y -t stretch install libidn11-dev
+sudo apt-get -y -t stretch install libdbus-1-dev
+sudo apt-get -y -t stretch install libgmp-dev
 sudo apt-get --force-yes --yes install libssl-dev
 sudo apt-get --force-yes --yes install libffi-dev
 sudo apt-get install -y libssl-dev
