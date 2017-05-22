@@ -24,6 +24,7 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
+cd ~
 whiptail --msgbox "I'm going to add sources ." 10 80 1
 ## Backups
 sudo cp /etc/apt/apt.conf.d/99-default-release /etc/piadvanced/backups/sources/
@@ -40,6 +41,11 @@ sudo gpg --keyserver pgpkeys.mit.edu --recv-key CCD91D6111A06851
 sudo gpg --armor --export CCD91D6111A06851 | apt-key add -
 sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2C0D3C0F
+sudo wget --no-check-certificate https://svn.wald.intevation.org/svn/openvas/trunk/tools/openvas-check-setup
+sudo wget http://www.openvas.org/OpenVAS_TI.asc
+sudo gpg --homedir=/usr/local/etc/openvas/gnupg --import OpenVAS_TI.asc
+sudo gpg --homedir=/usr/local/etc/openvas/gnupg --lsign-key 48DB4530
+sudo wget --no-check-certificate https://sourceforge.net/projects/openvasvm/files/openvasd/download
 sudo wget https://archive.raspbian.org/raspbian.public.key -O - | sudo apt-key add -
 sudo curl https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
 ## Add Sources
