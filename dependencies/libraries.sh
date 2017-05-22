@@ -23,3 +23,6 @@ sudo apt-get -t stretch -y install libwebp-dev
 sudo apt-get install -y -t stretch libio-pty-perl
 sudo apt-get install -y libsodium-dev
 sudo apt-get install -y libsystemd-dev
+sudo apt-get install -y libsodium-dev
+sudo apt-get install -y libio-p
+sudo apt-get install -y libsystemd-dev
