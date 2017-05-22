@@ -26,7 +26,6 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 ## Below here is the magic.
 sudo bash /etc/piadvanced/installscripts/dnsproxy/dnscryptinstall.sh
 sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
-sudo cp -n /etc/piadvanced/piholetweaks/dnscrypt/10-dnscrypt.conf /etc/dnsmasq.d/
 
 ## End of install
 fi }
