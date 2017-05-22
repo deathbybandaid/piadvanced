@@ -38,3 +38,6 @@ sudo apt-get -t stretch -y install ghostscript
 sudo apt-get install -y debconf
 sudo apt-get install -y lsof
 sudo apt-get -t stretch -y install freerdp
+sudo apt-get -y -t stretch install gettext
+sudo apt-get -y -t stretch install nettle-dev
+sudo apt-get -y -t stretch install build-essential
