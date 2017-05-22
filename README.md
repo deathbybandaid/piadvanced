@@ -11,6 +11,16 @@
 
 ### I will be updating this with new stuff all the time. you can always run git pull the /etc/piadvanced to download any changes.
 
+# Instructions
+
+sudo git clone https://github.com/deathbybandaid/piadvanced.git /etc/piadvanced/
+
+### The main script
+
+sudo bash /etc/piadvanced/extendedinstall.sh
+
+# Enjoy
+
 # Here is what this half MB bad boy does:
 
 #### This install:
@@ -191,27 +201,3 @@ With the webservers, you can set the ip address and ports to listen on. This hel
 * Setting up / mounting a usb device for permanent storage.
 * Email server
 * A way to load in a pihole teleport.
-
-# Instructions
-
-sudo git clone https://github.com/deathbybandaid/piadvanced.git /etc/piadvanced/
-
-### The main script
-
-sudo bash /etc/piadvanced/extendedinstall.sh
-
-### Optional Step, we are going to change the root password.
-##### If you are paranoid,,, make it something secure, use a password generator if needbe. Or simply don't be connected to a network for this step.
-
-sudo passwd root
-
-sudo bash /etc/piadvanced/renamedefaultpiuser.sh
-
-###### This will remove the root password we added earlier and lock the account.
-passwd -dl root
-
-sudo reboot
-
-after it reboots, login as your new user.
-
-# Enjoy
