@@ -1,17 +1,26 @@
 #!/bin/sh
 ## nagios
 
-apt-get install apache2 libapache2-mod-php5 build-essential libgd2-xpm-dev
+## apache
+sudo apt-get install apache2
+
+## user
 useradd -m nagios
 passwd nagios
 /usr/sbin/groupadd nagcmd
 /usr/sbin/usermod -a -G nagcmd nagios
 /usr/sbin/usermod -a -G nagcmd www-data
+
+## download
 cd /tmp
 sudo wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.1.tar.gz
 sudo wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
+
+## extract
 sudo tar zxvf nagios-4.1.1.tar.gz
 sudo tar zxvf nagios-plugins-2.1.1.tar.gz
+
+## build and install
 cd /tmp/nagios-4.1.1
 sudo ./configure --with-command-group=nagcmd
 sudo make all
@@ -34,8 +43,8 @@ ln -s /etc/init.d/nagios /etc/rcS.d/S99nagios
 /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
 cp -n /etc/piadvanced/installscripts/nagios.service /etc/systemd/system/nagios.service
 mv /etc/apache2/mods-available/cgi.load /etc/apache2/mods-enabled/
+
+## restart services
 service apache2 restart
 systemctl enable /etc/systemd/system/nagios.service
 systemctl start nagios
-
-
