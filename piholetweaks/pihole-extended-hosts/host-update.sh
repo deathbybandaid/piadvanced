@@ -8,9 +8,16 @@ sudo git pull
 ./makeHosts
 
 # dedupe the generated blocklist against the pihole gravity list
-echo "" > hosts2
+echo "" > /etc/piadvanced/piholetweaks/pihole-extended-hosts/hosts2
 GRAVITY=`cat /etc/pihole/gravity.list`
 HOSTS=`cat /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts`
+
+for HOST in HOSTS; do
+  if [[ "$GRAVITY" == *"$HOST"* ]]; then
+       continue;
+   fi
+   echo "$HOST" >> /etc/piadvanced/piholetweaks/pihole-extended-hosts/hosts2
+done
 
 sudo cat /etc/pihole/gravity.list /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts >> /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts2
 echo -e "\t`wc -l /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts2 | cut -d " " -f 1` lines after deduping"
