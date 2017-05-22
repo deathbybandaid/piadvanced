@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt-get -t stretch -y install tomcat8
 VERSION="0.9.12"
 
 # Grab a password for MySQL Root
