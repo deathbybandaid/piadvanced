@@ -1,5 +1,8 @@
 #!/bin/sh
 ## Super Secure Firewall
+##
+## Reload firewall with
+## sudo iptables-restore < /etc/iptables.firewall.rules
 
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
@@ -20,7 +23,13 @@ echo "Any network access will be blocked unless there is a rule to allow it." > 
 whiptail --textbox --title "Firewall" firewall_textbox 10 80
 
 ## Remove old Firewall if there is one
+if 
+ls /etc/iptables.firewall.rules &> /dev/null; 
+then
 sudo rm -r /etc/iptables.firewall.rules
+else
+:
+fi
 
 ## Filter Start
 sudo echo "*filter" | sudo tee --append /etc/iptables.firewall.rules
@@ -403,9 +412,6 @@ crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall
 else
 echo "User Declined Firewall"
 fi }
-
-
-## sudo iptables-restore < /etc/iptables.firewall.rules
 
 ## End of file
 fi }
