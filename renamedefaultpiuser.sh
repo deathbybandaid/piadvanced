@@ -4,10 +4,14 @@
 ## Dependencies Check
 sudo bash /etc/piadvanced/dependencies/dep-whiptail.sh
 
-## Variables
-source /etc/piadvanced/install/firewall.conf
-source /etc/piadvanced/install/variables.conf
-source /etc/piadvanced/install/userchange.conf
+## Simple test if Whiptail is installed. 
+{ if
+which whiptail >/dev/null;
+then
+:
+else
+sudo apt-get install -y whiptail
+fi }
 
 ## Ask if Root, If Not exits
 { if 
