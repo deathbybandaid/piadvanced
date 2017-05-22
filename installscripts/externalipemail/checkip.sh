@@ -19,5 +19,5 @@ then
 else
         date +"%Y-%m-%d: " | tr -d '\n' >> /var/log/external-ip.log
         echo "$CurrentIP"  >> /var/log/external-ip.log
-echo "`hostname` as a new IP, $CurrentIP"  |mail -s "`hostname` ip" $email
+echo "`hostname` as a new IP, $CurrentIP"  |mail -s "`hostname` ip" "$email"
 fi
