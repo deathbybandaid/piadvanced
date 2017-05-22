@@ -28,3 +28,4 @@ sudo apt-get install -y pkg-config
 sudo apt-get -t stretch -y install ghostscript
 sudo apt-get install -y debconf
 sudo apt-get install -y lsof
+sudo apt-get -t stretch -y install freerdp
