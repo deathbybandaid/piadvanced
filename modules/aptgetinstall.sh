@@ -30,7 +30,6 @@ sudo bash /etc/piadvanced/dependencies/libraries.sh
 sudo bash /etc/piadvanced/dependencies/php.sh
 sudo bash /etc/piadvanced/dependencies/net-tools.sh
 sudo bash /etc/piadvanced/dependencies/mysql.sh
-sudo apt-get -t stretch -y install tomcat8
 
 ## End of install
 fi }
