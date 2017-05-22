@@ -25,7 +25,8 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo apt-get install -y ddclient
-
+## /etc/ddclient.conf
+systemctl ddclient restart
 ## End of install
 fi }
 
