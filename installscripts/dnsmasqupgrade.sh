@@ -2,35 +2,21 @@
 
 # first update & upgrade the system from STABLE
 sudo apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
-
-# create the required files (4) to allow updgrade/install from STRETCH
-# create /etc/apt/preferences.d/jessie.pref
-echo "Package: *
-Pin: release a=jessie
-Pin-Priority: 900" > /etc/apt/preferences.d/jessie.pref
-# create /etc/apt/preferences.d/stretch.pref
-echo "Package: *
-Pin: release a=stretch
-Pin-Priority: 750" > /etc/apt/preferences.d/stretch.pref
-# create /etc/apt/sources.list.d/jessie.list
-echo "deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi" > /etc/apt/sources.list.d/jessie.list
-# create /etc/apt/sources.list.d/stretch.list
-echo "deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi" > /etc/apt/sources.list.d/stretch.list
+sudo apt-get -y upgrade
 
 # run sudo apt-get update to allow updgrade/install from STRETCH
 sudo apt-get update
 
 # install build-essential from STRETCH
-sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install build-essential -t stretch
+sudo apt-get -y -t stretch install build-essential
 
 # install necessary system packages for dnsmasq from STRETCH
-sudo apt-get -y install gettext -t stretch
-sudo apt-get -y install libnetfilter-conntrack-dev -t stretch
-sudo apt-get -y install libidn11-dev -t stretch
-sudo apt-get -y install libdbus-1-dev -t stretch
-sudo apt-get -y install libgmp-dev -t stretch
-sudo apt-get -y install nettle-dev -t stretch
+sudo apt-get -y -t stretch install gettext
+sudo apt-get -y -t stretch install libnetfilter-conntrack-dev 
+sudo apt-get -y -t stretch install libidn11-dev
+sudo apt-get -y -t stretch install libdbus-1-dev
+sudo apt-get -y -t stretch install libgmp-dev
+sudo apt-get -y -t stretch install nettle-dev
 
 # run sudo apt-get update to allow updgrade/install from STABLE
 sudo apt-get update
@@ -39,12 +25,11 @@ sudo apt-get update
 sudo apt-get -y autoremove
 
 # dnsmasq
-file=dnsmasq-2.77test4
 mkdir -p dnsmasq
 cd dnsmasq
-wget http://www.thekelleys.org.uk/dnsmasq/test-releases/$file.tar.gz
-tar xzf $file.tar.gz
-cd $file
+wget http://www.thekelleys.org.uk/dnsmasq/test-releases/dnsmasq-2.77test4.tar.gz
+tar xzf dnsmasq-2.77test4.tar.gz
+cd dnsmasq-2.77test4
 fakeroot debian/rules binary
 cd ..
 sudo dpkg -i dnsmasq*.deb
