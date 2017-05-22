@@ -25,12 +25,12 @@ sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install build-essential -t stretch
 
 # install necessary system packages for dnsmasq from STRETCH
-sudo apt-get -yq install gettext -t stretch
-sudo apt-get -yq install libnetfilter-conntrack-dev -t stretch
-sudo apt-get -yq install libidn11-dev -t stretch
-sudo apt-get -yq install libdbus-1-dev -t stretch
-sudo apt-get -yq install libgmp-dev -t stretch
-sudo apt-get -yq install nettle-dev -t stretch
+sudo apt-get -y install gettext -t stretch
+sudo apt-get -y install libnetfilter-conntrack-dev -t stretch
+sudo apt-get -y install libidn11-dev -t stretch
+sudo apt-get -y install libdbus-1-dev -t stretch
+sudo apt-get -y install libgmp-dev -t stretch
+sudo apt-get -y install nettle-dev -t stretch
 
 # remove the (4) files that allow upgrade/install from STRETCH
 sudo rm /etc/apt/preferences.d/jessie.pref
