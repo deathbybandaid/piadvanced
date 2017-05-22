@@ -15,5 +15,5 @@ if [[ "$CurrentIP" != "$LastKnownIP" ]]
 then
         date +"%Y-%m-%d: " | tr -d '\n' >> /var/log/external-ip.log
         echo "$CurrentIP"  >> /var/log/external-ip.log
-        echo "`hostname` as a new IP, $CurrentIP"  |mail -s "`hostname` ip" "$EMAIL"
+        echo "`hostname` has a new external IP, $CurrentIP"  |mail -s "`hostname` IP Address Updated" "$EMAIL"
 fi
