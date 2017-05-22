@@ -1,6 +1,8 @@
 #!/bin/sh
 ## libs
 
+sudo apt-get install -y libapache2-mod-php5
+sudo apt-get install -y libgd2-xpm-dev
 sudo apt-get -y -t stretch install libnetfilter-conntrack-dev 
 sudo apt-get -y -t stretch install libidn11-dev
 sudo apt-get -y -t stretch install libdbus-1-dev
