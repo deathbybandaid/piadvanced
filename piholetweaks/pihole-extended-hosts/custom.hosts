@@ -1,0 +1,3 @@
+# add network-wide custom domains alongside the blocking
+# 192.168.1.2 my-media-server.com
+# 192.168.1.3 my-cloud9.com
