@@ -11,6 +11,10 @@
 
 ### I will be updating this with new stuff all the time. you can always run git pull the /etc/piadvanced to download any changes.
 
+# If you are concerned about renaming the pi user for security reasons,
+
+https://github.com/deathbybandaid/replace-default-pi-user
+
 # Instructions
 
 sudo git clone https://github.com/deathbybandaid/piadvanced.git /etc/piadvanced/
