@@ -407,7 +407,7 @@ then
 sudo chmod +x /etc/piadvanced/installscripts/firewall.sh
 sudo cp /etc/piadvanced/installscripts/firewall.sh /etc/network/if-pre-up.d/firewall
 (crontab -l ; echo "## Supreme Firewall") | crontab -
-crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall.sh") | crontab -
+(crontab -l ; echo "0 */6 * * * sudo bash /etc/piadvanced/installscripts/firewall.sh") | crontab -
 (crontab -l ; echo "") | crontab -
 else
 echo "User Declined Firewall"
