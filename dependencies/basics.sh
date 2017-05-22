@@ -1,6 +1,7 @@
 #!/bin/sh
 ## basics
 
+sudo apt-get install gnupg
 sudo apt-get install -y build-essential
 sudo apt-get install -y git
 sudo apt-get install -y cmake
