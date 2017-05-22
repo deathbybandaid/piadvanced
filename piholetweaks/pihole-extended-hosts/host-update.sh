@@ -22,4 +22,3 @@ done
 rm -f /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts
 sudo cat /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts2 | sort > /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts
 sudo cp -n /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts /var/www/html/lists/extended.txt
-sudo service dnsmasq restart
