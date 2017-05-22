@@ -8,7 +8,7 @@ for source in `cat /etc/piadvanced/piholetweaks/ublockpihole/lists.lst`; do
 done
 
 echo -e "\nFiltering non-url content..."
-sudo perl /etc/piadvanced/piholetweaks/ublockpihole/easylist.pl /etc/piadvanced/piholetweaks/ublockpihole/ads.txt > /etc/piadvanced/piholetweaks/ublockpihole/ads_parsed.txt
+sudo perl /etc/piadvanced/piholetweaks/ublockpihole/parser.pl /etc/piadvanced/piholetweaks/ublockpihole/ads.txt > /etc/piadvanced/piholetweaks/ublockpihole/ads_parsed.txt
 sudo rm /etc/piadvanced/piholetweaks/ublockpihole/ads.txt
 echo -e "\t`wc -l /etc/piadvanced/piholetweaks/ublockpihole/ads_parsed.txt | cut -d " " -f 1` lines after parsing"
 
