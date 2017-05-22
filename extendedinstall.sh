@@ -42,6 +42,9 @@ sudo bash /etc/piadvanced/modules/wlan0.sh
 sudo bash /etc/piadvanced/modules/memorysplit.sh
 sudo bash /etc/piadvanced/modules/totalmemtweak.sh
 
+## Swap sapce tweak
+sudo bash /etc/piadvanced/modules/swapspacetweak.sh
+
 ## SSH
 sudo bash /etc/piadvanced/modules/ssh.sh
 
