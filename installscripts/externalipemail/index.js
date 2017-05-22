@@ -4,7 +4,7 @@ var email = require("emailjs");
 var git = require("simple-git");
 
 // This is where your email config goes.
-var config = JSON.parse(fs.readFileSync("/etc/piadvanced/piholetweaks/piholeemail/config.json"));
+var config = JSON.parse(fs.readFileSync("/etc/piadvanced/installscripts/externalipemail/config.json"));
 var server = email.server.connect({
         user: config.user,
         password: config.password,
