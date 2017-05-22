@@ -23,25 +23,26 @@ function today() {
      return day + "/" + month + "/" + year;
  }
 
-// HTTP GET stats from pihole api
-http.get('http://pi.hole/admin/api.php', (res) => {
+// HTTP GET external IP
+http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
+  resp.on('data', function(ip) {
+    console.log("My public IP address is: " + ip);
+  });
+
+
+http.get('https://api.ipify.org', (res) => {
      res.setEncoding('utf8');
      res.on('data', function (body) {
          var obj = JSON.parse(body);
-         var summary = "This is your Pi Hole summary for " + today() + "(D/M/Y).\n\nDomains being blocked: " +
-         obj.domains_being_blocked + "\nDNS queries today: " + obj.dns_queries_today + "\nAds blocked today: " +
-         obj.ads_blocked_today + "\nAds to total queries: " + obj.ads_percentage_today;
+         var summary = "Your external IP address changed on " + today() + "(D/M/Y). " +ip;
 
         // send the message itself
          server.send({
              text: summary,
-             from: "Pi Hole Bot <" + config.user  + ">",
+             from: "Pi Bot <" + config.user  + ">",
              to: config.toname + " <" + config.toaddr + ">",
-             subject: "Pi Hole Summary ("+ today() +")"
+             subject: "Pi Bot ("+ today() +")"
          }, function (err, message) { console.log("Errors: " + err); });
 
      });
 });
-
-// Update from the Git repository
-//git().pull("https://github.com/MilesGG/pi-hole-summary.git", "master");
