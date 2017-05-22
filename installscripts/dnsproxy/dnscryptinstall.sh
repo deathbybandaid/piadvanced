@@ -1,9 +1,13 @@
 #!/bin/sh
 ## DNSCRYPT
+
+## Download
 cd /etc/piadvanced/installscripts/dnsproxy
 sudo wget https://download.dnscrypt.org/dnscrypt-proxy/LATEST.tar.bz2
 sudo tar -xf LATEST.tar.bz2
 #sudo rm LATEST.tar.bz2
+
+## build
 pattern="dnscrypt-proxy-"
 for _dir in *"${pattern}"*; do     [ -d "${_dir}" ] && dir="${_dir}" && break; done
 cd $dir
@@ -12,6 +16,8 @@ sudo bash ./configure --with-systemd
 sudo make
 sudo make install
 sudo useradd -r -d /var/dnscrypt -m -s /usr/sbin/nologin dnscrypt
+
+## install
 sudo sed -i '/exit 0/d' /etc/rc.local
 sudo sed -i '/dnscrypt-proxy/d' /etc/rc.local
 sudo sed -i '$i /usr/local/sbin/dnscrypt-proxy --resolver-name=dnscrypt.eu-dk --user=dnscrypt -a 127.0.0.2:5454 --edns-payload-size=4096 --logfile=/var/log/dnscrypt-proxy.1.log &> /dev/null &' /etc/rc.local
@@ -28,9 +34,12 @@ sudo sed -i '/d0wn-is-ns1/d' /etc/hosts
 sudo sed -i '$i 127.0.0.2       dnscrypt.eu-dk' /etc/hosts
 sudo sed -i '$i 127.0.0.3       cs-ch' /etc/hosts
 sudo sed -i '$i 127.0.0.4       d0wn-is-ns1' /etc/hosts
-echo Adding Entries to DNSMasq
+
+## dnsmasq
+echo "Adding Entries to DNSMasq"
 sudo /etc/init.d/dnsmasq stop
 sudo sed -i '/server=/d' /etc/dnsmasq.d/01-pihole.conf
+sudo cp -n /etc/piadvanced/piholetweaks/dnscrypt/10-dnscrypt.conf /etc/dnsmasq.d/
 sudo /etc/init.d/dnsmasq start
 ps aux | grep 'dnscrypt-proxy'
 echo Done
