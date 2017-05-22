@@ -9,7 +9,7 @@ sudo git pull
 
 # dedupe the generated blocklist against the pihole gravity list
 echo "" > hosts2
-GRAVITY=`cat /etc/pihole/piholegravity.list`
+GRAVITY=`cat /etc/pihole/gravity.list`
 HOSTS=`cat /etc/piadvanced/piholetweaks/pihole-extended-hosts/host-blocklist/hosts`
 
 for HOST in HOSTS; do
