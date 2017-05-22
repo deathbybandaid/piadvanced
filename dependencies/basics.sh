@@ -41,3 +41,20 @@ sudo apt-get -t stretch -y install freerdp
 sudo apt-get -y -t stretch install gettext
 sudo apt-get -y -t stretch install nettle-dev
 sudo apt-get -y -t stretch install build-essential
+sudo apt-get install -y build-essential
+sudo apt-get install -y cmake
+sudo apt-get install -y bison
+sudo apt-get install -y flex
+sudo apt-get install -y pkg-config
+sudo apt-get install -y uuid-dev
+sudo apt-get install -y sqlfairy
+sudo apt-get install -y xmltoman
+sudo apt-get install -y doxygen
+sudo apt-get install -y xsltproc
+sudo apt-get install -y clang
+sudo apt-get install -y rsync
+sudo apt-get install -y rpm
+sudo apt-get install -y nsis
+sudo apt-get install -y alien
+sudo apt-get install -y sqlite3
+
