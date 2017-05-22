@@ -32,12 +32,6 @@ sudo apt-get -y install libdbus-1-dev -t stretch
 sudo apt-get -y install libgmp-dev -t stretch
 sudo apt-get -y install nettle-dev -t stretch
 
-# remove the (4) files that allow upgrade/install from STRETCH
-sudo rm /etc/apt/preferences.d/jessie.pref
-sudo rm /etc/apt/preferences.d/stretch.pref
-sudo rm /etc/apt/sources.list.d/jessie.list
-sudo rm /etc/apt/sources.list.d/stretch.list
-
 # run sudo apt-get update to allow updgrade/install from STABLE
 sudo apt-get update
 
