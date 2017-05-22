@@ -24,7 +24,20 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-sudo bash /etc/piadvanced/installscripts/hassinstall.sh
+
+## Clone repo
+sudo git clone https://github.com/home-assistant/fabric-home-assistant.git /etc/piadvanced/fabric-home-assistant/
+
+## go to directory
+cd /etc/piadvanced/fabric-home-assistant
+
+## remove reboot
+sudo sed -i "s/reboot/#reboot/" /etc/piadvanced/fabric-home-assistant/fabfile.py
+
+## do the things
+fab deploy_novenv -H localhost 2>&1 | sudo tee installation_report.txt
+
+## firewall rule
 sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
 ## End of install
