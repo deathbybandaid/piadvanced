@@ -29,7 +29,15 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 then
 sudo apt-get install -y dnsmasq
 else
-sudo bash /etc/piadvanced/installscripts/dnsmasqupgrade.sh
+mkdir -p dnsmasq
+cd dnsmasq
+wget http://www.thekelleys.org.uk/dnsmasq/test-releases/dnsmasq-2.77test4.tar.gz
+tar xzf dnsmasq-2.77test4.tar.gz
+cd dnsmasq-2.77test4
+fakeroot debian/rules binary
+cd ..
+sudo dpkg -i dnsmasq*.deb
+cd ..
 fi }
 
 ## End of install
