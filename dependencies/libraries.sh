@@ -1,6 +1,17 @@
 #!/bin/sh
 ## libs
 
+sudo apt-get install -y libpcap-dev
+sudo apt-get install -y libgnutls-dev
+sudo apt-get install -y libglib2.0-dev
+sudo apt-get install -y libgpgme11-dev
+sudo apt-get install -y libssh-dev
+sudo apt-get install -y libksba-dev
+sudo apt-get install -y libldap2-dev
+sudo apt-get install -y libsqlite3-dev
+sudo apt-get install -y libmicrohttpd-dev
+sudo apt-get install -y libxml2-dev
+sudo apt-get install -y libxslt1-dev
 sudo apt-get install -y libapache2-mod-php5
 sudo apt-get install -y libgd2-xpm-dev
 sudo apt-get -y -t stretch install libnetfilter-conntrack-dev 
