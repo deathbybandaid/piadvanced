@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -24,7 +24,6 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-source /etc/piadvanced/install/variables.conf
 whiptail --msgbox "What ports do you want Apache to use?" 10 80 1
 NEW_APACHE80=$(whiptail --inputbox "Change the default port 80 for Apache" 10 80 "85" 3>&1 1>&2 2>&3)
 NEW_APACHE443=$(whiptail --inputbox "Change the default port 443 for Apache" 10 80 "445" 3>&1 1>&2 2>&3)
