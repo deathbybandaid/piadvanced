@@ -13,7 +13,7 @@ sudo apt-get install -y daemon
 sudo apt-get install -y curl
 sudo apt-get install -y cython3
 sudo apt-get install -y swig
-sudo apt-get --force-yes --yes install git
+sudo apt-get install -y install git
 sudo apt-get install -y apt-transport-https 
 sudo apt-get install -y gawk
 sudo apt-get install -y raspi-config
