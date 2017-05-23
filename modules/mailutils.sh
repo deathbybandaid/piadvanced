@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -24,12 +24,12 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-MAIL_ROOT=$(whiptail --inputbox "What email address do you want to use?" 20 60 "user@gmail.com" 3>&1 1>&2 2>&3)
-MAIL_MAILHUB=$(whiptail --inputbox "What email server and port?" 20 60 "smtp.gmail.com:587" 3>&1 1>&2 2>&3)
-MAIL_HOSTNAME=$(whiptail --inputbox "Hostname" 20 60 "$NEW_HOSTNAME" 3>&1 1>&2 2>&3)
-MAIL_AUTHUSER=$(whiptail --inputbox "Username" 20 60 "$MAIL_ROOT" 3>&1 1>&2 2>&3)
-MAIL_AUTHPASS=$(whiptail --inputbox "Password" 20 60 "" 3>&1 1>&2 2>&3)
-MAIL_STARTTLS=$(whiptail --inputbox "Use STARTTLS? YES or NO" 20 60 "YES" 3>&1 1>&2 2>&3)
+MAIL_ROOT=$(whiptail --inputbox "What email address do you want to use?" 10 80 "user@gmail.com" 3>&1 1>&2 2>&3)
+MAIL_MAILHUB=$(whiptail --inputbox "What email server and port?" 10 80 "smtp.gmail.com:587" 3>&1 1>&2 2>&3)
+MAIL_HOSTNAME=$(whiptail --inputbox "Hostname" 10 80 "$NEW_HOSTNAME" 3>&1 1>&2 2>&3)
+MAIL_AUTHUSER=$(whiptail --inputbox "Username" 10 80 "$MAIL_ROOT" 3>&1 1>&2 2>&3)
+MAIL_AUTHPASS=$(whiptail --inputbox "Password" 10 80 "" 3>&1 1>&2 2>&3)
+MAIL_STARTTLS=$(whiptail --inputbox "Use STARTTLS? YES or NO" 10 80 "YES" 3>&1 1>&2 2>&3)
 sudo apt-get -y install ssmtp
 sudo apt-get -y install mailutils
 sudo apt-get -y install mpack
