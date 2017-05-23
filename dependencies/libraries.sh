@@ -1,6 +1,10 @@
 #!/bin/sh
 ## libs
 
+sudo apt-get install -y libnet-ssleay-perl
+sudo apt-get install -y libauthen-pam-perl
+sudo apt-get install -y libpam-runtime
+sudo apt-get install -y libio-pty-perl
 sudo apt-get install -y libpcap-dev
 sudo apt-get install -y libgnutls-dev
 sudo apt-get install -y libglib2.0-dev
