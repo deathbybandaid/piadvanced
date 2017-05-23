@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -27,10 +27,10 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 sudo git clone https://github.com/deathbybandaid/netmon.git /etc/piadvanced/netmon
 sudo pip3 install -r /etc/piadvanced/netmon/requirements.txt
 sudo cp /etc/piadvanced/installscripts/speedtweet/auth.json.sample /etc/piadvanced/netmon/auth.json
-SPEEDCONSUMER_KEY=$(whiptail --inputbox "Consumer Key" 20 60 "" 3>&1 1>&2 2>&3)
-SPEEDCONSUMER_SECRET=$(whiptail --inputbox "Consumer Secret" 20 60 "" 3>&1 1>&2 2>&3)
-SPEEDACCESS_TOKEN=$(whiptail --inputbox "Access Token" 20 60 "" 3>&1 1>&2 2>&3)
-SPEEDACCESS_TOKEN_SECRET=$(whiptail --inputbox "Access Token Secret" 20 60 "" 3>&1 1>&2 2>&3)
+SPEEDCONSUMER_KEY=$(whiptail --inputbox "Consumer Key" 10 80 "" 3>&1 1>&2 2>&3)
+SPEEDCONSUMER_SECRET=$(whiptail --inputbox "Consumer Secret" 10 80 "" 3>&1 1>&2 2>&3)
+SPEEDACCESS_TOKEN=$(whiptail --inputbox "Access Token" 10 80 "" 3>&1 1>&2 2>&3)
+SPEEDACCESS_TOKEN_SECRET=$(whiptail --inputbox "Access Token Secret" 10 80 "" 3>&1 1>&2 2>&3)
 sudo sed -i "s/VALUE1/$CONSUMER_KEY/" /etc/piadvanced/netmon/auth.json.sample
 sudo sed -i "s/VALUE2/$CONSUMER_SECRET/" /etc/piadvanced/netmon/auth.json.sample
 sudo sed -i "s/VALUE3/$ACCESS_TOKEN/" /etc/piadvanced/netmon/auth.json.sample
