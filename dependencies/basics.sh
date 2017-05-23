@@ -1,6 +1,7 @@
 #!/bin/sh
 ## basics
 
+sudo apt-get install -y apt-show-versions
 sudo apt-get install -y perl
 sudo apt-get install -y openssl
 sudo apt-get install -y gnupg
