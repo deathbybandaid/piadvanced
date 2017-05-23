@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -24,7 +24,7 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-NEWVLAN_IP=$(whiptail --inputbox "Please enter desired IP for eth0.1" 20 60 "$OLDETH_IP" 3>&1 1>&2 2>&3)
+NEWVLAN_IP=$(whiptail --inputbox "Please enter desired IP for eth0.1" 10 80 "$OLDETH_IP" 3>&1 1>&2 2>&3)
 sudo echo "" | sudo tee --append /etc/network/interfaces
 sudo echo "# VLAN x Interface" | sudo tee --append /etc/network/interfaces
 sudo echo "auto eth0.1" | sudo tee --append /etc/network/interfaces
