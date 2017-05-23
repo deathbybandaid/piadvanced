@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -25,7 +25,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo git clone https://github.com/certbot/certbot /etc/letsencrypt
-sudo /etc/letsencrypt/certbot-auto certonly --agree-tos --webroot -w /data/mysite.com/www -d mysite.com -d www.mysite.com -d mail.mysite.com -d srv01.mysite.com
+#sudo /etc/letsencrypt/certbot-auto certonly --agree-tos --webroot -w /data/mysite.com/www -d mysite.com -d www.mysite.com -d mail.mysite.com -d srv01.mysite.com
 
 (crontab -l ; echo "0 6 * * * /etc/letsencrypt/certbot/certbot-auto renew --text >> /etc/letsencrypt/certbot/certbot-cron.log && sudo service nginx reload") | crontab -
 
