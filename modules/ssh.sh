@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -24,8 +24,8 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
-update-rc.d ssh enable &&
-invoke-rc.d ssh start &&
+update-rc.d ssh enable
+invoke-rc.d ssh start
 whiptail --msgbox "SSH server enabled" 10 80 1
 sudo echo ""$NAMEOFAPP"firewall=yes" | sudo tee --append /etc/piadvanced/install/firewall.conf
 
