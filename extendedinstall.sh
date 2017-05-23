@@ -117,6 +117,15 @@ sudo bash /etc/piadvanced/modules/pivpn.sh
 ## Pi-Hole
 sudo bash /etc/piadvanced/modules/pihole.sh
 
+## Pi-hole Tweaks
+if 
+[ -d "/etc/pihole/" ] 
+then
+sudo bash /etc/piadvanced/modules/pihole-tweaks.sh
+else
+:
+fi
+
 ## DNSCrypt
 sudo bash /etc/piadvanced/modules/dnscrypt.sh
 
