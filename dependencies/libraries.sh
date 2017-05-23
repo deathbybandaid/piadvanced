@@ -2,7 +2,6 @@
 ## libs
 
 sudo apt-get install -y libffi-dev
-sudo apt-get install -y libssl-dev
 sudo apt-get install -y libapache2-mod-php5
 sudo apt-get install -y libauthen-pam-perl
 sudo apt-get install -y libc-ares-dev
@@ -13,7 +12,6 @@ sudo apt-get install -y libgnutls-dev
 sudo apt-get install -y libgnutlsxx28
 sudo apt-get install -y libgpgme11-dev
 sudo apt-get install -y libio-p
-sudo apt-get install -y libio-pty-perl
 sudo apt-get install -y libksba-dev
 sudo apt-get install -y libldap2-dev
 sudo apt-get install -y libmicrohttpd-dev
@@ -23,7 +21,6 @@ sudo apt-get install -y libpcap-dev
 sudo apt-get install -y libsodium-dev
 sudo apt-get install -y libsqlite3-dev
 sudo apt-get install -y libssh-dev
-sudo apt-get install -y libssl-dev
 sudo apt-get install -y libsystemd-dev
 sudo apt-get install -y libudev-dev
 sudo apt-get install -y libxml2-dev
