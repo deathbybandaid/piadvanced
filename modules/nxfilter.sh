@@ -15,7 +15,7 @@ source /etc/piadvanced/install/variables.conf
 source /etc/piadvanced/install/userchange.conf
 
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
 then
 echo "$CURRENTUSER Declined $NAMEOFAPP" | sudo tee --append /etc/piadvanced/install/installationlog.txt
 echo ""$NAMEOFAPP"install=no" | sudo tee --append /etc/piadvanced/install/variables.conf
@@ -32,7 +32,7 @@ sudo unzip /etc/nxfilter-3.3.4.zip -d /etc/nxfilter
 sudo rm -r /etc/nxfilter-3.3.4.zip
 sudo bash /etc/nxfilter/bin/startup.sh
 { if 
-(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to change the dns listen port? dnsmasq/pihole uses 53, dnscrypt uses 5454, 5656, and 5757" 8 78) 
+(whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to change the dns listen port? dnsmasq/pihole uses 53, dnscrypt uses 5454, 5656, and 5757" 10 80) 
 then
 sudo echo "User Declined changing nxfilter dns port."
 else
