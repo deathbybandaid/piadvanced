@@ -8,7 +8,6 @@ sudo apt-get install -y apt-utils
 sudo apt-get install -y bash-completion
 sudo apt-get install -y bc
 sudo apt-get install -y bison
-sudo apt-get install -y build-essential
 sudo apt-get install -y bundler
 sudo apt-get install -y checkinstall
 sudo apt-get install -y clang
@@ -23,10 +22,7 @@ sudo apt-get install -y doxygen
 sudo apt-get install -y flex
 sudo apt-get install -y gawk
 sudo apt-get install -y git
-sudo apt-get install -y git
 sudo apt-get install -y gnupg
-sudo apt-get install -y install git
-sudo apt-get install -y install perl
 sudo apt-get install -y lsof
 sudo apt-get install -y nodejs
 sudo apt-get install -y nsis
@@ -49,6 +45,6 @@ sudo apt-get install -y zip
 sudo apt-get -t stretch -y install freerdp
 sudo apt-get -t stretch -y install ghostscript
 sudo apt-get -t stretch -y install jq
-sudo apt-get -y -t stretch install build-essential
-sudo apt-get -y -t stretch install gettext
-sudo apt-get -y -t stretch install nettle-dev
+sudo apt-get -t stretch -y install build-essential
+sudo apt-get -t stretch -y install gettext
+sudo apt-get -t stretch -y install nettle-dev
