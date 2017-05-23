@@ -1,7 +1,7 @@
 #!/bin/sh
 ## speedtest.cli
 NAMEOFAPP="speedtestcli"
-WHATITDOES="This will tweet when internet spedds are not good."
+WHATITDOES="This will tweet when internet speeds are not good."
 
 ## Current User
 CURRENTUSER="$(whoami)"
