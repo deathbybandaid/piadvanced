@@ -26,7 +26,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 ## Below here is the magic.
 OLDETH_IP=`ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1`
 OLDETH_GATEWAY=`ip route show 0.0.0.0/0 dev eth0 | cut -d\  -f3`
-NEWETH_IP=$(whiptail --inputbox "Please enter desired IP for eth0" 20 60 "$OLDETH_IP" 3>&1 1>&2 2>&3)
+NEWETH_IP=$(whiptail --inputbox "Please enter desired IP for eth0" 10 80 "$OLDETH_IP" 3>&1 1>&2 2>&3)
 sudo cp /etc/dhcpcd.conf /etc/piadvanced/backups/dhcpcd.conf
 sudo sed -i '/#eth0/d' /etc/dhcpcd.conf
 sudo sed -i '/interface eth0/d' /etc/dhcpcd.conf
