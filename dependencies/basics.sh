@@ -1,7 +1,9 @@
 #!/bin/sh
 ## basics
 
-sudo apt-get install gnupg
+sudo apt-get install -y perl
+sudo apt-get install -y openssl
+sudo apt-get install -y gnupg
 sudo apt-get install -y build-essential
 sudo apt-get install -y git
 sudo apt-get install -y cmake
