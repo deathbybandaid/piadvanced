@@ -25,7 +25,7 @@ echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/varia
 
 ## Below here is the magic.
 sudo apt-get -y update --fix-missing
-sudo apt-get -y dist-upgrade 
+sudo apt-get -y --allow-downgrades dist-upgrade 
 sudo apt-get autoremove-y 
 sudo apt-get clean
 
