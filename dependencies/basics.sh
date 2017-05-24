@@ -16,7 +16,7 @@ sudo apt-get install -y cron
 sudo apt-get install -y curl
 sudo apt-get install -y cython3
 sudo apt-get install -y daemon
-sudo apt-get install -y debconf
+sudo apt-get install -t stretch -y debconf
 sudo apt-get install -y dos2unix
 sudo apt-get install -y doxygen
 sudo apt-get install -y flex
