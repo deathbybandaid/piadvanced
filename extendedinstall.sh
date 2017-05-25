@@ -40,6 +40,8 @@ sudo bash /etc/piadvanced/modules/wlan0.sh
 
 ## Memory Split
 sudo bash /etc/piadvanced/modules/memorysplit.sh
+
+## Total Mem Tweak
 sudo bash /etc/piadvanced/modules/totalmemtweak.sh
 
 ## Swap sapce tweak
@@ -54,6 +56,9 @@ sudo bash /etc/piadvanced/modules/ntp.sh
 
 ## Random Number Generation fix
 sudo bash /etc/piadvanced/modules/rngtools.sh
+
+## Nano Line number
+sudo bash /etc/piadvanced/modules/nanolinenumberhing.sh
 
 ## Better MOTD message
 sudo bash /etc/piadvanced/modules/motd.sh
@@ -78,6 +83,9 @@ sudo bash /etc/piadvanced/modules/mailutils.sh
 
 ## Exim4
 sudo bash /etc/piadvanced/modules/exim4.sh
+
+## Get an email when External IP Address Changes
+sudo bash /etc/piadvanced/modules/externalipchangeemail.sh
 
 ## DNSmasq
 sudo bash /etc/piadvanced/modules/dnsmasq.sh
@@ -175,6 +183,12 @@ sudo bash /etc/piadvanced/modules/squid.sh
 
 ## nxfilter
 sudo bash /etc/piadvanced/modules/nxfilter.sh
+
+## Speedtest tweet
+sudo bash /etc/piadvanced/modules/speedtesttweet.sh
+
+## vesta
+sudo bash /etc/piadvanced/modules/vesta.sh
 
 ## HASS
 sudo bash /etc/piadvanced/modules/hass.sh
