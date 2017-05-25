@@ -24,21 +24,32 @@ echo "$CURRENTUSER Accepted $NAMEOFAPP" | sudo tee --append /etc/piadvanced/inst
 echo ""$NAMEOFAPP"install=yes" | sudo tee --append /etc/piadvanced/install/variables.conf
 
 ## Below here is the magic.
+## Lists
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-wally3kadlists.sh
-sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-lkd70-darktheme.sh
-sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-wally3kblockpage.sh
-sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-deathbybandaid.sh
-sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-autoupdate.sh
-sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-gravity.sh
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-henningvanraumleyoutube.sh
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-chadmayfieldpornblock.sh
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-youtubewildcard.sh
+
+## List Parsers
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-ublock.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-youtubeadblock.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-adguard.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-phpparser.sh
-sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-henningvanraumleyoutube.sh
-sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-chadmayfieldpornblock.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-notracking
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-extended-hosts.sh
+
+## interface tweaks
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-lkd70-darktheme.sh
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-wally3kblockpage.sh
+
+## External Messaaging
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-tweeter.sh
 sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-email.sh
+
+## Operation Tweaks
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-deathbybandaid.sh
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-autoupdate.sh
+sudo bash /etc/piadvanced/modules/piholetweakmodules/pihole-gravity.sh
 
 ## End of install
 fi }
