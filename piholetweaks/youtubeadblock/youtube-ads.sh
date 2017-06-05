@@ -1,20 +1,62 @@
 #!/bin/bash
-sudo mkdir /var/www/html/lists
 ## Youtube adblocking
-sudo rm /var/www/html/lists/youtube.txt
-sudo rm /etc/piadvanced/piholetweaks/youtubeadblock/youtube-domains.txt
-sudo rm /etc/piadvanced/piholetweaks/youtubeadblock/youtube-filtered.txt
-sudo rm /etc/piadvanced/piholetweaks/youtubeadblock/youtube-ads.txt
-sudo python /etc/piadvanced/piholetweaks/youtubeadblock/API_example.py > /etc/piadvanced/piholetweaks/youtubeadblock/youtube-domains.txt
-sudo grep "^r" /etc/piadvanced/piholetweaks/youtubeadblock/youtube-domains.txt > /etc/piadvanced/piholetweaks/youtubeadblock/youtube-filtered.txt
-sudo sed 's/\s.*$//' /etc/piadvanced/piholetweaks/youtubeadblock/youtube-filtered.txt > /etc/piadvanced/piholetweaks/youtubeadblock/youtube-ads.txt
-sudo cp /etc/piadvanced/piholetweaks/youtubeadblock/youtube-ads.txt /var/www/html/lists/youtube.txt
 
-#greps the log for youtube ads and appends to /var/www/html/lists/youtube.txt
-sudo grep r*.googlevideo.com /var/log/pihole.log | awk '{print $6}'| grep -v '^googlevideo.com\|redirector' | sort -nr | uniq >> /var/www/html/lists/youtube.txt
+## Directory Check
+if 
+[ -d "/var/www/html/lists/" ] 
+then
+echo "" 
+else
+sudo mkdir /var/www/html/lists/
+fi
 
-#removes duplicate lines from /var/www/html/lists/youtube.txt
-sudo perl -i -ne 'print if ! $x{$_}++' /var/www/html/lists/youtube.txt
+## Directory Location
+YTOLDLIST=/var/www/html/lists/youtube.txt
+YTDOMAINS=/etc/piholeparser/youtubewildcards/youtube-domains.txt
+YTFILTERED=/etc/piholeparser/youtubewildcards/youtube-filtered.txt
+YTADS=/etc/piholeparser/youtubewildcards/youtube-ads.txt
+APIPY=/etc/piholeparser/youtubewildcards/API.py
 
-#updates pihole blacklist/whitelist
-#pihole -g
+## Cleanup
+if 
+ls $YTOLDLIST &> /dev/null; 
+then
+sudo rm $YTOLDLIST
+else
+:
+fi
+
+if 
+ls $YTDOMAINS &> /dev/null; 
+then
+sudo rm $YTDOMAINS
+else
+:
+fi
+
+if 
+ls $YTFILTERED &> /dev/null; 
+then
+sudo rm $YTFILTERED
+else
+:
+fi
+
+if 
+ls $YTADS &> /dev/null; 
+then
+$YTADS
+else
+:
+fi
+
+sudo python $APIPY > $YTDOMAINS
+sudo grep "^r" $YTDOMAINS > $YTFILTERED
+sudo sed 's/\s.*$//' $YTFILTERED > $YTADS
+sudo cp $YTADS $YTOLDLIST
+
+#greps the log for youtube ads and appends to $YTOLDLIST
+sudo grep r*.googlevideo.com /var/log/pihole.log | awk '{print $6}'| grep -v '^googlevideo.com\|redirector' | sort -nr | uniq >> $YTOLDLIST
+
+#removes duplicate lines from $YTOLDLIST
+sudo perl -i -ne 'print if ! $x{$_}++' $YTOLDLIST
