@@ -97,7 +97,7 @@ sudo bash /etc/piadvanced/modules/fail2ban.sh
 sudo bash /etc/piadvanced/modules/psad.sh
 
 ## samba
-sudo bash /etc/piadvanced/modules/samba.sh
+sudo bash /etc/piadvanced/modules/sambashare.sh
 
 ## Dynamic Update Clients
 echo "The next Three installs are dynamic update clients for No-IP, Dyndns, and DuckDNS" > ducs_textbox
