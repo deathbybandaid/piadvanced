@@ -1,5 +1,11 @@
 # piadvanced
 
+# NOTICE
+This script needs more of my attention, as some packages are broken.
+
+Using this script may break things.
+
+
 ### Thanks to the people of pihole-discourse and reddit. This is just a collection of other people's work in a nice package. I do not claim credit for anything other than creating this series of scripts.
 
 * This is a custom install for my pi! I am a tinkerer, and when I tinker, I tend to break things!!!
