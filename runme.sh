@@ -11,6 +11,10 @@ bash $AVATARSCRIPT
 ## Whiptail Required
 bash $WHIPTAILDEP
 
+## Here we Go!!
+echo "This is The Deathbybandaid Pi Install" > herewego_textbox
+whiptail --textbox --title "Let's Start!" herewego_textbox 10 80
+
 ## Start File Loop
 ## For .sh files In The mainscripts Directory
 for f in $ALLTOPLEVELSCRIPTS
