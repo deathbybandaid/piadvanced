@@ -15,6 +15,10 @@ bash $WHIPTAILDEP
 echo "This is The Deathbybandaid Pi Install" > herewego_textbox
 whiptail --textbox --title "Let's Start!" herewego_textbox 10 80
 
+####
+#### Suggest running on the device
+####
+
 ## Start File Loop
 ## For .sh files In The mainscripts Directory
 for f in $ALLTOPLEVELSCRIPTS
