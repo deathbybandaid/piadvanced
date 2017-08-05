@@ -15,3 +15,16 @@ REPONAME=piadvanced
 
 ## Directories
 REPODIR=/etc/"$REPONAME"/
+
+  BACKUPSDIR="$REPODIR"backups/
+  
+  CRONJOBSDIR="$REPODIR"cronjobs/
+  
+  DEPENDENCIESDIR="$REPODIR"dependencies/
+  
+  INSTALLVARSDIR="$REPODIR"installvars/
+  
+  MODULESDIR="$REPODIR"modules/
+  
+  SCRIPTVARSDIR="$REPODIR"scriptvars/
+    AVATARSCRIPT="$SCRIPTVARSDIR"avatar.sh
