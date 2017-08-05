@@ -8,6 +8,9 @@ source "$script_dir"/scriptvars/variables.var
 ## Logo
 bash $AVATARSCRIPT
 
+## Whiptail Required
+bash $WHIPTAILDEP
+
 ## Start File Loop
 ## For .sh files In The mainscripts Directory
 for f in $ALLTOPLEVELSCRIPTS
