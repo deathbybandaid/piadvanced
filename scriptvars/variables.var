@@ -21,6 +21,7 @@ REPODIR=/etc/"$REPONAME"/
   CRONJOBSDIR="$REPODIR"cronjobs/
   
   DEPENDENCIESDIR="$REPODIR"dependencies/
+    WHIPTAILDEP="$DEPENDENCIESDIR"dep-whiptail.sh
   
   INSTALLVARSDIR="$REPODIR"installvars/
   
