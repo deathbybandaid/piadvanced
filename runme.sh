@@ -51,3 +51,6 @@ echo ""
 
 ## End Of Loop
 done
+
+## THE FIREWALL!!
+sudo bash /etc/piadvanced/FIREWALL.sh
