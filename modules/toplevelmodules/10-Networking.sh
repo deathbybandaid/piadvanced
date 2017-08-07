@@ -3,7 +3,7 @@
 
 ## Variables
 script_dir=$(dirname $0)
-source "$script_dir"/scriptvars/variables.var
+source "$script_dir"/../../scriptvars/variables.var
 
 ## Start File Loop
 ## For .sh files In The mainscripts Directory
