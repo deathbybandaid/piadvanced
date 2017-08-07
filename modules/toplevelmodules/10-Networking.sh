@@ -11,6 +11,7 @@ for f in $ALLTOPLEVELSCRIPTS
 do
 
 # Dynamic Variables
+source $f
 BASEFILENAME=$(echo `basename $f | cut -f 1 -d '.'`)
 BASEFILENAMEDASHNUM=$(echo $BASEFILENAME | sed 's/[0-9\-]/ /g')
 BNAMEPRETTYSCRIPTTEXT=$(echo $BASEFILENAMEDASHNUM)
