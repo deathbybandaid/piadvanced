@@ -38,4 +38,5 @@ REPODIR=/etc/"$REPONAME"/
     
   SCRIPTVARSDIR="$REPODIR"scriptvars/
     AVATARSCRIPT="$SCRIPTVARSDIR"avatar.sh
-    WHATITDOESVARS="$SCRIPTVARSDIR"whatitdoes.var
+  
+  WHATITDOESDIR="$REPODIR"whatitdoes/
