@@ -17,6 +17,7 @@ BNAMEPRETTYSCRIPTTEXT=$(echo $BASEFILENAMEDASHNUM)
 
 ## Loop Variables
 SCRIPTTEXT=""$BNAMEPRETTYSCRIPTTEXT"."
+source $WHATITDOESVARS
 timestamp=$(echo `date`)
 
 printf "$blue"    "$DIVIDERBAR"
@@ -25,12 +26,6 @@ printf "$cyan"   "$SCRIPTTEXT $timestamp"
 
 ## Log Section
 #echo "## $SCRIPTTEXT $timestamp" | tee --append $RECENTRUN &>/dev/null
-
-###
-###
-### Correlate whatitdoes with the name of the module somehow
-###
-###
 
 { if 
 (whiptail --title "$NAMEOFAPP" --yes-button "Skip" --no-button "Proceed" --yesno "Do you want to setup $NAMEOFAPP? $WHATITDOES" 10 80) 
