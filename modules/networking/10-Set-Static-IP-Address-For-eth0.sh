@@ -1,6 +1,10 @@
 #!/bin/sh
 ## Set a Static IP Address For eth0
 
+## Variables
+script_dir=$(dirname $0)
+source "$script_dir"/../../scriptvars/variables.var
+
 ## Current User
 CURRENTUSER="$(whoami)"
 
