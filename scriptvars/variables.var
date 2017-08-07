@@ -24,6 +24,12 @@ REPODIR=/etc/"$REPONAME"/
     WHIPTAILDEP="$DEPENDENCIESDIR"dep-whiptail.sh
   
   INSTALLVARSDIR="$REPODIR"installvars/
+    FIREWALLCONF="$INSTALLVARSDIR"firewall.conf
+      source $FIREWALLCONF
+    USERCHANGECONF="$INSTALLVARSDIR"userchange.conf
+      source $USERCHANGECONF
+    VARIABLESCONF="$INSTALLVARSDIR"variables.conf
+      source $VARIABLESCONF
   
   MODULESDIR="$REPODIR"modules/
     TOPLEVELSCRIPTSDIR="$MODULESDIR"toplevelmodules/
