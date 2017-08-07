@@ -18,6 +18,8 @@ whiptail --textbox --title "Let's Start!" herewego_textbox 10 80
 ####
 #### Suggest running on the device
 ####
+#### Also this is where we should have options for if it is a first run
+#### or if we are using an old config file
 
 ## Start File Loop
 ## For .sh files In The mainscripts Directory
