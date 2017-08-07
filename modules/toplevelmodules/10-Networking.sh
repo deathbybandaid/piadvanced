@@ -1,6 +1,10 @@
 #!/bin/sh
 ## This ties the Networking Scripts together
 
+## Variables
+script_dir=$(dirname $0)
+source "$script_dir"/scriptvars/variables.var
+
 ## Start File Loop
 ## For .sh files In The mainscripts Directory
 for f in $ALLTOPLEVELSCRIPTS
