@@ -30,6 +30,7 @@ REPODIR=/etc/"$REPONAME"/
       source $USERCHANGECONF
     VARIABLESCONF="$INSTALLVARSDIR"variables.conf
       source $VARIABLESCONF
+    INSTALLATIONLOG="$INSTALLVARSDIR"installationlog.txt
   
   MODULESDIR="$REPODIR"modules/
     TOPLEVELSCRIPTSDIR="$MODULESDIR"toplevelmodules/
@@ -38,6 +39,6 @@ REPODIR=/etc/"$REPONAME"/
     
   SCRIPTVARSDIR="$REPODIR"scriptvars/
     AVATARSCRIPT="$SCRIPTVARSDIR"avatar.sh
-  
-  WHATITDOESDIR="$REPODIR"whatitdoes/
-    WIDNETWORKDIR="$WHATITDOESDIR"networking/
+ 
+DIVIDERBAR="___________________________________________________________"
+DIVIDERBARB="___________________________________________________________"
